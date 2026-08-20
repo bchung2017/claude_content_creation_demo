@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Media Research"
+  short_description: "Research social signals with evidence gates"
+  default_prompt: "Use $social-media-research to check my signed-in browser setup, investigate this social topic, and produce a validated evidence brief."

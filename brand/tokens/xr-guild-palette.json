@@ -1,0 +1,62 @@
+{
+  "name": "XR Guild",
+  "version": "1.0.0",
+  "colors": {
+    "void": {
+      "hex": "#08070F",
+      "role": "Deepest ground. Full-bleed dark surfaces, favicon backgrounds."
+    },
+    "indigo": {
+      "hex": "#181143",
+      "role": "Primary brand ground. The colour people should remember."
+    },
+    "panel": {
+      "hex": "#221A57",
+      "role": "Raised panel on indigo. Cards, quote blocks, table headers."
+    },
+    "white": {
+      "hex": "#FFFFFF",
+      "role": "Headlines and primary text on dark."
+    },
+    "silver": {
+      "hex": "#C3CADE",
+      "role": "Body text on dark. Rules and dividers at 20% opacity."
+    },
+    "muted": {
+      "hex": "#8E96B4",
+      "role": "Captions and metadata only. Never body text."
+    },
+    "cyan": {
+      "hex": "#5CE1F2",
+      "role": "Signal. One use per surface: the action, the date, or the mark."
+    },
+    "paper": {
+      "hex": "#F4F5F9",
+      "role": "Light ground for documents, invoices, and print."
+    },
+    "black": {
+      "hex": "#000000",
+      "role": "Single-colour print and embroidery only."
+    }
+  },
+  "type": {
+    "display": {
+      "family": "Space Grotesk",
+      "weight": 700,
+      "tracking": "-0.02em",
+      "use": "Headlines, the wordmark, numbers that matter."
+    },
+    "text": {
+      "family": "Figtree",
+      "weight": "400/500/700",
+      "use": "Everything a person reads to understand or act."
+    },
+    "detail": {
+      "family": "JetBrains Mono",
+      "weight": "400/500",
+      "tracking": "0.08em",
+      "use": "Dates, times, addresses, invoice numbers, labels."
+    }
+  },
+  "license": "All three families are SIL Open Font License 1.1 \u2014 free to install, use, and redistribute."
+}

@@ -1,0 +1,21 @@
+{
+  "name": "content-creation-workspace",
+  "version": "1.2.1",
+  "description": "A public-safe shared workspace for separately installed content creation agents.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "bin": {
+    "content-creation": "./bin/content-creation.js"
+  },
+  "scripts": {
+    "doctor": "node ./bin/content-creation.js doctor",
+    "agents": "node ./bin/content-creation.js agents",
+    "verify:credit": "node ./scripts/verify-credit.js",
+    "release-safety": "node ./scripts/release-safety-check.js --root . --release",
+    "check": "npm run doctor && npm run verify:credit"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

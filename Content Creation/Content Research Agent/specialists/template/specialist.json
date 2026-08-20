@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "id": "replace-with-specialist-id",
+  "display_name": "Replace With Specialist Name",
+  "status": "template",
+  "routes": ["replace-with-route"],
+  "skill": "skills/replace-with-specialist-id/SKILL.md",
+  "required_analysis_fields": []
+}

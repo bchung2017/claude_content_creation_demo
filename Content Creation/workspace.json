@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "id": "content-creation-workspace",
+  "display_name": "Content Creation",
+  "version": "1.2.1",
+  "credit": "By TheVibeFounder",
+  "skills": [
+    "skills/content-creation-router/SKILL.md"
+  ],
+  "entrypoint": "./bin/content-creation.js",
+  "runtime": {
+    "name": "node",
+    "minimum_version": "20"
+  },
+  "release": {
+    "status": "internal",
+    "public_remote_ready": false,
+    "blockers": [
+      "owner-public-release-approval"
+    ]
+  },
+  "scope": {
+    "supported_format": "carousel",
+    "unsupported_formats": ["video", "article", "thread", "email"]
+  },
+  "components": [
+    {
+      "id": "social-media-research-agent",
+      "suggested_path": "Content Research Agent",
+      "install_order": 1,
+      "stage": "research"
+    },
+    {
+      "id": "hook-writer-agent",
+      "suggested_path": "Hook Writer Agent",
+      "install_order": 2,
+      "stage": "hook"
+    },
+    {
+      "id": "carousel-maker-agent",
+      "suggested_path": "Carousel Maker Agent",
+      "install_order": 3,
+      "stage": "carousel"
+    },
+    {
+      "id": "caption-writer-agent",
+      "suggested_path": "Caption Writer Agent",
+      "install_order": 4,
+      "stage": "caption"
+    }
+  ],
+  "compatibility": {
+    "workspace_api": "1.0",
+    "artifact_contract": "1.0"
+  },
+  "privacy": {
+    "telemetry": false,
+    "bundled_user_data": false,
+    "bundled_credentials": false,
+    "bundled_identity_assets": false,
+    "bundled_account_strategy": false,
+    "writes_only_to_project_workspace": true
+  },
+  "integrations": {
+    "media": {
+      "framegrab_cli": {
+        "mode": "optional-external-cli",
+        "command": "framegrab",
+        "environment_override": "FRAMEGRAB_CLI",
+        "bundled": false
+      },
+      "x_browser_fallback": {
+        "mode": "browser",
+        "url": "https://ssstwitter.com/",
+        "public_posts_only": true
+      }
+    }
+  },
+  "outputs": [
+    "request.json",
+    "brand.json",
+    "route.json",
+    "research.json",
+    "hook.json",
+    "caption.json",
+    "carousel.json",
+    "assets/manifest.json",
+    "output/slide-01.png through output/slide-NN.png",
+    "CAROUSEL.md"
+  ]
+}

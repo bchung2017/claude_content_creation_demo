@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "id": "social-media-research-agent",
+  "display_name": "Content Research Agent",
+  "version": "1.2.1",
+  "credit": "By TheVibeFounder",
+  "skills": [
+    "skills/content-research-router/SKILL.md",
+    "skills/social-media-research/SKILL.md"
+  ],
+  "entrypoint": "./bin/content-research-agent.js",
+  "runtime": {
+    "name": "node",
+    "minimum_version": "20"
+  },
+  "requirements": {
+    "npm_dependencies": 0,
+    "browser": "host-provided",
+    "vibetasks": "optional"
+  },
+  "installation": {
+    "kind": "content-creation-agent",
+    "workspace_api": "1.0",
+    "artifact_contract": "1.0",
+    "install_order": 1,
+    "stage": "research"
+  },
+  "production_specialists": ["social-media"],
+  "extension_template": "specialists/template",
+  "research": {
+    "discovery_order": ["x.com", "digg.com", "reddit.com"],
+    "discovery_role": "leads-only",
+    "fallback": "google.com-when-all-non-useful"
+  },
+  "local_model": {
+    "required": false,
+    "family": "Gemma 4",
+    "runtime": "Ollama",
+    "install_requires_approval": true,
+    "may_replace_browser": false
+  },
+  "isolation": {
+    "mode": "standalone",
+    "imports_parent_code": false,
+    "writes_parent_files": false,
+    "uses_external_agents_at_runtime": false,
+    "uses_optional_local_model": true
+  },
+  "privacy": {
+    "telemetry": false,
+    "cli_network_access": false,
+    "bundled_user_data": false,
+    "bundled_credentials": false,
+    "bundled_identity_assets": false,
+    "bundled_publication_strategy": false
+  },
+  "commands": [
+    "profiles",
+    "route",
+    "init",
+    "browser-log",
+    "session-log",
+    "decision-log",
+    "learning-capture",
+    "learning-decide",
+    "memory",
+    "validate",
+    "brief",
+    "packet",
+    "doctor"
+  ],
+  "outputs": [
+    "job.json",
+    "request.json",
+    "route.json",
+    "browser.json",
+    "evidence.json",
+    "analysis.json",
+    "sessions.ndjson",
+    "decisions.ndjson",
+    "learnings.ndjson",
+    "assets/manifest.json",
+    "RESEARCH.md",
+    "VIBETASKS-TASKS.json"
+  ],
+  "tables": [
+    "research/JOBS.csv",
+    "research/LEARNING-EVENTS.ndjson"
+  ],
+  "integrations": {
+    "vibetasks": {
+      "direction": "export-only",
+      "packet_format": "vibetasks-export",
+      "packet_version": 1,
+      "import_command": "vibetasks import <project>/VIBETASKS-TASKS.json"
+    }
+  }
+}

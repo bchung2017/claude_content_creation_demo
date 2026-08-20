@@ -1,0 +1,34 @@
+{
+  "name": "social-media-research-agent",
+  "version": "2.0.0",
+  "description": "A social-media-first research agent with structured evidence, governance ledgers, and an extension router.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "social-media-research-agent": "./bin/content-research-agent.js",
+    "content-research-agent": "./bin/content-research-agent.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node ./bin/content-research-agent.js doctor && node --test",
+    "public-safety": "node ./scripts/public-safety-check.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "agent.json",
+    "bin/",
+    "docs/",
+    "src/",
+    "scripts/",
+    "skills/",
+    "specialists/",
+    "README.md",
+    "NOTICE.md",
+    "PROMPT.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "LICENSE"
+  ]
+}

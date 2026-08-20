@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "content-creation-artifacts",
+  "contract_version": "1.0",
+  "workspace_api": "1.0",
+  "credit": "By TheVibeFounder",
+  "execution_order": [
+    "brand",
+    "research",
+    "hook",
+    "carousel",
+    "caption",
+    "final-check"
+  ],
+  "artifacts": [
+    { "file": "request.json", "owner": "content-creation-workspace" },
+    { "file": "brand.json", "owner": "content-creation-workspace" },
+    { "file": "research.json", "owner": "social-media-research-agent" },
+    { "file": "hook.json", "owner": "hook-writer-agent" },
+    { "file": "carousel.json", "owner": "carousel-maker-agent" },
+    { "file": "caption.json", "owner": "caption-writer-agent" },
+    { "file": "assets/manifest.json", "owner": "carousel-maker-agent" },
+    { "file": "output/slide-NN.png", "owner": "carousel-maker-agent" },
+    { "file": "CAROUSEL.md", "owner": "content-creation-workspace" }
+  ]
+}

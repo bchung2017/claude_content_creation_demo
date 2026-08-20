@@ -1,0 +1,8 @@
+# Python tooling used to generate the brand assets
+__pycache__/
+*.pyc
+.venv/
+
+# OS noise
+.DS_Store
+Thumbs.db

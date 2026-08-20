@@ -1,0 +1,51 @@
+/* XR Guild presentation slides — 1920x1080.
+ * Built as HTML so a volunteer can edit the text and re-export without design
+ * software. Export each slide as PNG and drop it into Slides or Keynote, or
+ * present the HTML full-screen.
+ */
+@import url("../../tokens/xr-guild-tokens.css");
+
+* { box-sizing: border-box; margin: 0; }
+html, body { padding: 0; }
+body { font-family: var(--xrg-text); overflow: hidden; -webkit-font-smoothing: antialiased; }
+.slide {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--xrg-indigo);
+  color: var(--xrg-white);
+  display: flex;
+  flex-direction: column;
+  padding: 110px 120px;
+}
+.slide .tex { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.slide .shade { position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(8,7,15,0.25) 0%, rgba(8,7,15,0.86) 70%); }
+.slide > * { position: relative; }
+.mark { width: 220px; }
+.eyebrow {
+  font-family: var(--xrg-detail);
+  letter-spacing: var(--xrg-detail-track);
+  text-transform: uppercase;
+  color: var(--xrg-cyan);
+  font-size: 30px;
+}
+h1 {
+  font-family: var(--xrg-display);
+  font-weight: 700;
+  letter-spacing: var(--xrg-display-track);
+  line-height: 0.98;
+  font-size: 150px;
+}
+.sub { font-size: 38px; color: var(--xrg-silver); line-height: 1.45; max-width: 26ch; }
+.foot {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: var(--xrg-detail);
+  font-size: 26px;
+  letter-spacing: var(--xrg-detail-track);
+  color: var(--xrg-muted);
+}

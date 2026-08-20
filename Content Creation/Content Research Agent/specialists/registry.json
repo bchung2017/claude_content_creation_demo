@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "production_specialists": [
+    {
+      "id": "social-media",
+      "display_name": "Social Media Research",
+      "skill": "skills/social-media-research/SKILL.md",
+      "status": "production"
+    }
+  ],
+  "extension_routes": [
+    "document",
+    "software-project",
+    "audio-video",
+    "product-record",
+    "web-page",
+    "market-research",
+    "custom"
+  ],
+  "template": "specialists/template"
+}

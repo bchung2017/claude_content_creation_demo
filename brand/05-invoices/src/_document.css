@@ -1,0 +1,152 @@
+/* Shared styling for XR Guild paper documents: invoices, SOWs, pitch sheets.
+ *
+ * Documents are the one place the system runs light. A dark invoice is hard to
+ * read, expensive to print, and reads as decoration when it should read as a
+ * record. Indigo stays as the brand signal in the header and rules.
+ */
+@import url("../../tokens/xr-guild-tokens.css");
+
+@page { size: Letter; margin: 0; }
+
+* { box-sizing: border-box; margin: 0; }
+body {
+  font-family: var(--xrg-text);
+  color: var(--xrg-void);
+  background: var(--xrg-paper);
+  font-size: 10pt;
+  line-height: 1.48;
+  -webkit-font-smoothing: antialiased;
+}
+.sheet {
+  width: 8.5in;
+  min-height: 11in;
+  margin: 0 auto;
+  background: #FFFFFF;
+  padding: 0.58in 0.7in 0.46in;
+  display: flex;
+  flex-direction: column;
+}
+/* Multi-page documents stack .sheet elements; each one is its own printed page. */
+.sheet + .sheet { page-break-before: always; }
+
+/* ---- Header ------------------------------------------------------------ */
+.doc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 18px;
+  border-bottom: 3px solid var(--xrg-indigo);
+}
+.doc-head .mark { width: 92px; }
+.doc-type {
+  text-align: right;
+  font-family: var(--xrg-display);
+  font-weight: 700;
+  font-size: 26pt;
+  letter-spacing: var(--xrg-display-track);
+  color: var(--xrg-indigo);
+  line-height: 1;
+}
+.doc-type small {
+  display: block;
+  font-family: var(--xrg-detail);
+  font-size: 8pt;
+  font-weight: 400;
+  letter-spacing: var(--xrg-detail-track);
+  color: #5A6180;
+  margin-top: 8px;
+}
+
+/* ---- Meta rows --------------------------------------------------------- */
+.meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 20px;
+}
+.meta div b {
+  display: block;
+  font-family: var(--xrg-detail);
+  font-size: 7.5pt;
+  letter-spacing: var(--xrg-detail-track);
+  text-transform: uppercase;
+  color: #5A6180;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.meta div span { font-size: 10.5pt; }
+
+/* ---- Section ----------------------------------------------------------- */
+h2 {
+  font-family: var(--xrg-display);
+  font-weight: 700;
+  font-size: 13pt;
+  letter-spacing: var(--xrg-display-track);
+  color: var(--xrg-indigo);
+  margin: 20px 0 8px;
+}
+p + p { margin-top: 9px; }
+ul { margin: 8px 0 0 18px; }
+li { margin-bottom: 5px; }
+
+/* ---- Table ------------------------------------------------------------- */
+table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+th {
+  text-align: left;
+  font-family: var(--xrg-detail);
+  font-size: 7.5pt;
+  letter-spacing: var(--xrg-detail-track);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: var(--xrg-indigo);
+  padding: 8px 12px;
+  font-weight: 500;
+}
+td { padding: 8px 12px; border-bottom: 1px solid #E2E5EF; vertical-align: top; }
+.num { text-align: right; font-family: var(--xrg-detail); white-space: nowrap; }
+tfoot td { border-bottom: none; padding-top: 12px; }
+tfoot .total td {
+  border-top: 2px solid var(--xrg-indigo);
+  font-weight: 700;
+  font-size: 12pt;
+}
+
+/* ---- Callout ----------------------------------------------------------- */
+.callout {
+  margin-top: 18px;
+  padding: 13px 16px;
+  background: #EEF0F8;
+  border-left: 4px solid var(--xrg-cyan);
+  border-radius: 0 var(--xrg-radius) var(--xrg-radius) 0;
+}
+.callout b { color: var(--xrg-indigo); }
+
+/* ---- Signature --------------------------------------------------------- */
+.signatures { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 24px; }
+.sig-line { border-bottom: 1.5px solid var(--xrg-void); height: 34px; }
+.sig-label {
+  font-family: var(--xrg-detail);
+  font-size: 7.5pt;
+  letter-spacing: var(--xrg-detail-track);
+  text-transform: uppercase;
+  color: #5A6180;
+  margin-top: 6px;
+}
+
+/* ---- Footer ------------------------------------------------------------ */
+.doc-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #E2E5EF;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--xrg-detail);
+  font-size: 7.5pt;
+  letter-spacing: var(--xrg-detail-track);
+  color: #5A6180;
+}
+
+/* Fields a volunteer is expected to replace are tinted, and the tint is
+   removed by .final on the body when the document is ready to send. */
+.fill { background: #FFF3C4; padding: 0 3px; border-radius: 3px; }
+body.final .fill { background: none; padding: 0; }

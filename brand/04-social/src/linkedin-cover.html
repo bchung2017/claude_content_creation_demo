@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<title>XR Guild — LinkedIn page cover</title>
+<link rel="stylesheet" href="_social.css">
+<style>
+  /* LinkedIn displays the page cover at 1128x191 and recommends uploading
+     4200x700. The page logo overlaps the lower left on desktop, so nothing
+     important sits in the first 900px. */
+  html, body, .canvas { width: 4200px; height: 700px; }
+  .body { padding: 0 220px 0 900px; justify-content: center; }
+  .eyebrow { font-size: 44px; margin-bottom: 22px; }
+  .invite { font-size: 116px; }
+  .where { font-size: 40px; margin-top: 24px; }
+  .safe { position: absolute; left: 900px; right: 220px; top: 0; bottom: 0; }
+</style>
+<body>
+<div class="canvas">
+  <img class="tex" src="../../08-texture/lens-texture-01.svg" alt="">
+  <div class="shade"></div>
+  <div class="body">
+    <div class="eyebrow">XR Guild</div>
+    <h1 class="invite">The headset gets passed around.</h1>
+    <div class="where">Demo nights for people who love XR — beginners very much included.</div>
+  </div>
+</div>
+</body></html>

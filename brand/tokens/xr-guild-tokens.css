@@ -1,0 +1,65 @@
+/* XR Guild — design tokens
+ *
+ * The single source of truth for colour and type. Every template in this kit
+ * imports this file, so changing a value here changes every asset that uses it.
+ * Contrast ratios in the comments are measured, not estimated — regenerate them
+ * with `python3 brand/tools/contrast.py` after any colour change.
+ *
+ * Font paths are relative to this file. If you move the file, move 00-fonts with it.
+ */
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../00-fonts/space-grotesk-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Figtree;
+  src: url("../00-fonts/figtree-latin.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../00-fonts/jetbrains-mono-latin.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Ground ---------------------------------------------------------- */
+  --xrg-void:   #08070F;  /* deepest ground. Use for full-bleed dark surfaces. */
+  --xrg-indigo: #181143;  /* primary brand ground. The colour people remember. */
+  --xrg-panel:  #221A57;  /* raised panel sitting on indigo. */
+
+  /* ---- Ink ------------------------------------------------------------- */
+  --xrg-white:  #FFFFFF;  /* 17.50:1 on indigo. Headlines and primary text. */
+  --xrg-silver: #C3CADE;  /* 10.69:1 on indigo. Body text on dark. */
+  --xrg-muted:  #8E96B4;  /*  5.98:1 on indigo. Captions only, never body. */
+
+  /* ---- Signal ---------------------------------------------------------- */
+  --xrg-cyan:   #5CE1F2;  /* 11.26:1 on indigo. One thing per surface. */
+
+  /* ---- Light ground ---------------------------------------------------- */
+  --xrg-paper:  #F4F5F9;  /* documents and print. */
+  --xrg-black:  #000000;
+
+  /* ---- Type ------------------------------------------------------------ */
+  --xrg-display: "Space Grotesk", "Arial Black", Helvetica, sans-serif;
+  --xrg-text:    Figtree, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --xrg-detail:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, "Courier New", monospace;
+
+  /* Display is set tight; it is the only place negative tracking is allowed. */
+  --xrg-display-track: -0.02em;
+  --xrg-detail-track:   0.08em;
+
+  /* ---- Space ----------------------------------------------------------- */
+  /* One 8px base unit. Every gap in this kit is a multiple of it. */
+  --xrg-unit: 8px;
+
+  /* ---- Radius ---------------------------------------------------------- */
+  /* Softened corners carry the "warm" half of the brief, since the palette is cool. */
+  --xrg-radius: 14px;
+  --xrg-radius-lg: 24px;
+}

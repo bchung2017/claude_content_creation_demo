@@ -1,0 +1,23 @@
+---
+name: replace-with-specialist-id
+description: Describe the specialist, its exact inputs, and when Codex or Claude should use it.
+---
+
+# Replace With Specialist Name
+
+## Start
+
+1. Read the shared browser, operating, and artifact contracts.
+2. Define the exact input boundary and stop conditions.
+3. Initialize the job only after the router confirms this installed specialist.
+
+## Investigate
+
+1. Define the specialist-specific source ladder.
+2. Record claim-level evidence and uncertainty.
+3. Fill the specialist analysis fields.
+4. Log material decisions and validate before generating a brief.
+
+## Learn
+
+Capture feedback automatically. Ask before implementing reusable changes.

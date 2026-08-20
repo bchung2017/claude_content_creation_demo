@@ -126,3 +126,26 @@ platform docs, not written from memory):
   as a whole-system look, even though cyan is an accent here.
 - Corporate/institutional: it is volunteer-run and free to attend.
 - Implying institutional endorsement it does not have (section 11).
+
+
+---
+
+## Outcome
+
+Discovery closed 2026-08-20. The core idea confirmed by the owner:
+**the headset gets passed around.**
+
+Built from these answers: `BRAND-GUIDE.md` (the guide), `README.md` (the map),
+and the asset kit under `brand/`. The machine-readable profile is
+`brand/xr-guild-brand.json`, which passes 11/11 of the Content Creation
+agent's brand completeness checks.
+
+Two owner decisions overrode my initial proposals, and both are recorded above
+rather than quietly applied:
+1. Cool palette instead of the warm direction I suggested (section 5).
+2. The swirl kept as a secondary texture rather than dropped (section 8).
+
+Two recommendations remain open for the owner to accept or reject (section 11
+and BRAND-GUIDE.md section 9):
+1. Remove the Lehman College / CUNY logo from XR Guild artwork.
+2. Treat the stacked cyan-on-indigo wordmark as the single master.

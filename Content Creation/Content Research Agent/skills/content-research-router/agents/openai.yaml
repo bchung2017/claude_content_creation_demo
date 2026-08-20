@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Research Router"
+  short_description: "Route social jobs or identify missing packages"
+  default_prompt: "Use $content-research-router to route this request to an installed specialist or identify the extension package it needs."

@@ -1,0 +1,54 @@
+/* Shared styling for every XR Guild social graphic.
+ * Each template sets its own canvas size; everything else is inherited so the
+ * whole set stays visibly related.
+ */
+@import url("../../tokens/xr-guild-tokens.css");
+
+* { box-sizing: border-box; margin: 0; }
+html, body { padding: 0; }
+body {
+  font-family: var(--xrg-text);
+  background: var(--xrg-indigo);
+  color: var(--xrg-white);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.canvas { position: relative; overflow: hidden; background: var(--xrg-indigo); }
+.canvas .tex {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.85;
+}
+.canvas .shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(8,7,15,0.30) 0%, rgba(8,7,15,0.82) 72%);
+}
+.body { position: relative; display: flex; flex-direction: column; height: 100%; }
+
+/* Invitation grammar — the four parts every XR Guild announcement carries. */
+.eyebrow {                      /* 1. who this is */
+  font-family: var(--xrg-detail);
+  letter-spacing: var(--xrg-detail-track);
+  text-transform: uppercase;
+  color: var(--xrg-cyan);
+}
+.invite {                       /* 2. the invitation, in plain speech */
+  font-family: var(--xrg-display);
+  font-weight: 700;
+  letter-spacing: var(--xrg-display-track);
+  line-height: 0.98;
+}
+.where {                        /* 3. where and when, unmissable */
+  font-family: var(--xrg-detail);
+  color: var(--xrg-silver);
+  letter-spacing: 0.02em;
+}
+.barrier {                      /* 4. the no-barrier line. Never omitted. */
+  font-weight: 600;
+  color: var(--xrg-void);
+  background: var(--xrg-cyan);
+  border-radius: 999px;
+  display: inline-block;
+  width: fit-content;
+}
+.mark { display: block; }
+.rule { background: rgba(195,202,222,0.20); }

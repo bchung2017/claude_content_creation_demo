@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Creation Router"
+  short_description: "Route brand-aware carousel content jobs"
+  default_prompt: "Use $content-creation-router to apply the primary brand guide and route this topic through research, writing, PNG rendering, and final checks."

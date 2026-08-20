@@ -1,0 +1,8 @@
+node_modules/
+coverage/
+projects/*
+!projects/.gitkeep
+.DS_Store
+.env
+.env.*
+*.zip
