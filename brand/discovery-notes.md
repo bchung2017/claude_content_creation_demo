@@ -8,7 +8,11 @@ This is the input to the brand guide; nothing here is final until confirmed.
 **What it does:** Gathering XR enthusiasts together to share projects and passions.
 
 ## 2. Who it's for
-_pending_
+Mostly **enthusiasts, educational figures, and beginners** — not primarily
+professional developers.
+Shared behavior: **everyone likes to demo and try out cool new XR things.**
+Implication: the brand has to be welcoming to newcomers and built around
+hands-on demoing, not around shipping credentials.
 
 ## 3. Format / how people actually experience it
 _pending_
