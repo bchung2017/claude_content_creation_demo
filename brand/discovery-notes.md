@@ -46,7 +46,19 @@ clinical and techy. Direction: **dark ground, warm light** — the color
 temperature of a lit room, not a screen.
 
 ## 5. Look — color direction
-_pending_
+**Cool neutral** (owner decision — overrides the warm direction I proposed).
+- Primary ground: very dark **purple / indigo**
+- Accents: **silver**, **cyan**
+- Base: **white**, **black**
+
+Exact hex values still to be set.
+
+**Rule this creates:** because the palette is cool, "open / community / warm"
+cannot be carried by color. It must be carried by:
+- plain, welcoming language
+- photography of actual people mid-demo (faces, hands, laughing) over product shots
+- generous spacing and softer forms
+This becomes a stated rule in the guide: **cool, but never cold.**
 
 ## 6. Look — typography direction
 _pending_
@@ -55,7 +67,25 @@ _pending_
 _pending_
 
 ## 8. Mark — wordmark, symbol, or both
-_pending_
+An existing mark exists: `brand/existing-assets/xr-guild-current-logo.jpg`
+
+Observed in the current artwork:
+- "XR" stacked above "GUILD", heavy geometric sans, very tight/bold letterforms
+- Letterforms filled with an **iridescent multicolor swirl** (greens, pinks,
+  violets) — this reads much more vivid than the stated indigo/silver/cyan palette
+- Co-branded with a **Lehman College | CUNY** lockup in the upper right
+
+Open questions: is the swirl part of the mark or just a background? Is the mark
+settled or open to refinement? See section 11.
+
+## 11. Institutional affiliation (new — surfaced by the logo)
+XR Guild appears to be affiliated with **Lehman College / CUNY**.
+If official, this brings hard constraints the guide must respect:
+- Lehman/CUNY have their own brand standards that govern co-branding,
+  clear space, and permitted logo use — our guide must defer to them, not
+  restate or override them.
+- A defined **lockup** (XR Guild + Lehman College | CUNY) becomes a required asset.
+- Naming, disclaimers, and who may speak for the org may be governed by the college.
 
 ## 9. Surfaces it has to live on
 _pending_
