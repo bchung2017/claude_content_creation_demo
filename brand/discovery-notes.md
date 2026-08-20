@@ -149,3 +149,31 @@ Two recommendations remain open for the owner to accept or reject (section 11
 and BRAND-GUIDE.md section 9):
 1. Remove the Lehman College / CUNY logo from XR Guild artwork.
 2. Treat the stacked cyan-on-indigo wordmark as the single master.
+
+
+---
+
+## Correction — 2026-08-20, after the guide was first built
+
+A web search while scoping a carousel surfaced an established organisation of the
+same name. The owner confirmed: **it is the same organisation.** XR Guild is a
+**501(c)3 non-profit founded in 2022**, volunteer-operated, with an existing
+identity at `xrguild.org`, a LinkedIn page, and a name carrying a registered mark.
+
+This corrected two things that were wrong in v1.0 of the guide:
+
+1. **Membership.** v1.0 stated XR Guild was "not a members' club" and banned
+   membership language outright. That contradicted the actual structure. Owner
+   decision: **demo nights are open to anyone; membership is a separate thing
+   people choose to join.** The anti-exclusive rules now scope to event-facing
+   work, and membership may be described plainly in its own place.
+2. **Entity type.** The invoice and proposal were written as generic commercial
+   documents. They now carry 501(c)3 identification, an EIN field, the written
+   disclosure owed to a sponsor receiving goods and services, and the
+   acknowledgement-not-advertising boundary.
+
+**Status change.** Owner decision: this system is a **proposed refresh of the
+whole identity**, not a sub-brand and not the approved identity. The guide now
+carries that status at the top. It needs sign-off from whoever owns brand
+decisions at the non-profit, and the wordmark should be checked against what is
+actually registered before it ships.

@@ -1,6 +1,14 @@
 # XR Guild — Brand Guide
 
-**Version 1.0 · 2026**
+**Version 1.1 · 2026 · PROPOSED — not approved identity**
+
+> **Status.** This is a *proposed refresh* of the XR Guild identity, not the
+> current official one. XR Guild is an established 501(c)3 with an existing
+> name, mark, and website at `xrguild.org`, and the name carries a ®. Nothing
+> here replaces that until whoever owns brand decisions at the organisation
+> approves it. Until then, treat this as a candidate to review, and do not
+> publish it as the official identity or file it alongside the registered mark
+> without that sign-off.
 
 This guide exists so that any XR Guild volunteer can make something — a flyer, a
 post, an invoice, a pitch to a venue — and have it look and sound like the guild
@@ -38,27 +46,55 @@ what "6DoF" means, rewrite it.
 The guild is people, not a product or a platform. When choosing between showing
 technology and showing people, show people.
 
+### What XR Guild is
+
+XR Guild is a **501(c)3 non-profit membership organisation**, founded in 2022 and
+volunteer-operated. Members are people working across XR, spatial computing, and
+related fields who have adopted a shared set of ethical principles.
+
+The demo nights are a different thing, and the difference matters more than any
+other fact in this guide:
+
+| | Who it is for | How you get in |
+|---|---|---|
+| **Demo nights** | Anyone at all — enthusiasts, educators, complete beginners | Turn up. Free. Nothing to join. |
+| **Membership** | People who want to commit to the principles and the work | A deliberate choice to join |
+
+**Neither one gates the other.** You never have to be a member to come to a demo
+night, and nobody at the door needs to know a member exists.
+
 ### The word "guild"
 
-A guild historically meant a closed trade association — members, gatekeeping,
-credentials. **That is the opposite of what XR Guild is.** We use the word for the
-other half of its meaning: shared craft, and people teaching each other.
+A guild historically meant a closed trade association — gatekeeping and
+credentials. XR Guild does have members, and that is a real and good thing. But
+the demo nights are the front door, and the front door is open to everyone.
 
-This has consequences that are not optional:
+So the rules below apply to **anything event-facing**: posters, Luma pages, event
+posts, signage, the welcome. That is where the one word this brand must never
+earn is **exclusive.**
 
-- Never use tiers, levels, membership, approval, "insiders", or "the community"
-  as a thing you can be outside of.
-- Say *beginners welcome* explicitly. Do not imply it and hope people feel it.
+- Never imply that turning up requires membership, approval, invitation, or that
+  anyone is on the inside of something.
+- Say *free* and *beginners welcome* explicitly. Do not imply them and hope
+  people feel it.
 - Anyone can demo. Demoing is not a status that gets earned.
 
-The one word this brand must never earn is **exclusive.**
+**Membership may be described plainly** — in its own words, in its own place. It
+is something to join, never something to be outside of. Do not attach it to an
+event invitation, and never phrase it as a tier, a level, or an upgrade.
 
 ---
 
 ## 2. Audience
 
-XR Guild is for **enthusiasts, educators, and beginners** — people who are curious
-about virtual and augmented reality and want to try it with other people.
+This guide's audience is the **demo-night audience**: **enthusiasts, educators,
+and beginners** — people who are curious about virtual and augmented reality and
+want to try it with other people.
+
+That is deliberately broader than the organisation's membership, which is made up
+of working professionals across XR and spatial computing. Both are real audiences.
+Event-facing work speaks to the first; membership and principles work speaks to
+the second, in its own voice and its own place.
 
 They are mostly **not** professional XR developers. Someone arriving may have never
 worn a headset. Someone else may teach this for a living. Both should feel equally
@@ -308,7 +344,8 @@ technology company.
 
 **Never:**
 
-- Imply membership, approval, tiers, or that anyone is on the inside.
+- Imply that attending an event requires membership, approval, or an invitation.
+  (Describing membership plainly, in its own place, is fine — see section 1.)
 - Use jargon in public copy. No acronyms without the plain words.
 - Use urgency or scarcity to drive signups.
 - Put a venue's or partner's logo into an XR Guild lockup (section 9).
@@ -335,6 +372,27 @@ inside the clear space.
 
 **Photographs of people.** Ask at the door, and honour it. One person's bad
 experience of being posted without asking costs more than any photograph is worth.
+
+**We are a 501(c)3, and the documents have to behave like it.** This is not a
+detail the design can paper over:
+
+- **Sponsorship is not the same as a donation.** A donation is given; sponsorship
+  buys acknowledgement. The templates in `brand/05-invoices/` and
+  `brand/06-proposals/` say which one they mean, and you should not blur them.
+- **Acknowledgement is not advertising.** Naming a sponsor, showing their logo,
+  and thanking them aloud is acknowledgement. Comparative claims, pricing,
+  endorsements, or calls to buy are advertising, and for a non-profit that can
+  have tax consequences. Keep sponsor copy to who they are, not why to buy.
+- **If a sponsor receives benefits in return, say so in writing.** US rules
+  require a non-profit to tell a donor when they have received goods or services
+  in exchange, because it affects what they may deduct.
+- **The registered mark.** The XR Guild name carries a ®. Any change to how the
+  name is set or drawn should be checked against what is actually registered
+  before it ships.
+
+None of the above is legal or tax advice, and I am not qualified to give either.
+Have your treasurer or accountant confirm the specifics before sending money
+documents to a sponsor.
 
 ---
 
@@ -363,6 +421,13 @@ See `README.md` for how to open, edit, and re-export each one.
 This is a starter system. It is complete enough to use today, and these are the
 gaps — honestly listed rather than quietly left out.
 
+### Approval, first
+
+0. **This is a proposal, not the identity.** XR Guild already has a name, a mark,
+   and a site. Nothing here is official until whoever owns brand decisions at the
+   non-profit signs it off, and the wordmark should be checked against what is
+   actually registered under the ® before anything ships.
+
 ### Two decisions only you can make
 
 1. **The Lehman College / CUNY logo.** Current XR Guild artwork carries it, but
@@ -382,9 +447,11 @@ gaps — honestly listed rather than quietly left out.
 4. **Real contact details.** Every template carries placeholder contact info,
    a placeholder Luma handle, and placeholder bank details on the invoice.
    Nothing is safe to send until those are replaced.
-5. **Your legal and financial facts.** Whether XR Guild is an entity that can
-   receive sponsorship money, who signs, and whether tax applies. The invoice
-   and proposal assume answers that have not been confirmed.
+5. **Your legal and financial facts.** The EIN, who signs, and whether the
+   disclosure wording in the invoice matches what your treasurer expects. The
+   documents now identify XR Guild as a 501(c)3 and carry a written disclosure
+   for sponsors, but those are drafts written by someone who is not your
+   accountant. Have them checked before money moves.
 6. **Real numbers.** The venue pitch quotes 80–100 attendees and the proposal
    prices at $1,000. Both are placeholders. Use your actual figures — section 8
    requires honest numbers.
@@ -413,5 +480,5 @@ gaps — honestly listed rather than quietly left out.
 
 ---
 
-*XR Guild brand guide v1.0. Built from a discovery conversation with the guild's
+*XR Guild brand guide v1.1. Built from a discovery conversation with the guild's
 organiser, August 2026.*

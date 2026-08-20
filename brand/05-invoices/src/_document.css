@@ -22,7 +22,7 @@ body {
   min-height: 11in;
   margin: 0 auto;
   background: #FFFFFF;
-  padding: 0.58in 0.7in 0.46in;
+  padding: 0.54in 0.7in 0.34in;
   display: flex;
   flex-direction: column;
 }
@@ -102,7 +102,7 @@ th {
   padding: 8px 12px;
   font-weight: 500;
 }
-td { padding: 8px 12px; border-bottom: 1px solid #E2E5EF; vertical-align: top; }
+td { padding: 7px 12px; border-bottom: 1px solid #E2E5EF; vertical-align: top; }
 .num { text-align: right; font-family: var(--xrg-detail); white-space: nowrap; }
 tfoot td { border-bottom: none; padding-top: 12px; }
 tfoot .total td {
@@ -113,8 +113,8 @@ tfoot .total td {
 
 /* ---- Callout ----------------------------------------------------------- */
 .callout {
-  margin-top: 18px;
-  padding: 13px 16px;
+  margin-top: 12px;
+  padding: 12px 15px;
   background: #EEF0F8;
   border-left: 4px solid var(--xrg-cyan);
   border-radius: 0 var(--xrg-radius) var(--xrg-radius) 0;
@@ -160,3 +160,8 @@ body.final .fill { background: none; padding: 0; }
   border-bottom: 2px dashed rgba(92, 225, 242, 0.65);
 }
 body.final .big .fill { border-bottom: none; }
+
+/* Notes addressed to the volunteer editing the file, not to the recipient.
+   Visible on screen while editing, never present in the printed PDF. */
+.editor-note { }
+@media print { .editor-note { display: none !important; } }

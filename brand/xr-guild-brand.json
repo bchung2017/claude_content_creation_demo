@@ -7,19 +7,23 @@
     "priority": "primary"
   },
   "name": "XR Guild",
-  "audience": "Enthusiasts, educators, and complete beginners who are curious about virtual and augmented reality and want to try it alongside other people. Mostly not professional developers. Someone arriving may never have worn a headset. They find XR Guild on Luma and LinkedIn and meet it in person at free demo nights held in bars and clubs.",
-  "voice": ["open", "warm", "plain"],
+  "audience": "The demo-night audience: enthusiasts, educators, and complete beginners who are curious about virtual and augmented reality and want to try it alongside other people. Deliberately broader than XR Guild's membership, which is working professionals across XR and spatial computing. Demo nights are open to anyone, free, with nothing to join. Members and non-members are equally expected at the door. They find XR Guild on Luma and LinkedIn and meet it in person at events held in bars and clubs.",
+  "voice": [
+    "open",
+    "warm",
+    "plain"
+  ],
   "visual": {
     "direction": "Dark, roomy, and human. Cool indigo ground with one cyan signal, heavy geometric headlines, generous space, softened corners, and real photographs of people trying things. It should look like a good night in a dark room, not like a technology company.",
     "colors": [
-      "Void #08070F — deepest ground",
-      "Indigo #181143 — primary brand ground",
-      "Panel #221A57 — raised panels",
-      "Cyan #5CE1F2 — accent, one use per surface",
-      "White #FFFFFF — headlines on dark",
-      "Silver #C3CADE — body text on dark",
-      "Muted #8E96B4 — captions only",
-      "Paper #F4F5F9 — documents and print"
+      "Void #08070F \u2014 deepest ground",
+      "Indigo #181143 \u2014 primary brand ground",
+      "Panel #221A57 \u2014 raised panels",
+      "Cyan #5CE1F2 \u2014 accent, one use per surface",
+      "White #FFFFFF \u2014 headlines on dark",
+      "Silver #C3CADE \u2014 body text on dark",
+      "Muted #8E96B4 \u2014 captions only",
+      "Paper #F4F5F9 \u2014 documents and print"
     ],
     "typography": [
       "Headline: Space Grotesk Bold, tracking -0.02em, fallback Arial Black then Helvetica",
@@ -27,32 +31,35 @@
       "Labels and numbers: JetBrains Mono 400/500, tracking 0.08em, uppercase, fallback ui-monospace"
     ],
     "imagery": [
-      "Use: photographs of real people at real events — mid-demo, being handed a headset, laughing. Faces and hands.",
+      "Use: photographs of real people at real events \u2014 mid-demo, being handed a headset, laughing. Faces and hands.",
       "Treatment: venue lighting as shot. Darken behind text rather than washing the image out. No heavy filters or grading toward the palette.",
       "Avoid: product shots with nobody holding the headset, all stock photography, generic 3D grids and purple neon metaverse abstractions, and anyone who did not agree to be photographed.",
       "Alternative when no photograph exists: the lens texture in brand/08-texture, as a background only."
     ],
-    "logo_usage": "Master lockup is brand/01-logos/xr-guild-wordmark-stacked-cyan-on-indigo.svg. Clear space equals the height of the X on all four sides. Minimum 90px wide on screen for the stacked wordmark, 150px for the horizontal, 16px for the XR tile. Use the XR tile for square or small spaces. Never stretch, rotate, outline, recolour outside the palette, or fill the letterforms with texture or photography — the texture goes behind the mark. Never place another organisation's logo inside an XR Guild lockup."
+    "logo_usage": "Master lockup is brand/01-logos/xr-guild-wordmark-stacked-cyan-on-indigo.svg. Clear space equals the height of the X on all four sides. Minimum 90px wide on screen for the stacked wordmark, 150px for the horizontal, 16px for the XR tile. Use the XR tile for square or small spaces. Never stretch, rotate, outline, recolour outside the palette, or fill the letterforms with texture or photography \u2014 the texture goes behind the mark. Never place another organisation's logo inside an XR Guild lockup."
   },
   "content_rules": {
     "do": [
-      "Say what it costs — it is free, and that is the most important fact on the page",
+      "Say what it costs \u2014 it is free, and that is the most important fact on the page",
       "Say beginners are welcome, in those words",
       "Name the date, time, and venue so they are readable across a bar",
       "Show people, not products",
       "Carry all four parts of the invitation grammar: who this is, the invitation, where and when, and the no-barrier line",
-      "Use the real attendance number when quoting one"
+      "Use the real attendance number when quoting one",
+      "Describe membership plainly when it is the subject, in its own place \u2014 something to join, never something to be outside of"
     ],
     "avoid": [
-      "Any implication of membership, approval, tiers, or insiders — the brand must never read as exclusive",
+      "Implying that attending an event requires membership, approval, or an invitation \u2014 event-facing work must never read as exclusive",
+      "Attaching membership to an event invitation, or phrasing membership as a tier, level, or upgrade",
       "Jargon or acronyms in public copy",
       "Urgency and scarcity language such as limited spots or do not miss out",
       "Omitting the no-barrier line to save space",
       "Placing a venue or partner logo inside an XR Guild lockup",
-      "Promising attendee data to a sponsor — attendees are guests, not leads",
+      "Promising attendee data to a sponsor \u2014 attendees are guests, not leads",
+      "Advertising language on behalf of a sponsor: comparative claims, pricing, endorsements, or a call to buy. Acknowledgement only",
       "Photographing people who did not agree to it"
     ]
   },
   "cta_style": "Invite a next step and name what it costs, which is nothing. Never urgency, scarcity, or pressure. Example: Grab a free spot on Luma. Turn up, try a headset, leave whenever you like.",
-  "notes": "XR Guild is independent. Lehman College / CUNY is a venue it sometimes rents, not a sponsor or parent organisation — credit a host in XR Guild's own type, never with their logo. Core idea: the headset gets passed around."
+  "notes": "XR Guild is a 501(c)3 non-profit founded in 2022, volunteer-operated, with an existing identity at xrguild.org and a name carrying a registered mark. THIS BRAND SYSTEM IS A PROPOSED REFRESH, not approved identity \u2014 it requires sign-off from whoever owns brand decisions at the organisation before it is used as official. Two audiences that must not be conflated: demo nights are open to absolutely anyone, while membership is a separate deliberate choice. Lehman College / CUNY is a venue sometimes rented, not a sponsor or parent \u2014 credit hosts in XR Guild's own type, never with their logo. Sponsorship is acknowledgement, not advertising, and money documents carry the written disclosure a non-profit owes a sponsor. Core idea: the headset gets passed around."
 }
