@@ -1,0 +1,4 @@
+interface:
+  display_name: "Carousel Content Creator"
+  short_description: "Render brand-aligned carousel PNG slides"
+  default_prompt: "Use $carousel-content-creator to turn this brand profile, research, and hook into checked 1080×1350 carousel PNG slides."

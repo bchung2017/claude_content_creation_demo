@@ -1,0 +1,4 @@
+interface:
+  display_name: "Caption Writer"
+  short_description: "Write brand-aligned, source-aware captions"
+  default_prompt: "Use $caption-writer to write a brand-aligned caption for this completed carousel with attribution and claim boundaries."

@@ -159,19 +159,35 @@ It is wired to this kit: its discovery finds `BRAND-GUIDE.md` at the repo root,
 and `brand/xr-guild-brand.json` is a completed profile in its schema that passes
 all eleven of its completeness checks.
 
+**All four of its agents are installed** and the workspace reports ready:
+
+| Stage | Agent | What it owns |
+|---|---|---|
+| 1 · research | Content Research Agent | Browser-first research with an evidence ledger. The only one with executable code. |
+| 2 · hook | Hook Writer Agent | The carousel's cover premise, and `hook.json`. |
+| 3 · carousel | Carousel Maker Agent | The slide plan, media routing, and the final 1080×1350 PNGs. |
+| 4 · caption | Caption Writer Agent | The post caption, applying voice and CTA style. |
+
+Agents 2–4 are prompt and skill packages with no executable code. Its own checks
+pass here: `doctor` reports PASS, `verify:credit` passes, and the research
+agent's 31 tests pass.
+
 **Before relying on it, know:**
 
-- **Only one of its four agents is included.** Content Research Agent is here;
-  **Hook Writer, Carousel Maker, and Caption Writer are missing** and must be
-  installed separately from whoever supplied this package.
 - **It needs Chrome.** Install Chrome, or point it at an existing Chromium with
   `CONTENT_CREATION_CHROME=/path/to/chrome`.
-- **It needs you signed in** to X, Reddit, and Digg in that browser.
-- **It carries its own `CLAUDE.md` and `AGENTS.md`**, which will load into future
-  Claude Code sessions opened in this repository and ask to be followed. That is
-  how the package is designed to work; it is worth knowing it is there.
-- **It only makes carousels.** Video, articles, threads, and email are explicitly
-  out of scope.
+- **It needs you signed in** to X, Reddit, and Digg in that browser. Research
+  stops rather than guessing if the browser is unavailable.
+- **Each agent carries its own `CLAUDE.md` and `AGENTS.md`**, which will load
+  into future Claude Code sessions opened in this repository and ask to be
+  followed. That is how the package is designed to work; it is worth knowing
+  it is there.
+- **It only makes carousels.** Video, articles, threads, and email are
+  explicitly out of scope.
+- **Media rules are strict, and sensibly so.** The Carousel Maker forbids
+  entering credentials into a media site, using private posts, or bypassing
+  access controls, and notes that downloading an asset never grants
+  republication rights. Keep it that way.
 - Its licence asks that the credit *By TheVibeFounder* be preserved.
 
 ---

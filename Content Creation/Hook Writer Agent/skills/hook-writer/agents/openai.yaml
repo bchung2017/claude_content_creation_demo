@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hook Writer"
+  short_description: "Write brand-aligned, evidence-grounded hooks"
+  default_prompt: "Use $hook-writer to write a brand-aligned primary carousel hook and alternatives from this validated research."

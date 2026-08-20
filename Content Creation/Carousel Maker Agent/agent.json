@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "id": "carousel-maker-agent",
+  "display_name": "Carousel Maker Agent",
+  "version": "1.2.1",
+  "credit": "By TheVibeFounder",
+  "skills": [
+    "skills/media-intake/SKILL.md",
+    "skills/carousel-content-creator/SKILL.md"
+  ],
+  "installation": {
+    "kind": "content-creation-agent",
+    "workspace_api": "1.0",
+    "artifact_contract": "1.0",
+    "install_order": 3,
+    "stage": "carousel"
+  },
+  "inputs": [
+    "brand.json",
+    "research.json",
+    "hook.json"
+  ],
+  "outputs": [
+    "carousel.json",
+    "assets/manifest.json",
+    "output/slide-01.png through slide-NN.png"
+  ],
+  "scope": {
+    "format": "carousel",
+    "owns": ["slide sequence", "on-slide copy", "visual jobs", "rendered PNG slides", "media receipts"],
+    "does_not_own": ["research", "selected hook", "post caption", "private design system"]
+  },
+  "integrations": {
+    "media": {
+      "mode": "shared-provider-router",
+      "entrypoint": "workspace:bin/content-creation.js",
+      "providers": ["optional-framegrab-cli", "public-x-browser-fallback"]
+    }
+  },
+  "privacy": {
+    "bundled_user_data": false,
+    "bundled_identity_assets": false,
+    "bundled_credentials": false
+  }
+}

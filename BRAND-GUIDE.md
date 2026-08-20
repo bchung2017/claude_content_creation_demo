@@ -407,8 +407,9 @@ gaps — honestly listed rather than quietly left out.
     August 2026 from documentation summaries, since the platform docs themselves
     were unreachable from the machine that built this kit. Re-check them before
     a rebrand or a large print run.
-13. **The content agent is incomplete.** Three of its four agents are missing —
-    see `README.md`.
+13. **The content agent needs a browser.** All four of its agents are installed,
+    but it needs Chrome and signed-in X, Reddit, and Digg accounts before it can
+    research anything — see `README.md`.
 
 ---
 

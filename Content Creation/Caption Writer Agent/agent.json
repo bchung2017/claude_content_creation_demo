@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "id": "caption-writer-agent",
+  "display_name": "Caption Writer Agent",
+  "version": "1.2.1",
+  "credit": "By TheVibeFounder",
+  "skills": [
+    "skills/caption-writer/SKILL.md"
+  ],
+  "installation": {
+    "kind": "content-creation-agent",
+    "workspace_api": "1.0",
+    "artifact_contract": "1.0",
+    "install_order": 4,
+    "stage": "caption"
+  },
+  "inputs": [
+    "brand.json",
+    "research.json",
+    "hook.json",
+    "carousel.json"
+  ],
+  "output": "caption.json",
+  "scope": {
+    "format": "carousel",
+    "owns": ["caption", "attribution", "disclosure"],
+    "does_not_own": ["research", "hook", "slides", "media", "video script"]
+  },
+  "privacy": {
+    "bundled_user_data": false,
+    "bundled_account_voice": false,
+    "bundled_credentials": false
+  }
+}

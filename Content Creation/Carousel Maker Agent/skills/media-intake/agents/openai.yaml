@@ -1,0 +1,4 @@
+interface:
+  display_name: "Media Intake"
+  short_description: "Route, save, and register carousel media"
+  default_prompt: "Use $media-intake to choose FrameGrab or the approved browser fallback, save this carousel asset, and record its source and permission status."

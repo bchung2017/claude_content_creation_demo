@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "id": "hook-writer-agent",
+  "display_name": "Hook Writer Agent",
+  "version": "1.2.1",
+  "credit": "By TheVibeFounder",
+  "skills": [
+    "skills/hook-writer/SKILL.md"
+  ],
+  "installation": {
+    "kind": "content-creation-agent",
+    "workspace_api": "1.0",
+    "artifact_contract": "1.0",
+    "install_order": 2,
+    "stage": "hook"
+  },
+  "inputs": [
+    "brand.json",
+    "research.json"
+  ],
+  "output": "hook.json",
+  "scope": {
+    "format": "carousel",
+    "owns": ["primary hook", "hook alternatives", "selection rationale"],
+    "does_not_own": ["research", "caption", "slides", "media"]
+  },
+  "privacy": {
+    "bundled_user_data": false,
+    "bundled_account_voice": false,
+    "bundled_credentials": false
+  }
+}
