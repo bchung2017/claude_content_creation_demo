@@ -61,10 +61,18 @@ cannot be carried by color. It must be carried by:
 This becomes a stated rule in the guide: **cool, but never cold.**
 
 ## 6. Look — typography direction
-_pending_
+Not specified by owner. To be proposed, then confirmed.
+Constraints it must satisfy:
+- Legible on dark grounds in a dim bar, read at arm's length on a phone.
+- Free/open-licence, so volunteers can install it without a purchase.
+- Beginner-friendly tone: not a hard sci-fi or "cyber" face, which would
+  fight the open/warm goal.
 
 ## 7. Voice — how it talks
-_pending_
+Not specified directly, but constrained hard by sections 2 and 4:
+- Speaks to beginners without condescension; assumes no prior XR knowledge.
+- Never uses membership, tier, approval, or insider language.
+- Invites rather than announces: the reader should feel expected, not screened.
 
 ## 8. Mark — wordmark, symbol, or both
 An existing mark exists: `brand/existing-assets/xr-guild-current-logo.jpg`
@@ -78,17 +86,43 @@ Observed in the current artwork:
 Open questions: is the swirl part of the mark or just a background? Is the mark
 settled or open to refinement? See section 11.
 
-## 11. Institutional affiliation (new — surfaced by the logo)
-XR Guild appears to be affiliated with **Lehman College / CUNY**.
-If official, this brings hard constraints the guide must respect:
-- Lehman/CUNY have their own brand standards that govern co-branding,
-  clear space, and permitted logo use — our guide must defer to them, not
-  restate or override them.
-- A defined **lockup** (XR Guild + Lehman College | CUNY) becomes a required asset.
-- Naming, disclaimers, and who may speak for the org may be governed by the college.
+## 11. Institutional affiliation — RESOLVED
+**XR Guild is independent.** Lehman College / CUNY is a **venue the guild
+sometimes rents**, not a parent organisation, sponsor, or endorser.
+
+Consequence, and a rule for the guide:
+The current artwork carries the Lehman College | CUNY logo. On materials from an
+independent group, an institution's logo reads as endorsement. Recommended rule:
+- **Do not** place a venue's logo in an XR Guild lockup.
+- **Do** credit a host venue in plain XR Guild type: "Hosted at <venue>".
+- Use a venue's actual logo only with written permission, for that one event.
+Flagged to owner; decision pending.
+
+## 12. Who uses this guide
+**The core group of volunteer leaders** — not one designer.
+
+This is the decisive answer for what the deliverable is. It must be a
+**self-serve toolkit**, not a reference document:
+- A non-designer must be able to make an on-brand event flyer without asking.
+- Assets must be downloadable and named for the job they do.
+- Every rule needs its reason stated, or volunteers will override it.
+- Where a rule can be replaced by a ready-made template, prefer the template.
 
 ## 9. Surfaces it has to live on
-_pending_
+Named by owner: **Luma** and **LinkedIn**. Those are where people find the guild
+between events; everything else is in-person.
+
+Concrete assets to spec (exact pixel dimensions to be verified against current
+platform docs, not written from memory):
+- Luma: event cover image, calendar/host avatar
+- LinkedIn: page logo, page cover, post/share image, event banner
+- In-venue: demo-station sign, name tag, printed flyer/poster
+- Venue-facing: the "we bring you customers" pitch sheet (see section 3)
+- Text-only credit line for host venues (see section 11)
 
 ## 10. What it must never look or sound like
-_pending_
+- **Exclusive** — the single word the owner named as disqualifying.
+- Cold or clinical: the default XR palette of neon cyan on black is off-limits
+  as a whole-system look, even though cyan is an accent here.
+- Corporate/institutional: it is volunteer-run and free to attend.
+- Implying institutional endorsement it does not have (section 11).
