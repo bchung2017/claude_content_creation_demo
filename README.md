@@ -190,6 +190,46 @@ agent's 31 tests pass.
   republication rights. Keep it that way.
 - Its licence asks that the credit *By TheVibeFounder* be preserved.
 
+### Setup state
+
+The workspace is set up and its own checks pass:
+
+```
+doctor          PASS — all four agents installed and registered
+npm run check   PASS — Node, browser, workspace files, attribution, skills
+verify:credit   PASS
+research tests  31/31
+```
+
+The brand stage is wired and complete. A first project is initialized at
+`Content Creation/projects/what-actually-happens-at-an-xr-guild-demo-night-.../`
+with `brand.json` filled in from `BRAND-GUIDE.md`, scoring **11/11** on
+`brand-check`.
+
+**Note:** the package gitignores `projects/*`, so that project folder lives only
+on the machine that made it and is not in this repository. The reusable part —
+the brand profile itself — is committed at `brand/xr-guild-brand.json`, so any
+new project can be wired up by copying it into that project's `brand.json`.
+
+**Where it stops.** `validate` currently reports 22 outstanding items, all of
+them downstream of research. That is correct, not broken: research is the first
+stage, and it deliberately refuses to run without a real browser session rather
+than inventing sources. Nothing after it can complete until it does.
+
+To carry on, on a machine with Chrome:
+
+```bash
+cd "Content Creation"
+node bin/content-creation.js doctor        # confirm Chrome is found
+# sign in to X, Reddit, and Digg in that Chrome profile
+node bin/content-creation.js route --topic "<your topic>"
+# then run the Content Research Agent, and:
+node bin/content-creation.js research-import <project> --from <research-project>
+node bin/content-creation.js validate <project>
+```
+
+`docs/WORKFLOW.md` in the package has the full twelve-step sequence.
+
 ---
 
 ## Still to add
