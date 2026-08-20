@@ -26,7 +26,24 @@ Implications to design for:
   "we bring you customers" deal to a bar or club manager.
 
 ## 4. Feeling and personality
-_pending_
+**Three words to earn:** open · community · warm
+**Word to avoid at all costs:** exclusive
+
+### Tension to resolve deliberately in the brand idea
+The word *guild* historically means a closed trade association — membership,
+gatekeeping, credentials. The stated values are the opposite. The guide must
+resolve this on purpose rather than ignore it: reclaim "guild" as
+**shared craft and mutual teaching**, never as admission.
+Practical consequences:
+- No language of tiers, membership levels, approval, or "insiders."
+- Beginners are named as welcome explicitly, not implied.
+- Anyone can demo; demoing is not a status earned.
+
+### Tension to resolve in the visual system
+The venue is dark (bars, clubs) but the feeling must be warm. That rules out
+the default XR palette of cold cyan / neon blue / black, which would read
+clinical and techy. Direction: **dark ground, warm light** — the color
+temperature of a lit room, not a screen.
 
 ## 5. Look — color direction
 _pending_
