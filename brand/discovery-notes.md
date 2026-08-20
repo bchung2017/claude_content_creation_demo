@@ -15,7 +15,15 @@ Implication: the brand has to be welcoming to newcomers and built around
 hands-on demoing, not around shipping credentials.
 
 ## 3. Format / how people actually experience it
-_pending_
+**Mostly in person.** Events run in **bars and clubs rented out for the night**,
+usually at **no cost** — the guild brings the venue paying customers, so the
+space is comped.
+
+Implications to design for:
+- Low-light, social, nightlife environments — dark-first surfaces, high contrast.
+- Headsets and demo stations in a bar setting.
+- A real **venue-facing surface** is needed: something that pitches the
+  "we bring you customers" deal to a bar or club manager.
 
 ## 4. Feeling and personality
 _pending_
