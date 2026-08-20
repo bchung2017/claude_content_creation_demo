@@ -41,6 +41,7 @@ h1 {
 .sub { font-size: 38px; color: var(--xrg-silver); line-height: 1.45; max-width: 26ch; }
 .foot {
   margin-top: auto;
+  padding-top: 72px;   /* keep the footer off the subhead */
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

@@ -358,5 +358,59 @@ See `README.md` for how to open, edit, and re-export each one.
 
 ---
 
+## 11. Still to add
+
+This is a starter system. It is complete enough to use today, and these are the
+gaps — honestly listed rather than quietly left out.
+
+### Two decisions only you can make
+
+1. **The Lehman College / CUNY logo.** Current XR Guild artwork carries it, but
+   the guild is independent and rents the space. The recommendation in section 9
+   is to replace it with a plain text credit. Accept or reject it, then the
+   artwork can be updated accordingly.
+2. **Retiring the old logo variations.** This guide names one master. The other
+   existing variations should either be mapped to a stated job or retired, so
+   volunteers stop choosing by taste.
+
+### Things only you can supply
+
+3. **Photography.** The single biggest gap. Section 7 calls for photographs of
+   real people mid-demo, and there are none — every graphic currently falls back
+   to the lens texture. Ten to fifteen good photos from the next event would do
+   more for this brand than any other single addition. Get consent at the door.
+4. **Real contact details.** Every template carries placeholder contact info,
+   a placeholder Luma handle, and placeholder bank details on the invoice.
+   Nothing is safe to send until those are replaced.
+5. **Your legal and financial facts.** Whether XR Guild is an entity that can
+   receive sponsorship money, who signs, and whether tax applies. The invoice
+   and proposal assume answers that have not been confirmed.
+6. **Real numbers.** The venue pitch quotes 80–100 attendees and the proposal
+   prices at $1,000. Both are placeholders. Use your actual figures — section 8
+   requires honest numbers.
+
+### Assets not yet built
+
+7. **In-venue print.** A demo-station sign, name tags, and a door poster. The
+   events are physical and there is currently nothing to print for them.
+8. **Merchandise.** Stickers and a shirt. Cheap, and a sticker on a laptop is
+   the most natural way this particular guild spreads.
+9. **A one-slide deck beyond the cover.** Only the cover slide exists; content
+   layouts (section, image, list) are not built.
+10. **An email signature and a short link.** Small, used constantly.
+11. **A website**, if you want one. The favicons, app icons, and link card are
+    already sized for it.
+
+### Worth knowing
+
+12. **Platform sizes drift.** Luma and LinkedIn dimensions were checked in
+    August 2026 from documentation summaries, since the platform docs themselves
+    were unreachable from the machine that built this kit. Re-check them before
+    a rebrand or a large print run.
+13. **The content agent is incomplete.** Three of its four agents are missing —
+    see `README.md`.
+
+---
+
 *XR Guild brand guide v1.0. Built from a discovery conversation with the guild's
 organiser, August 2026.*

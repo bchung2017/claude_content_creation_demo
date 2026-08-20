@@ -150,3 +150,13 @@ tfoot .total td {
    removed by .final on the body when the document is ready to send. */
 .fill { background: #FFF3C4; padding: 0 3px; border-radius: 3px; }
 body.final .fill { background: none; padding: 0; }
+
+/* On dark panels the yellow tint sits behind light text and destroys contrast,
+   so editable fields there are marked with a dashed rule instead. */
+.big .fill,
+.sheet [class*="dark"] .fill {
+  background: none;
+  padding: 0;
+  border-bottom: 2px dashed rgba(92, 225, 242, 0.65);
+}
+body.final .big .fill { border-bottom: none; }
