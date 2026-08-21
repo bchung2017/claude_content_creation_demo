@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "project_id": "xr-communities-and-xr-guild-the-in-person-demo-format-10ead15c",
+  "format": "carousel",
+  "dimensions": {
+    "width": 1080,
+    "height": 1350
+  },
+  "brand_source": "../../../BRAND-GUIDE.md",
+  "provenance": {
+    "produced_by": "research-backed",
+    "research_job_id": "JOB-20260821-1379c7ca",
+    "evidence_ceiling": "Snippet-grade. 27 snippets, zero pages opened, so no claim is verified. Only the two corroborated meetup claims are used on slides. Nothing about how newcomers feel appears anywhere, because those claims are unverified and not publishable. No claim is made about bar or nightlife venues, because the corpus contains no evidence about them."
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "role": "cover",
+      "eyebrow": "XR COMMUNITIES",
+      "headline": "Cities keep independently inventing the same thing.",
+      "body": "",
+      "visual_job": "Lens texture. Wordmark. The hook, unsupported by any other element.",
+      "claim_ids": [
+        "claim-meetup-format"
+      ],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-2",
+      "role": "evidence",
+      "eyebrow": "01",
+      "headline": "Boston. Seattle. Akron. New York. Toronto.",
+      "body": "Five regional XR communities, none of them coordinating with each other, all built around meeting in person rather than posting online.",
+      "visual_job": "Flat indigo. The list is the visual — no ornament.",
+      "claim_ids": [
+        "claim-meetup-format"
+      ],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-3",
+      "role": "shift",
+      "eyebrow": "02",
+      "headline": "In person, on purpose.",
+      "body": "These are not online forums that happen to meet. The meeting is the format.",
+      "visual_job": "Flat indigo. Cyan rule above the headline as the single accent.",
+      "claim_ids": [
+        "claim-meetup-format"
+      ],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-4",
+      "role": "demo",
+      "eyebrow": "03",
+      "headline": "And trying the hardware is the point.",
+      "body": "Boston and Seattle both say it outright: people come to demonstrate and to try VR, not to watch a talk about it.",
+      "visual_job": "Flat indigo. Body carries the attribution.",
+      "claim_ids": [
+        "claim-demo-is-the-point"
+      ],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-5",
+      "role": "why",
+      "eyebrow": "04",
+      "headline": "Which makes sense, given the price.",
+      "body": "A headset costs several hundred dollars to find out whether you even like it. A room where one already exists removes that question entirely.",
+      "visual_job": "Flat indigo. This slide is reasoning, not evidence, and carries no claim.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-6",
+      "role": "who",
+      "eyebrow": "05",
+      "headline": "XR Guild runs one of these.",
+      "body": "A 501(c)3 non-profit, founded in 2022 and run entirely by volunteers. Its demo nights are open to anyone, free, with nothing to join.",
+      "visual_job": "Panel card, separating first-party fact from the evidence-led argument.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-7",
+      "role": "broader",
+      "eyebrow": "06",
+      "headline": "There is likely one where you are.",
+      "body": "Five cities found this format without asking each other. Search your city and “XR” or “VR meetup”. If nothing turns up, four people and one headset is a real start.",
+      "visual_job": "Flat indigo. Carries the awareness goal beyond XR Guild.",
+      "claim_ids": [
+        "claim-meetup-format"
+      ],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-8",
+      "role": "cta",
+      "eyebrow": "COME AND GET A TURN",
+      "headline": "The headset gets passed around.",
+      "body": "",
+      "visual_job": "Lens texture. Wordmark. Mandatory no-barrier pill. Luma handle in mono.",
+      "claim_ids": [],
+      "asset_ids": []
+    }
+  ],
+  "rendered_slides": [
+    {
+      "slide_id": "slide-1",
+      "file": "output/slide-01.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "894b653a119b7fe851d64831e765b3b9111f4fb003d34b0cc5c5ca6ada84aafb"
+    },
+    {
+      "slide_id": "slide-2",
+      "file": "output/slide-02.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "2d3f0c6a4a14a76ba25e8551a71d3339e0edd4352cad3f9fe8b6804a8d46b1ad"
+    },
+    {
+      "slide_id": "slide-3",
+      "file": "output/slide-03.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "d8cbc4aaf59da73dd4cda096558f19b8f2055dec6b8c0d8515730e4d97016a0b"
+    },
+    {
+      "slide_id": "slide-4",
+      "file": "output/slide-04.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "88a9a38748f796bcafe08717fd780b6c42de66a2e75f81f9db7902a71d9e5ef6"
+    },
+    {
+      "slide_id": "slide-5",
+      "file": "output/slide-05.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "70bbbd59def5820bc991f170cf2ff0ffbf5b3483c7d8f16ec4c610f09c9f0d63"
+    },
+    {
+      "slide_id": "slide-6",
+      "file": "output/slide-06.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "4a4ce91144a1a4fb6daa2c9f5fdc8e39eab7ca858c7ae5c21c9168a780126c12"
+    },
+    {
+      "slide_id": "slide-7",
+      "file": "output/slide-07.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "f04325454dba9cdd418940c3373b0cf2b1dd68c9b9cf380ccf72a89773ec32fa"
+    },
+    {
+      "slide_id": "slide-8",
+      "file": "output/slide-08.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "01d71c66a0ab81a939e5e040c448658f83349218c3412649b7c9469b81bffabd"
+    }
+  ]
+}

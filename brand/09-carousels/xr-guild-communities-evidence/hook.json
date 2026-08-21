@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "project_id": "xr-communities-and-xr-guild-the-in-person-demo-format-10ead15c",
+  "primary": "Cities keep independently inventing the same thing.",
+  "claim_ids": [
+    "claim-meetup-format",
+    "claim-demo-is-the-point"
+  ],
+  "alternatives": [
+    {
+      "text": "The best way to try XR is in a room with strangers.",
+      "why_not": "Rests on how newcomers feel, which the evidence explicitly cannot support \u2014 the first-contact and motion-sickness claims are unverified and not publishable."
+    },
+    {
+      "text": "You do not need to own a headset to try one.",
+      "why_not": "Already used as the cover of the first carousel. True and first-party, but it repeats rather than adding, and it cites nothing new."
+    }
+  ],
+  "selection_reason": "Chosen because it is the one angle the corpus actually supports with distinct publishers across five cities, and because it serves the stated goal of awareness of XR communities generally rather than of XR Guild alone.",
+  "primary_premise": "The in-person XR meetup is not a local quirk. Five regional communities built the same format without coordinating, which makes XR Guild's demo night a known-good shape rather than an experiment.",
+  "primary_claim_ids": [
+    "claim-meetup-format",
+    "claim-demo-is-the-point"
+  ]
+}

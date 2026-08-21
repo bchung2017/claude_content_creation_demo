@@ -204,8 +204,21 @@ export function validateProject(projectDir) {
       errors.push(`source ${source.id || "unknown"} needs a url or local_path`);
     }
     if (!nonEmpty(source.title)) warnings.push(`source ${source.id || "unknown"} has no title`);
-    if (nonEmpty(source.url) && browser && !list(browser.opened_urls).includes(source.url)) {
-      errors.push(`web source ${source.id || "unknown"} must appear in research.browser.opened_urls`);
+    if (nonEmpty(source.url) && browser) {
+      // In web-search mode nothing is opened, so a source is traceable to the
+      // snippet it came from instead. Requiring opened_urls here would reject
+      // every valid web-search job. The guarantee is unchanged: a source must
+      // still correspond to something the discovery trace actually captured.
+      const mode = nonEmpty(browser.mode) ? browser.mode : "browser";
+      const traced = mode === "web-search"
+        ? list(browser.snippets).some((snippet) => snippet?.url === source.url) ||
+          list(browser.opened_urls).includes(source.url)
+        : list(browser.opened_urls).includes(source.url);
+      if (!traced) {
+        errors.push(mode === "web-search"
+          ? `web source ${source.id || "unknown"} must appear in research.browser.snippets or opened_urls`
+          : `web source ${source.id || "unknown"} must appear in research.browser.opened_urls`);
+      }
     }
   }
   for (const claim of claims) {

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "project_id": "xr-communities-and-xr-guild-the-in-person-demo-format-10ead15c",
+  "text": "Five cities kept inventing the same thing without asking each other.\n\nBoston, Seattle, Akron, New York and Toronto all run XR communities built around meeting in person rather than posting online. Boston and Seattle say the purpose outright: people come to demonstrate and to try VR, not to watch a talk about it.\n\nWhich makes sense given the price. A headset costs several hundred dollars just to find out whether you like it. A room where one already exists removes that question.\n\nXR Guild runs one of these. A 501(c)3 non-profit, founded in 2022 and run entirely by volunteers, with demo nights open to anyone, free, and nothing to join.\n\nThere is likely one where you are too. Search your city and \"XR\" or \"VR meetup\". If nothing turns up, four people and one headset is a real start.\n\nGrab a free spot on Luma. Turn up, try a headset, leave whenever you like.\n\nSourced from a web-search sweep of public posts across five community accounts. Nothing here was opened and verified beyond the search snippet, so treat the city list as what those communities say about themselves.",
+  "cta": "Grab a free spot on Luma. Turn up, try a headset, leave whenever you like.",
+  "hashtags": [],
+  "voice_applied": [
+    "open",
+    "warm",
+    "plain"
+  ],
+  "claim_ids": [
+    "claim-meetup-format",
+    "claim-demo-is-the-point"
+  ],
+  "notes": "Closes by naming the evidence ceiling rather than implying verification. No hashtags and no urgency language, per the brand guide. Says nothing about how newcomers feel: those claims are unverified and not publishable.",
+  "carousel_sha256": "5f93628ec65c17c3d5b4aa81d40b03f2d49907da92cbd8c48843f4c59c1b0914",
+  "completed_at": "2026-08-21T00:42:32.734Z"
+}

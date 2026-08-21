@@ -1,0 +1,698 @@
+{
+  "schema_version": "2.0",
+  "status": "completed",
+  "origin": {
+    "agent": "social-media-research-agent",
+    "job_id": "JOB-20260821-1379c7ca",
+    "content_type": "social-media",
+    "specialist": "social-media-research"
+  },
+  "as_of": "2026-08-21",
+  "summary": "Across 27 captured X snippets, the clearest signal is structural rather than topical: independent regional XR communities in Boston, Seattle, Akron, New York and Toronto all organise around recurring in-person meetups whose stated purpose is letting people try hardware. That is the same format XR Guild already runs, which makes these peers rather than competitors. Newcomer-facing signal is thinner: first-contact posts read as social, and one community member coaches newcomers through motion sickness, but neither is a measured pattern. Digg produced no topical results and Reddit is unreachable from this host, so this is a single-platform sample and nothing here was verified against an opened source.",
+  "sources": [
+    {
+      "id": "src-boston",
+      "title": "Boston VR Meetup account",
+      "source_type": "community",
+      "publisher": "Boston VR Meetup on X",
+      "url": "https://x.com/bostonvrmeetup",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-seattle",
+      "title": "Seattle VR/AR account",
+      "source_type": "community",
+      "publisher": "Seattle VR/AR on X",
+      "url": "https://x.com/seattlevr",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-akron",
+      "title": "Akron VR Meetup account",
+      "source_type": "community",
+      "publisher": "Akron VR Meetup on X",
+      "url": "https://x.com/akronvr",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-nyvr",
+      "title": "NYVR account",
+      "source_type": "community",
+      "publisher": "NYVR on X",
+      "url": "https://x.com/ny_vr",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-toronto",
+      "title": "Toronto VRC account",
+      "source_type": "community",
+      "publisher": "VRC Toronto on X",
+      "url": "https://x.com/torontovrc",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-vrmeets",
+      "title": "VR/IRL Meetup account",
+      "source_type": "community",
+      "publisher": "VR/IRL Meetup on X",
+      "url": "https://x.com/vrmeets",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-firsttime-vrchat",
+      "title": "First-time headset post with friends",
+      "source_type": "community",
+      "publisher": "LouisLeGris on X",
+      "url": "https://x.com/DeerisLeGris/status/1800513721598620071",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-firsttime-clara",
+      "title": "First time in VRChat post",
+      "source_type": "community",
+      "publisher": "Clara on X",
+      "url": "https://x.com/ClaraATwork/status/1870382763200983402",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-motionsickness",
+      "title": "Motion-sickness coaching post",
+      "source_type": "community",
+      "publisher": "Lhun on X",
+      "url": "https://x.com/DyLhun/status/1981743926479352116",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-visionpro-demo",
+      "title": "Vision Pro demo impression",
+      "source_type": "community",
+      "publisher": "Fabio Sasso on X",
+      "url": "https://x.com/abduzeedo/status/1756784728504766793",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-androidxr",
+      "title": "Android XR platform post",
+      "source_type": "official",
+      "publisher": "Android Developers on X",
+      "url": "https://x.com/AndroidDev/status/2009717667943358750",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-metaroadmap",
+      "title": "Third-party reading of Meta's XR roadmap",
+      "source_type": "community",
+      "publisher": "Osiz Technologies on X",
+      "url": "https://x.com/Osiztech/status/2008066204813119556",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-metaverse-pushback",
+      "title": "Pushback on corporate metaverse framing",
+      "source_type": "community",
+      "publisher": "MartydudeVR on X",
+      "url": "https://x.com/martydudeVR/status/1886597838949306428",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-digschoolhouse",
+      "title": "Teachers trying ClassVR hardware at a conference",
+      "source_type": "community",
+      "publisher": "Digital Schoolhouse on X",
+      "url": "https://x.com/DigSchoolhouse/status/1938220828635893966",
+      "captured_at": "2026-08-21"
+    },
+    {
+      "id": "src-classvr",
+      "title": "ClassVR vendor post on VR in education",
+      "source_type": "community",
+      "publisher": "ClassVR on X",
+      "url": "https://x.com/ClassVR/status/1905175579483132322",
+      "captured_at": "2026-08-21"
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-meetup-format",
+      "text": "Multiple independent regional communities organise XR around recurring in-person meetups rather than online-only discussion.",
+      "kind": "fact",
+      "verification": "corroborated",
+      "source_ids": [
+        "src-boston",
+        "src-seattle",
+        "src-akron",
+        "src-nyvr",
+        "src-toronto"
+      ],
+      "evidence": "Five separately operated regional accounts (Boston, Seattle, Akron, New York, Toronto) each describe themselves as in-person VR/AR meetup communities.",
+      "publishable": true
+    },
+    {
+      "id": "claim-demo-is-the-point",
+      "text": "Letting attendees physically try hardware is a stated purpose of these meetups, not an incidental activity.",
+      "kind": "fact",
+      "verification": "corroborated",
+      "source_ids": [
+        "src-boston",
+        "src-seattle"
+      ],
+      "evidence": "Boston VR Meetup describes members demonstrating software, hardware and methods; Seattle VR/AR describes monthly meetups where people can try VR/AR.",
+      "publishable": true
+    },
+    {
+      "id": "claim-first-contact-social",
+      "text": "First headset sessions are publicly narrated as shared social moments rather than solo experiences.",
+      "kind": "inference",
+      "verification": "unverified",
+      "source_ids": [
+        "src-firsttime-vrchat",
+        "src-firsttime-clara"
+      ],
+      "evidence": "Two unrelated accounts describe a first VR session in social terms, one explicitly alongside friends. This is a reading of two posts, not a measured pattern.",
+      "attribution": "Inference drawn by this research from two snippets; no sample was constructed to test it.",
+      "publishable": false
+    },
+    {
+      "id": "claim-motion-sickness-coaching",
+      "text": "Community members actively coach newcomers through motion sickness as a barrier to first contact.",
+      "kind": "fact",
+      "verification": "unverified",
+      "source_ids": [
+        "src-motionsickness"
+      ],
+      "evidence": "A single post offers newcomers specific motion-sickness technique. One source is not a pattern.",
+      "publishable": false
+    },
+    {
+      "id": "claim-demo-fatigue",
+      "text": "At least one demo account reports Vision Pro eye tracking becoming tiring quickly.",
+      "kind": "performance",
+      "verification": "unverified",
+      "as_of": "2026-08-21",
+      "source_ids": [
+        "src-visionpro-demo"
+      ],
+      "evidence": "A single firsthand demo impression. Reported experience from one person on unstated hardware and session length.",
+      "attribution": "Firsthand impression of one demo session.",
+      "publishable": false
+    },
+    {
+      "id": "claim-androidxr-glasses",
+      "text": "Android XR has expanded from headsets to glasses under a unified platform.",
+      "kind": "availability",
+      "verification": "company-reported",
+      "as_of": "2026-08-21",
+      "source_ids": [
+        "src-androidxr"
+      ],
+      "evidence": "Stated by the official Android Developers account. This is the platform owner describing its own product and is recorded as company-reported, not independently confirmed.",
+      "attribution": "Android Developers, the platform owner.",
+      "publishable": true
+    },
+    {
+      "id": "claim-meta-roadmap",
+      "text": "Meta's XR roadmap is read as 2026 for refinement and 2027 for a hardware leap.",
+      "kind": "company-claim",
+      "verification": "unverified",
+      "as_of": "2026-08-21",
+      "source_ids": [
+        "src-metaroadmap"
+      ],
+      "evidence": "This is a third-party agency's reading of Meta's roadmap, not a statement from Meta. No Meta source was reached.",
+      "attribution": "Osiz Technologies, a third party summarising Meta; not Meta itself.",
+      "publishable": false
+    },
+    {
+      "id": "claim-metaverse-pushback",
+      "text": "There is visible enthusiast pushback against corporate 'metaverse' framing of XR.",
+      "kind": "inference",
+      "verification": "unverified",
+      "source_ids": [
+        "src-metaverse-pushback"
+      ],
+      "evidence": "One enthusiast post argues the framing is too corporate and that people he has introduced to headsets do not ask for it. A single voice, recorded as signal to watch rather than a finding.",
+      "publishable": false
+    },
+    {
+      "id": "claim-educator-handson",
+      "text": "Educator engagement with XR is described in hands-on terms, with teachers trying hardware at events.",
+      "kind": "fact",
+      "verification": "unverified",
+      "source_ids": [
+        "src-digschoolhouse"
+      ],
+      "evidence": "One post describes lead teachers getting hands on the technology at a conference. The account is a partner announcing a partnership, so it is promotional context.",
+      "attribution": "Digital Schoolhouse announcing its own ClassVR partnership.",
+      "publishable": false
+    }
+  ],
+  "gaps": [
+    {
+      "description": "reddit.com refuses this host's search user agent (HTTP 400) and direct fetch (HTTP 403). Reddit is where beginner XR questions concentrate, so the newcomer-experience finding is the weakest part of this corpus and the gap is directly load-bearing on it.",
+      "blocking": false
+    },
+    {
+      "description": "digg.com returned on-domain results but nothing on this topic across every sweep, so Digg coverage is zero.",
+      "blocking": false
+    },
+    {
+      "description": "No page could be opened; the environment permits neither x.com page reads nor general web fetches. Every source is snippet-grade and no claim is verified.",
+      "blocking": false
+    },
+    {
+      "description": "Meetup accounts describe themselves. No independent source confirms any specific event took place, its attendance, or its venue type.",
+      "blocking": false
+    },
+    {
+      "description": "No source establishes anything about bar or nightlife venues specifically, which is XR Guild's actual format. The meetup comparison is to the meetup form, not to the venue choice.",
+      "blocking": false
+    }
+  ],
+  "browser": {
+    "schema_version": "1.3",
+    "project_id": "JOB-20260821-1379c7ca",
+    "status": "completed",
+    "mode": "web-search",
+    "first_research_action": "web-search",
+    "started_at": "2026-08-21T00:31:31.768Z",
+    "agent": "Claude",
+    "tool": "host web search",
+    "searches": [
+      "site:x.com VR meetup demo night in person event community",
+      "site:digg.com VR meetup demo night community",
+      "site:reddit.com VR demo night meetup beginners first headset",
+      "site:x.com first time trying VR headset reaction demo",
+      "site:x.com XR VR education classroom teachers immersive learning",
+      "site:x.com XR VR headset community developers 2026"
+    ],
+    "discovery_sites": [
+      "x.com",
+      "digg.com",
+      "reddit.com"
+    ],
+    "discovery_outcomes": [
+      "useful",
+      "no-useful-results",
+      "blocked"
+    ],
+    "google_fallback": {
+      "provider": "open-web",
+      "used": false,
+      "query": "",
+      "opened_urls": [],
+      "reason": ""
+    },
+    "snippets": [
+      {
+        "id": "MEET-1",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "Boston VR Meetup (@BostonVRMeetup) / X",
+        "url": "https://x.com/bostonvrmeetup",
+        "snippet": "Boston VR Meetup is a community where people talk about, program, share, and demonstrate software, hardware, and methods for virtual reality.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-2",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "Seattle VR/AR (@seattlevr) / Posts / X",
+        "url": "https://x.com/seattlevr",
+        "snippet": "Seattle VR/AR is a family of creators exploring emerging tech who host monthly Meetups where people can try VR/AR.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-3",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "Akron VR Meetup (@AkronVR) on X",
+        "url": "https://x.com/akronvr",
+        "snippet": "The Akron VR Meetup is a community built to educate and connect virtual/augmented reality enthusiasts.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-4",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "NYVR (@ny_vr) / Posts / X",
+        "url": "https://x.com/ny_vr",
+        "snippet": "A New York City virtual reality meetup group focused on VR and gaming news and updates from NYC developers and companies.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-5",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "VRC - Toronto's #1 XR Creators Community (@TorontoVRC) / X",
+        "url": "https://x.com/torontovrc",
+        "snippet": "Toronto's XR creators community, organised around VR and AR creators meeting in person.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-6",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "VR/IRL Meetup (@VrMeets) / X",
+        "url": "https://x.com/vrmeets",
+        "snippet": "VR/IRL Meetup is a direct source for communicating about real-life meetups with VRChat players and other VR game communities.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-7",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "VR/AR Association - Silicon Valley on X: launching the Silicon Valley chapter",
+        "url": "https://x.com/vrara_sv/status/1070554246725066752",
+        "snippet": "We are thrilled to be launching the Silicon Valley chapter! Please follow us on Twitter, join our Meetup group, and join the conversations!",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-8",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "VR Club Collective (@VRCCollective) on X",
+        "url": "https://x.com/VRCCollective",
+        "snippet": "The VR Club Collective serves as a home for virtual reality music events.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "MEET-9",
+        "site": "x.com",
+        "query": "site:x.com VR meetup demo night in person event community",
+        "title": "VRChat Events Collective (@vrcecollective) / Posts / X",
+        "url": "https://x.com/vrcecollective",
+        "snippet": "A collective organising recurring VRChat community events.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-1",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "LouisLeGris on X: trying VR for the first time on VRChat with friends",
+        "url": "https://x.com/DeerisLeGris/status/1800513721598620071",
+        "snippet": "Trying for the first time my VR headset on VRChat with my awesome friends! Avatar texture made by a friend.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-2",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "Clara on X: First time in VR chat had me like",
+        "url": "https://x.com/ClaraATwork/status/1870382763200983402",
+        "snippet": "First time in VR chat had me like",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-3",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "Lhun on X: motion sickness advice for people getting into VR",
+        "url": "https://x.com/DyLhun/status/1981743926479352116",
+        "snippet": "Want to get into VR but you're worried about motion sickness? Not a problem: The mammalian poison rejection response is based on scent and taste. So, chew gum, and importantly, change the scent of the headset (really!) With this trick, it resets the feeling and you can try again.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-4",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "Fabio Sasso (abduzeedo) on X: demoing the Vision Pro",
+        "url": "https://x.com/abduzeedo/status/1756784728504766793",
+        "snippet": "I finally got to demo the #VisionPro - immersive videos and photos look like you are there. Eye tracking is fun but gets tiring very quickly. I think watching sports might be the killer use case.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-5",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "Sebastian Ang on X: trying the MEGANE X headset",
+        "url": "https://x.com/mixedrealitytv/status/1583831432321204225",
+        "snippet": "I have finally tried the MEGANE X!!! Without a doubt looked much cooler than the Quest Pro! Find out how I liked the high-res micro OLED headset here.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-6",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "PLECTRUM SOFT on X: the life-changing VR demo, one year on",
+        "url": "https://x.com/plectrumxr/status/2046537255570096407",
+        "snippet": "Happy PROJECT MIX Demo Anniversary! The Life Changing VR Demo. I can't believe it's already been a year since the demo was released. We'd been working on it since 2022, reiterating over and over as we faced challenges and doubt.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "FIRST-7",
+        "site": "x.com",
+        "query": "site:x.com first time trying VR headset reaction demo",
+        "title": "VRcompare (@VRcompare) on X",
+        "url": "https://x.com/vrcompare",
+        "snippet": "An account cataloguing and comparing VR headset hardware specifications for prospective buyers.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "EDU-1",
+        "site": "x.com",
+        "query": "site:x.com XR VR education classroom teachers immersive learning",
+        "title": "Digital Schoolhouse on X: ClassVR partnership, teachers get hands on",
+        "url": "https://x.com/DigSchoolhouse/status/1938220828635893966",
+        "snippet": "CLASS VR x DIGITAL SCHOOLHOUSE PARTNERSHIP. We are delighted to announce a new partnership with @ClassVR. Yesterday at the Playful Computing Conference our Lead Teachers got their hands on the technology, and gained an insight into how they will be able to use it.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "EDU-2",
+        "site": "x.com",
+        "query": "site:x.com XR VR education classroom teachers immersive learning",
+        "title": "ClassVR from Avantis on X: VR in education",
+        "url": "https://x.com/ClassVR/status/1905175579483132322",
+        "snippet": "Discover how Virtual Reality is revolutionising education. From immersive lessons to interactive experiences, VR takes learning beyond the classroom.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "EDU-3",
+        "site": "x.com",
+        "query": "site:x.com XR VR education classroom teachers immersive learning",
+        "title": "MXTreality (XR devs) (@MXTreality) on X",
+        "url": "https://x.com/MXTreality",
+        "snippet": "MXTreality participates in conferences exploring real-world applications across experiential learning, covering how immersive tech is transforming education, workforce training, and accessibility.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-1",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "Android Developers on X: Android XR expands from headsets to glasses",
+        "url": "https://x.com/AndroidDev/status/2009717667943358750",
+        "snippet": "Start building for XR on a supported platform. Android XR expanded from headsets to glasses, with new libraries and form factors supported by a unified platform.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-2",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "Osiz Technologies on X: reading Meta's XR roadmap",
+        "url": "https://x.com/Osiztech/status/2008066204813119556",
+        "snippet": "Meta's XR roadmap is getting clearer. 2026 -> refinement, software, ecosystem stability. 2027 -> Phoenix headset, major hardware leap. This isn't a slowdown - it's a strategic reset toward better XR experiences.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-3",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "MartydudeVR on X: pushing back on corporate metaverse framing",
+        "url": "https://x.com/martydudeVR/status/1886597838949306428",
+        "snippet": "I wish they would rethink this Metaverse stuff man. It's too corporate imaged. RESPECTFULLY. The countless people I've sold on XR headsets have never said, 'man I can't wait to play HORIZON WORLDS'.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-4",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "Flat2VR Modding (@Flat2VR) on X",
+        "url": "https://x.com/Flat2VR",
+        "snippet": "A community of developers and modders passionate about porting flat games into full 6DOF VR, with a Discord of over 151,000 members.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-5",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "Meta VR Community (@OculusCommunity) / Posts / X",
+        "url": "https://x.com/OculusCommunity",
+        "snippet": "The Oculus VR Community's stated mission is to bring developers, youtubers and VR enthusiasts together.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-6",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "Sean Gilleece (Headset Historian) on X: moonlight client with realtime 3D conversion",
+        "url": "https://x.com/SmallBaguette/status/2089055840900710567",
+        "snippet": "I just released a moonlight client for XR headsets that does realtime 3D conversion so that you can play any game, watch any movie etc in 3D! No setting up anything on the PC side other than just the usual sunshine streamer.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-7",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "XREAL Global on X: First Look at Project Aura",
+        "url": "https://x.com/XREAL_Global/status/1998092769328296369",
+        "snippet": "First Look: Project Aura, featured on The Android Show.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      },
+      {
+        "id": "PLAT-8",
+        "site": "x.com",
+        "query": "site:x.com XR VR headset community developers 2026",
+        "title": "HTC VIVE (@htcvive) / Posts / X",
+        "url": "https://x.com/htcvive",
+        "snippet": "HTC's VIVE Focus Vision is described as a hybrid standalone PCVR headset with high-resolution displays, DisplayPort mode for PCVR, MR passthrough, and built-in eye and hand tracking.",
+        "retrieved_at": "2026-08-21T00:25:00.000Z"
+      }
+    ],
+    "opened_urls": [],
+    "unreachable_urls": [],
+    "notes": "reddit.com refuses this host's search user agent with HTTP 400 and returns HTTP 403 to direct fetch, so Reddit signal is absent entirely. digg.com returned on-domain results but none on this topic. Domain-filtered sweeps also returned off-domain results (arxiv.org, uspto.gov); those were discarded rather than filed as platform signal. No page could be opened: the environment's egress proxy permits neither x.com page reads nor general web fetches."
+  },
+  "analysis": {
+    "schema_version": "1.0",
+    "project_id": "JOB-20260821-1379c7ca",
+    "content_type": "social-media",
+    "conclusion": "In-person, try-the-hardware XR meetups are an established and independently reinvented format across at least five regions, which supports XR Guild's demo-night model as a known-good shape rather than an experiment. What this evidence cannot support is any claim about what newcomers feel or need: that would require Reddit, which is unreachable, and opened sources, which this environment does not permit.",
+    "scope": "Web-search-first sweep of x.com, digg.com and reddit.com on 2026-08-21 across four sub-topics: meetup and demo-night communities, first-time headset reactions, XR in education, and platform/developer signal. 27 snippets captured, zero pages opened.",
+    "specialist": {
+      "topic_scope": "Public English-language XR/VR conversation about in-person headset demos, newcomer first contact, educator use, and platform direction. Scoped to what XR Guild could use for demo-night content.",
+      "sample_definition": "All on-domain results returned by four domain-filtered sweeps per platform. Off-domain results returned despite the filter were discarded rather than counted.",
+      "time_window": "Posts surfaced by search as of 2026-08-21; individual posts range across several years and are not restricted to a recent window.",
+      "claim_ranking_method": "Evidence quality first, then count of distinct firsthand publishers, then cross-sweep repetition. Engagement was not observable in snippets and was not used.",
+      "stopping_rule": "Stop after the required three-platform sweep across four sub-topics. Stop escalating verification at the snippet ceiling, since no page can be opened in this environment.",
+      "signal_counts": [
+        {
+          "platform": "x.com",
+          "unique_authors": 27,
+          "qualifying_posts": 27
+        },
+        {
+          "platform": "digg.com",
+          "unique_authors": 0,
+          "qualifying_posts": 0
+        },
+        {
+          "platform": "reddit.com",
+          "unique_authors": 0,
+          "qualifying_posts": 0
+        }
+      ],
+      "platform_findings": [
+        "x.com was the only platform to return on-domain results, across all four sweeps.",
+        "digg.com returned on-domain results but none on this topic; its coverage skews to general AI and tech news.",
+        "reddit.com is entirely absent: blocked to both this host's search user agent and to direct fetch."
+      ],
+      "firsthand_signals": [
+        "Five regional meetup communities independently describe an in-person, try-the-hardware format.",
+        "One firsthand Vision Pro demo impression reports eye tracking tiring quickly.",
+        "One community member publishes specific motion-sickness technique aimed at people wanting to start."
+      ],
+      "narrative_patterns": [
+        "Demoing is framed as the purpose of gathering, not as a side activity.",
+        "First-contact posts are narrated socially, with other people present.",
+        "Enthusiast voice and vendor voice diverge sharply: vendors describe platform roadmaps, enthusiasts describe passing a headset to someone."
+      ],
+      "disagreements": [
+        "Vendor and platform accounts frame XR through roadmap and ecosystem language, while at least one enthusiast argues that framing is too corporate and does not reflect why people actually try headsets."
+      ],
+      "verification_source_ids": [
+        "src-boston",
+        "src-seattle",
+        "src-androidxr"
+      ],
+      "coverage_gaps": [
+        "Reddit is absent entirely, and it is where beginner questions concentrate.",
+        "No evidence at all about bar or nightlife venues, which is XR Guild's actual format.",
+        "No source was opened, so nothing is verified.",
+        "Educator signal comes from partnership and vendor announcements, not from teachers speaking independently."
+      ]
+    }
+  },
+  "governance": {
+    "sessions": [
+      {
+        "schema_version": "1.0",
+        "session_id": "SES-20260821-3b9fe55a",
+        "job_id": "JOB-20260821-1379c7ca",
+        "status": "started",
+        "agent": "router",
+        "summary": "Initialized the social-media research job.",
+        "created_at": "2026-08-21T00:31:20.875Z"
+      },
+      {
+        "schema_version": "1.0",
+        "session_id": "SES-20260821-fdc36af7",
+        "job_id": "JOB-20260821-1379c7ca",
+        "status": "progress",
+        "agent": "Claude",
+        "summary": "Started the XR Guild demo-night social signal investigation",
+        "created_at": "2026-08-21T00:31:31.699Z"
+      },
+      {
+        "schema_version": "1.0",
+        "session_id": "SES-20260821-eda9f37b",
+        "job_id": "JOB-20260821-1379c7ca",
+        "status": "completed",
+        "agent": "Claude",
+        "summary": "Filled evidence and analysis from the local corpus; validation passed",
+        "created_at": "2026-08-21T00:33:14.168Z"
+      },
+      {
+        "schema_version": "1.0",
+        "session_id": "SES-20260821-7daadf8d",
+        "job_id": "JOB-20260821-1379c7ca",
+        "status": "completed",
+        "agent": "validator",
+        "summary": "Validation passed and RESEARCH.md was generated.",
+        "created_at": "2026-08-21T00:33:14.239Z"
+      }
+    ],
+    "decisions": [
+      {
+        "schema_version": "1.0",
+        "decision_id": "DEC-20260821-b6eacd01",
+        "job_id": "JOB-20260821-1379c7ca",
+        "title": "Select production research specialist",
+        "decision": "social-media",
+        "rationale": "The caller selected the production social-media specialist.",
+        "made_by": "router",
+        "created_at": "2026-08-21T00:31:20.875Z"
+      },
+      {
+        "schema_version": "1.0",
+        "decision_id": "DEC-20260821-3853d8a3",
+        "job_id": "JOB-20260821-1379c7ca",
+        "title": "Run in web-search mode",
+        "decision": "Capture search snippets instead of opening pages",
+        "rationale": "No browser is available on this host and the egress proxy blocks page fetches, so browser mode cannot be satisfied. Web-search mode preserves a real external first action.",
+        "made_by": "Claude",
+        "created_at": "2026-08-21T00:33:07.802Z"
+      },
+      {
+        "schema_version": "1.0",
+        "decision_id": "DEC-20260821-ba138a89",
+        "job_id": "JOB-20260821-1379c7ca",
+        "title": "Discard off-domain results",
+        "decision": "Exclude results not hosted on the platform being swept",
+        "rationale": "The host treats a domain filter as a ranking hint, so sweeps returned arxiv.org and uspto.gov results. Counting those as platform signal would inflate coverage.",
+        "made_by": "Claude",
+        "created_at": "2026-08-21T00:33:07.878Z"
+      },
+      {
+        "schema_version": "1.0",
+        "decision_id": "DEC-20260821-d00bc35b",
+        "job_id": "JOB-20260821-1379c7ca",
+        "title": "Report Reddit absence as load-bearing",
+        "decision": "Record the Reddit block as a gap that directly weakens the newcomer finding",
+        "rationale": "Beginner XR questions concentrate on Reddit, so its absence is not a neutral coverage note.",
+        "made_by": "Claude",
+        "created_at": "2026-08-21T00:33:07.943Z"
+      }
+    ],
+    "learnings": []
+  },
+  "project_id": "xr-communities-and-xr-guild-the-in-person-demo-format-10ead15c"
+}
