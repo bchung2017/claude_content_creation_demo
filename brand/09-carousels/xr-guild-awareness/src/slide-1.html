@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>slide-1</title>
+<link rel="stylesheet" href="file:///home/user/claude_content_creation_demo/brand/tokens/xr-guild-tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1350px; padding: 0; overflow: hidden; }
+  body {
+    font-family: var(--xrg-text);
+    background: var(--xrg-indigo);
+    color: var(--xrg-white);
+    -webkit-font-smoothing: antialiased;
+  }
+  .slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; }
+  .tex { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(8,7,15,0.34) 0%, rgba(8,7,15,0.88) 72%); }
+  .inner {
+    position: relative; height: 100%; padding: 88px;
+    display: flex; flex-direction: column;
+  }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .mark { width: 176px; }
+  .eyebrow {
+    font-family: var(--xrg-detail); font-size: 26px; font-weight: 500;
+    letter-spacing: var(--xrg-detail-track); text-transform: uppercase;
+    color: var(--xrg-cyan);
+  }
+  .middle { margin-top: auto; }
+  h1 {
+    font-family: var(--xrg-display); font-weight: 700;
+    letter-spacing: var(--xrg-display-track); line-height: 0.99;
+    font-size: 100px;
+  }
+  h1 em { font-style: normal; color: var(--xrg-cyan); }
+  .body {
+    font-size: 34px; line-height: 1.45; color: var(--xrg-silver);
+    max-width: 25ch; margin-top: 34px;
+  }
+  .card {
+    background: var(--xrg-panel); border-radius: var(--xrg-radius-lg);
+    padding: 40px 44px; margin-top: 34px;
+  }
+  .card .body { margin-top: 0; max-width: 27ch; }
+  .rule { width: 132px; height: 6px; background: var(--xrg-cyan); margin-bottom: 40px; }
+  .pill {
+    display: inline-block; width: fit-content; margin-top: 44px;
+    background: var(--xrg-cyan); color: var(--xrg-void);
+    font-weight: 600; font-size: 29px; padding: 18px 34px; border-radius: 999px;
+  }
+  .foot {
+    margin-top: auto; padding-top: 56px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    font-family: var(--xrg-detail); font-size: 24px;
+    letter-spacing: var(--xrg-detail-track); color: var(--xrg-muted);
+  }
+  .tile { width: 58px; }
+</style></head>
+<body>
+<div class="slide">
+  <img class="tex" src="file:///home/user/claude_content_creation_demo/brand/08-texture/lens-texture-01.svg" alt=""><div class="shade"></div>
+  <div class="inner">
+    <div class="top"><img class="mark" src="file:///home/user/claude_content_creation_demo/brand/01-logos/xr-guild-wordmark-stacked-white.svg" alt="XR Guild"><div class="eyebrow">EVERYONE GETS A TURN</div></div>
+    <div class="middle">
+      
+      <h1>You don't need to own a headset to try one.</h1>
+      
+      
+    </div>
+    <div class="foot"><span>XR GUILD</span><span>01 / 08</span></div>
+  </div>
+</div>
+<script>
+  /* Shrink the headline until the whole slide fits its frame. Guarantees a
+     longer copy edit cannot clip without anyone noticing. */
+  const h1 = document.querySelector('h1');
+  const inner = document.querySelector('.inner');
+  let size = parseFloat(getComputedStyle(h1).fontSize);
+  while (inner.scrollHeight > inner.clientHeight && size > 46) {
+    size -= 2;
+    h1.style.fontSize = size + 'px';
+  }
+  document.title = 'fit:' + size;
+</script>
+</body></html>
