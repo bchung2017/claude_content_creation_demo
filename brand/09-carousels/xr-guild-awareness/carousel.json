@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "project_id": "what-actually-happens-at-an-xr-guild-demo-night-3f2e8680",
+  "format": "carousel",
+  "dimensions": {
+    "width": 1080,
+    "height": 1350
+  },
+  "brand_source": "../../../BRAND-GUIDE.md",
+  "provenance": {
+    "produced_by": "first-party",
+    "research_validated": false,
+    "note": "Built from XR Guild's own description of itself and the brand guide. The research stage did not run: it requires an authenticated browser session that was not available. No external or third-party claims are made on any slide, and no statistics are cited."
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "role": "cover",
+      "eyebrow": "EVERYONE GETS A TURN",
+      "headline": "You don't need to own a headset to try one.",
+      "body": "",
+      "visual_job": "Lens texture behind. Wordmark top-left. Single display headline filling the lower two thirds.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-2",
+      "role": "problem",
+      "eyebrow": "01",
+      "headline": "Most people never try XR.",
+      "body": "Not for lack of curiosity. Because finding out whether you even like it costs several hundred dollars up front.",
+      "visual_job": "Flat indigo. No texture. Headline over body, generous space.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-3",
+      "role": "shift",
+      "eyebrow": "02",
+      "headline": "That is what a community is for.",
+      "body": "Somewhere the headset already exists, and somebody hands it to you.",
+      "visual_job": "Flat indigo. Cyan rule above the headline as the single accent.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-4",
+      "role": "who",
+      "eyebrow": "03",
+      "headline": "XR Guild is one of them.",
+      "body": "A 501(c)3 non-profit, founded in 2022 and run entirely by volunteers. Its members work across XR and spatial computing under a shared set of ethical principles.",
+      "visual_job": "Panel card on indigo to separate the factual block from the argument.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-5",
+      "role": "events",
+      "eyebrow": "04",
+      "headline": "And it throws demo nights.",
+      "body": "In a bar, with tables of headsets and people who are glad to show you how any of it works.",
+      "visual_job": "Lens texture, dimmed. Headline anchored low.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-6",
+      "role": "audience",
+      "eyebrow": "05",
+      "headline": "Beginners are the point.",
+      "body": "Not a tolerated edge case. If you have never worn one, you are exactly who the night is for — and you do not have to join anything to walk in.",
+      "visual_job": "Flat indigo. Cyan sets only the word Beginners.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-7",
+      "role": "broader",
+      "eyebrow": "06",
+      "headline": "There is probably one near you.",
+      "body": "XR meetups run in cities all over. Search your city and “XR” or “VR meetup”. If nothing turns up, four people and one headset is a real start.",
+      "visual_job": "Flat indigo. The generalising slide — this one carries the awareness goal beyond XR Guild itself.",
+      "claim_ids": [],
+      "asset_ids": []
+    },
+    {
+      "id": "slide-8",
+      "role": "cta",
+      "eyebrow": "COME AND GET A TURN",
+      "headline": "The headset gets passed around.",
+      "body": "",
+      "visual_job": "Lens texture. Wordmark. The no-barrier pill in cyan, which the brand guide makes mandatory on event-facing work. Luma handle in mono.",
+      "claim_ids": [],
+      "asset_ids": []
+    }
+  ],
+  "rendered_slides": [
+    {
+      "slide_id": "slide-1",
+      "file": "output/slide-01.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "2963a0213f9d7828c72c6bc582933177da05c9cf2077009484c4f332d9a1fb00"
+    },
+    {
+      "slide_id": "slide-2",
+      "file": "output/slide-02.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "fb80bffd987673e936cbc5ee5d7702b73b27f07e0f1286510515fd56d134229c"
+    },
+    {
+      "slide_id": "slide-3",
+      "file": "output/slide-03.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "b4d3f644608beea35304799a0c002d2a56b357c5d34db2a2a457b4b0ab5df6c2"
+    },
+    {
+      "slide_id": "slide-4",
+      "file": "output/slide-04.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "b3a1520b3c8d2956e6b0758ccfb63c6e71774bc1106661619fa1ede1f98e8d17"
+    },
+    {
+      "slide_id": "slide-5",
+      "file": "output/slide-05.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "1effc9fd1fe72bec8714c17c98e887eec469e06c3d72620bb59a9b680a137789"
+    },
+    {
+      "slide_id": "slide-6",
+      "file": "output/slide-06.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "7b7f193ccd518951966e6280c24c700ad44468355bddae4d1377aa28a6aed882"
+    },
+    {
+      "slide_id": "slide-7",
+      "file": "output/slide-07.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "d9137c5e3f1e62af51cc47f47d6ce53cf8a59624fbea9233bfb9b296a47ba4bf"
+    },
+    {
+      "slide_id": "slide-8",
+      "file": "output/slide-08.png",
+      "width": 1080,
+      "height": 1350,
+      "sha256": "01d71c66a0ab81a939e5e040c448658f83349218c3412649b7c9469b81bffabd"
+    }
+  ]
+}
