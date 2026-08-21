@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "name": "xr-guild-social-signal",
+  "description": "A local corpus of captured web-search snippets on XR/VR community signal, gathered for XR Guild content research.",
+  "discovery_mode": "web-search",
+  "evidence_grade": "snippet",
+  "captured_by": "Claude",
+  "tool": "host web search",
+  "captured_at": "2026-08-21T00:25:00.000Z",
+  "discovery_order": [
+    "x.com",
+    "digg.com",
+    "reddit.com"
+  ],
+  "totals": {
+    "sweeps": 4,
+    "snippets": 27
+  },
+  "coverage": {
+    "x.com": "useful across all four sweeps",
+    "digg.com": "no-useful-results; on-domain results returned but none on topic",
+    "reddit.com": "blocked; refuses this host's search user agent with HTTP 400"
+  },
+  "limits": [
+    "Every snippet is discovery-grade. A snippet identifies a source; it does not prove the source's contents.",
+    "No page in this corpus was opened. Nothing here can support a claim marked verified.",
+    "Single-platform sample. x.com is the only platform that produced on-domain results, so this corpus is not representative of XR conversation overall.",
+    "Off-domain results returned despite a domain filter were discarded, not recorded as platform signal.",
+    "Vendor and platform accounts are promotional sources; their claims are company-reported.",
+    "Snippets are point-in-time. Re-run the sweeps rather than treating this file as current."
+  ],
+  "sweeps": [
+    {
+      "sweep_id": "xr-education-and-educators",
+      "topic": "XR in education and the educator audience",
+      "file": "sweeps/xr-education-and-educators.json",
+      "snippet_count": 3,
+      "snippets_by_site": {
+        "x.com": 3
+      },
+      "site_outcomes": {
+        "x.com": "useful",
+        "digg.com": "no-useful-results",
+        "reddit.com": "blocked"
+      }
+    },
+    {
+      "sweep_id": "xr-first-time-and-demo-reaction",
+      "topic": "First-time headset reactions and demo experiences",
+      "file": "sweeps/xr-first-time-and-demo-reaction.json",
+      "snippet_count": 7,
+      "snippets_by_site": {
+        "x.com": 7
+      },
+      "site_outcomes": {
+        "x.com": "useful",
+        "digg.com": "no-useful-results",
+        "reddit.com": "blocked"
+      }
+    },
+    {
+      "sweep_id": "xr-meetup-and-demo-night",
+      "topic": "In-person XR/VR meetup and demo-night communities",
+      "file": "sweeps/xr-meetup-and-demo-night.json",
+      "snippet_count": 9,
+      "snippets_by_site": {
+        "x.com": 9
+      },
+      "site_outcomes": {
+        "x.com": "useful",
+        "digg.com": "no-useful-results",
+        "reddit.com": "blocked"
+      }
+    },
+    {
+      "sweep_id": "xr-platform-and-developer-signal",
+      "topic": "XR platform direction and developer-community signal",
+      "file": "sweeps/xr-platform-and-developer-signal.json",
+      "snippet_count": 8,
+      "snippets_by_site": {
+        "x.com": 8
+      },
+      "site_outcomes": {
+        "x.com": "useful",
+        "digg.com": "no-useful-results",
+        "reddit.com": "blocked"
+      }
+    }
+  ]
+}

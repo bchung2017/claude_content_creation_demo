@@ -1,0 +1,4 @@
+{"schema_version":"1.0","session_id":"SES-20260821-3b9fe55a","job_id":"JOB-20260821-1379c7ca","status":"started","agent":"router","summary":"Initialized the social-media research job.","created_at":"2026-08-21T00:31:20.875Z"}
+{"schema_version":"1.0","session_id":"SES-20260821-fdc36af7","job_id":"JOB-20260821-1379c7ca","status":"progress","agent":"Claude","summary":"Started the XR Guild demo-night social signal investigation","created_at":"2026-08-21T00:31:31.699Z"}
+{"schema_version":"1.0","session_id":"SES-20260821-eda9f37b","job_id":"JOB-20260821-1379c7ca","status":"completed","agent":"Claude","summary":"Filled evidence and analysis from the local corpus; validation passed","created_at":"2026-08-21T00:33:14.168Z"}
+{"schema_version":"1.0","session_id":"SES-20260821-7daadf8d","job_id":"JOB-20260821-1379c7ca","status":"completed","agent":"validator","summary":"Validation passed and RESEARCH.md was generated.","created_at":"2026-08-21T00:33:14.239Z"}

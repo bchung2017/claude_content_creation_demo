@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "project_id": "JOB-20260821-1379c7ca",
+  "content_type": "social-media",
+  "conclusion": "In-person, try-the-hardware XR meetups are an established and independently reinvented format across at least five regions, which supports XR Guild's demo-night model as a known-good shape rather than an experiment. What this evidence cannot support is any claim about what newcomers feel or need: that would require Reddit, which is unreachable, and opened sources, which this environment does not permit.",
+  "scope": "Web-search-first sweep of x.com, digg.com and reddit.com on 2026-08-21 across four sub-topics: meetup and demo-night communities, first-time headset reactions, XR in education, and platform/developer signal. 27 snippets captured, zero pages opened.",
+  "specialist": {
+    "topic_scope": "Public English-language XR/VR conversation about in-person headset demos, newcomer first contact, educator use, and platform direction. Scoped to what XR Guild could use for demo-night content.",
+    "sample_definition": "All on-domain results returned by four domain-filtered sweeps per platform. Off-domain results returned despite the filter were discarded rather than counted.",
+    "time_window": "Posts surfaced by search as of 2026-08-21; individual posts range across several years and are not restricted to a recent window.",
+    "claim_ranking_method": "Evidence quality first, then count of distinct firsthand publishers, then cross-sweep repetition. Engagement was not observable in snippets and was not used.",
+    "stopping_rule": "Stop after the required three-platform sweep across four sub-topics. Stop escalating verification at the snippet ceiling, since no page can be opened in this environment.",
+    "signal_counts": [
+      {
+        "platform": "x.com",
+        "unique_authors": 27,
+        "qualifying_posts": 27
+      },
+      {
+        "platform": "digg.com",
+        "unique_authors": 0,
+        "qualifying_posts": 0
+      },
+      {
+        "platform": "reddit.com",
+        "unique_authors": 0,
+        "qualifying_posts": 0
+      }
+    ],
+    "platform_findings": [
+      "x.com was the only platform to return on-domain results, across all four sweeps.",
+      "digg.com returned on-domain results but none on this topic; its coverage skews to general AI and tech news.",
+      "reddit.com is entirely absent: blocked to both this host's search user agent and to direct fetch."
+    ],
+    "firsthand_signals": [
+      "Five regional meetup communities independently describe an in-person, try-the-hardware format.",
+      "One firsthand Vision Pro demo impression reports eye tracking tiring quickly.",
+      "One community member publishes specific motion-sickness technique aimed at people wanting to start."
+    ],
+    "narrative_patterns": [
+      "Demoing is framed as the purpose of gathering, not as a side activity.",
+      "First-contact posts are narrated socially, with other people present.",
+      "Enthusiast voice and vendor voice diverge sharply: vendors describe platform roadmaps, enthusiasts describe passing a headset to someone."
+    ],
+    "disagreements": [
+      "Vendor and platform accounts frame XR through roadmap and ecosystem language, while at least one enthusiast argues that framing is too corporate and does not reflect why people actually try headsets."
+    ],
+    "verification_source_ids": [
+      "src-boston",
+      "src-seattle",
+      "src-androidxr"
+    ],
+    "coverage_gaps": [
+      "Reddit is absent entirely, and it is where beginner questions concentrate.",
+      "No evidence at all about bar or nightlife venues, which is XR Guild's actual format.",
+      "No source was opened, so nothing is verified.",
+      "Educator signal comes from partnership and vendor announcements, not from teachers speaking independently."
+    ]
+  }
+}

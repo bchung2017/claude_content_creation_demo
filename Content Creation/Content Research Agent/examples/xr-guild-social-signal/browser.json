@@ -1,0 +1,283 @@
+{
+  "schema_version": "1.3",
+  "project_id": "JOB-20260821-1379c7ca",
+  "status": "completed",
+  "mode": "web-search",
+  "first_research_action": "web-search",
+  "started_at": "2026-08-21T00:31:31.768Z",
+  "agent": "Claude",
+  "tool": "host web search",
+  "searches": [
+    "site:x.com VR meetup demo night in person event community",
+    "site:digg.com VR meetup demo night community",
+    "site:reddit.com VR demo night meetup beginners first headset",
+    "site:x.com first time trying VR headset reaction demo",
+    "site:x.com XR VR education classroom teachers immersive learning",
+    "site:x.com XR VR headset community developers 2026"
+  ],
+  "discovery_sites": [
+    "x.com",
+    "digg.com",
+    "reddit.com"
+  ],
+  "discovery_outcomes": [
+    "useful",
+    "no-useful-results",
+    "blocked"
+  ],
+  "google_fallback": {
+    "provider": "open-web",
+    "used": false,
+    "query": "",
+    "opened_urls": [],
+    "reason": ""
+  },
+  "snippets": [
+    {
+      "id": "MEET-1",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "Boston VR Meetup (@BostonVRMeetup) / X",
+      "url": "https://x.com/bostonvrmeetup",
+      "snippet": "Boston VR Meetup is a community where people talk about, program, share, and demonstrate software, hardware, and methods for virtual reality.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-2",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "Seattle VR/AR (@seattlevr) / Posts / X",
+      "url": "https://x.com/seattlevr",
+      "snippet": "Seattle VR/AR is a family of creators exploring emerging tech who host monthly Meetups where people can try VR/AR.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-3",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "Akron VR Meetup (@AkronVR) on X",
+      "url": "https://x.com/akronvr",
+      "snippet": "The Akron VR Meetup is a community built to educate and connect virtual/augmented reality enthusiasts.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-4",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "NYVR (@ny_vr) / Posts / X",
+      "url": "https://x.com/ny_vr",
+      "snippet": "A New York City virtual reality meetup group focused on VR and gaming news and updates from NYC developers and companies.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-5",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VRC - Toronto's #1 XR Creators Community (@TorontoVRC) / X",
+      "url": "https://x.com/torontovrc",
+      "snippet": "Toronto's XR creators community, organised around VR and AR creators meeting in person.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-6",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VR/IRL Meetup (@VrMeets) / X",
+      "url": "https://x.com/vrmeets",
+      "snippet": "VR/IRL Meetup is a direct source for communicating about real-life meetups with VRChat players and other VR game communities.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-7",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VR/AR Association - Silicon Valley on X: launching the Silicon Valley chapter",
+      "url": "https://x.com/vrara_sv/status/1070554246725066752",
+      "snippet": "We are thrilled to be launching the Silicon Valley chapter! Please follow us on Twitter, join our Meetup group, and join the conversations!",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-8",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VR Club Collective (@VRCCollective) on X",
+      "url": "https://x.com/VRCCollective",
+      "snippet": "The VR Club Collective serves as a home for virtual reality music events.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-9",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VRChat Events Collective (@vrcecollective) / Posts / X",
+      "url": "https://x.com/vrcecollective",
+      "snippet": "A collective organising recurring VRChat community events.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-1",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "LouisLeGris on X: trying VR for the first time on VRChat with friends",
+      "url": "https://x.com/DeerisLeGris/status/1800513721598620071",
+      "snippet": "Trying for the first time my VR headset on VRChat with my awesome friends! Avatar texture made by a friend.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-2",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Clara on X: First time in VR chat had me like",
+      "url": "https://x.com/ClaraATwork/status/1870382763200983402",
+      "snippet": "First time in VR chat had me like",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-3",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Lhun on X: motion sickness advice for people getting into VR",
+      "url": "https://x.com/DyLhun/status/1981743926479352116",
+      "snippet": "Want to get into VR but you're worried about motion sickness? Not a problem: The mammalian poison rejection response is based on scent and taste. So, chew gum, and importantly, change the scent of the headset (really!) With this trick, it resets the feeling and you can try again.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-4",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Fabio Sasso (abduzeedo) on X: demoing the Vision Pro",
+      "url": "https://x.com/abduzeedo/status/1756784728504766793",
+      "snippet": "I finally got to demo the #VisionPro - immersive videos and photos look like you are there. Eye tracking is fun but gets tiring very quickly. I think watching sports might be the killer use case.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-5",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Sebastian Ang on X: trying the MEGANE X headset",
+      "url": "https://x.com/mixedrealitytv/status/1583831432321204225",
+      "snippet": "I have finally tried the MEGANE X!!! Without a doubt looked much cooler than the Quest Pro! Find out how I liked the high-res micro OLED headset here.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-6",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "PLECTRUM SOFT on X: the life-changing VR demo, one year on",
+      "url": "https://x.com/plectrumxr/status/2046537255570096407",
+      "snippet": "Happy PROJECT MIX Demo Anniversary! The Life Changing VR Demo. I can't believe it's already been a year since the demo was released. We'd been working on it since 2022, reiterating over and over as we faced challenges and doubt.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-7",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "VRcompare (@VRcompare) on X",
+      "url": "https://x.com/vrcompare",
+      "snippet": "An account cataloguing and comparing VR headset hardware specifications for prospective buyers.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "EDU-1",
+      "site": "x.com",
+      "query": "site:x.com XR VR education classroom teachers immersive learning",
+      "title": "Digital Schoolhouse on X: ClassVR partnership, teachers get hands on",
+      "url": "https://x.com/DigSchoolhouse/status/1938220828635893966",
+      "snippet": "CLASS VR x DIGITAL SCHOOLHOUSE PARTNERSHIP. We are delighted to announce a new partnership with @ClassVR. Yesterday at the Playful Computing Conference our Lead Teachers got their hands on the technology, and gained an insight into how they will be able to use it.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "EDU-2",
+      "site": "x.com",
+      "query": "site:x.com XR VR education classroom teachers immersive learning",
+      "title": "ClassVR from Avantis on X: VR in education",
+      "url": "https://x.com/ClassVR/status/1905175579483132322",
+      "snippet": "Discover how Virtual Reality is revolutionising education. From immersive lessons to interactive experiences, VR takes learning beyond the classroom.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "EDU-3",
+      "site": "x.com",
+      "query": "site:x.com XR VR education classroom teachers immersive learning",
+      "title": "MXTreality (XR devs) (@MXTreality) on X",
+      "url": "https://x.com/MXTreality",
+      "snippet": "MXTreality participates in conferences exploring real-world applications across experiential learning, covering how immersive tech is transforming education, workforce training, and accessibility.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-1",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Android Developers on X: Android XR expands from headsets to glasses",
+      "url": "https://x.com/AndroidDev/status/2009717667943358750",
+      "snippet": "Start building for XR on a supported platform. Android XR expanded from headsets to glasses, with new libraries and form factors supported by a unified platform.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-2",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Osiz Technologies on X: reading Meta's XR roadmap",
+      "url": "https://x.com/Osiztech/status/2008066204813119556",
+      "snippet": "Meta's XR roadmap is getting clearer. 2026 -> refinement, software, ecosystem stability. 2027 -> Phoenix headset, major hardware leap. This isn't a slowdown - it's a strategic reset toward better XR experiences.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-3",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "MartydudeVR on X: pushing back on corporate metaverse framing",
+      "url": "https://x.com/martydudeVR/status/1886597838949306428",
+      "snippet": "I wish they would rethink this Metaverse stuff man. It's too corporate imaged. RESPECTFULLY. The countless people I've sold on XR headsets have never said, 'man I can't wait to play HORIZON WORLDS'.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-4",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Flat2VR Modding (@Flat2VR) on X",
+      "url": "https://x.com/Flat2VR",
+      "snippet": "A community of developers and modders passionate about porting flat games into full 6DOF VR, with a Discord of over 151,000 members.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-5",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Meta VR Community (@OculusCommunity) / Posts / X",
+      "url": "https://x.com/OculusCommunity",
+      "snippet": "The Oculus VR Community's stated mission is to bring developers, youtubers and VR enthusiasts together.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-6",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Sean Gilleece (Headset Historian) on X: moonlight client with realtime 3D conversion",
+      "url": "https://x.com/SmallBaguette/status/2089055840900710567",
+      "snippet": "I just released a moonlight client for XR headsets that does realtime 3D conversion so that you can play any game, watch any movie etc in 3D! No setting up anything on the PC side other than just the usual sunshine streamer.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-7",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "XREAL Global on X: First Look at Project Aura",
+      "url": "https://x.com/XREAL_Global/status/1998092769328296369",
+      "snippet": "First Look: Project Aura, featured on The Android Show.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-8",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "HTC VIVE (@htcvive) / Posts / X",
+      "url": "https://x.com/htcvive",
+      "snippet": "HTC's VIVE Focus Vision is described as a hybrid standalone PCVR headset with high-resolution displays, DisplayPort mode for PCVR, MR passthrough, and built-in eye and hand tracking.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    }
+  ],
+  "opened_urls": [],
+  "unreachable_urls": [],
+  "notes": "reddit.com refuses this host's search user agent with HTTP 400 and returns HTTP 403 to direct fetch, so Reddit signal is absent entirely. digg.com returned on-domain results but none on this topic. Domain-filtered sweeps also returned off-domain results (arxiv.org, uspto.gov); those were discarded rather than filed as platform signal. No page could be opened: the environment's egress proxy permits neither x.com page reads nor general web fetches."
+}

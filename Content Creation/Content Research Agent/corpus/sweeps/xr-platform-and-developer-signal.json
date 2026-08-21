@@ -1,0 +1,93 @@
+{
+  "sweep_id": "xr-platform-and-developer-signal",
+  "topic": "XR platform direction and developer-community signal",
+  "why_it_matters": "Background context on what hardware and platforms demo-night attendees are likely to have heard about or bring along.",
+  "captured_by": "Claude",
+  "tool": "host web search",
+  "captured_at": "2026-08-21T00:25:00.000Z",
+  "site_queries": {
+    "x.com": "site:x.com XR VR headset community developers 2026",
+    "digg.com": "site:digg.com VR meetup demo night community",
+    "reddit.com": "site:reddit.com VR demo night meetup beginners first headset"
+  },
+  "site_outcomes": {
+    "x.com": "useful",
+    "digg.com": "no-useful-results",
+    "reddit.com": "blocked"
+  },
+  "notes": "Vendor accounts are promotional sources. Treat platform roadmap claims as company-reported, not independent.",
+  "snippets": [
+    {
+      "id": "PLAT-1",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Android Developers on X: Android XR expands from headsets to glasses",
+      "url": "https://x.com/AndroidDev/status/2009717667943358750",
+      "snippet": "Start building for XR on a supported platform. Android XR expanded from headsets to glasses, with new libraries and form factors supported by a unified platform.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-2",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Osiz Technologies on X: reading Meta's XR roadmap",
+      "url": "https://x.com/Osiztech/status/2008066204813119556",
+      "snippet": "Meta's XR roadmap is getting clearer. 2026 -> refinement, software, ecosystem stability. 2027 -> Phoenix headset, major hardware leap. This isn't a slowdown - it's a strategic reset toward better XR experiences.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-3",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "MartydudeVR on X: pushing back on corporate metaverse framing",
+      "url": "https://x.com/martydudeVR/status/1886597838949306428",
+      "snippet": "I wish they would rethink this Metaverse stuff man. It's too corporate imaged. RESPECTFULLY. The countless people I've sold on XR headsets have never said, 'man I can't wait to play HORIZON WORLDS'.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-4",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Flat2VR Modding (@Flat2VR) on X",
+      "url": "https://x.com/Flat2VR",
+      "snippet": "A community of developers and modders passionate about porting flat games into full 6DOF VR, with a Discord of over 151,000 members.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-5",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Meta VR Community (@OculusCommunity) / Posts / X",
+      "url": "https://x.com/OculusCommunity",
+      "snippet": "The Oculus VR Community's stated mission is to bring developers, youtubers and VR enthusiasts together.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-6",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "Sean Gilleece (Headset Historian) on X: moonlight client with realtime 3D conversion",
+      "url": "https://x.com/SmallBaguette/status/2089055840900710567",
+      "snippet": "I just released a moonlight client for XR headsets that does realtime 3D conversion so that you can play any game, watch any movie etc in 3D! No setting up anything on the PC side other than just the usual sunshine streamer.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-7",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "XREAL Global on X: First Look at Project Aura",
+      "url": "https://x.com/XREAL_Global/status/1998092769328296369",
+      "snippet": "First Look: Project Aura, featured on The Android Show.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "PLAT-8",
+      "site": "x.com",
+      "query": "site:x.com XR VR headset community developers 2026",
+      "title": "HTC VIVE (@htcvive) / Posts / X",
+      "url": "https://x.com/htcvive",
+      "snippet": "HTC's VIVE Focus Vision is described as a hybrid standalone PCVR headset with high-resolution displays, DisplayPort mode for PCVR, MR passthrough, and built-in eye and hand tracking.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    }
+  ]
+}

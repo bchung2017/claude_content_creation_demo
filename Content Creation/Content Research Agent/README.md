@@ -40,7 +40,9 @@ Social-Media-Research-Agent/
 ├── specialists/
 │   ├── registry.json
 │   └── template/             extension starter
+├── corpus/                   captured search snippets with provenance
 ├── docs/                     setup, discovery modes, storage, learning rules
+├── examples/                 a complete validated job as a worked reference
 └── src/                      deterministic shared core
 ```
 
@@ -108,6 +110,17 @@ platform that refuses the host is recorded as `blocked`.
 If neither a browser nor host web search is available, the agent stops rather
 than relying on model memory. An optional local model never replaces either.
 See `docs/BROWSER-FIRST.md` and `docs/WEB-SEARCH-FIRST.md`.
+
+## Local corpus
+
+`corpus/` holds captured web-search snippets with their query, platform,
+outcome, and retrieval time, so research can be re-run and audited without
+repeating live searches. Each sweep file feeds straight into `search-log` via
+`--snippets-file`. `corpus/README.md` records what the corpus is and, more
+importantly, what it is not.
+
+`examples/xr-guild-social-signal/` is a complete validated job built from it:
+27 snippets, zero pages opened, and therefore no verified claim.
 
 ## Structured storage
 

@@ -1,0 +1,84 @@
+{
+  "sweep_id": "xr-first-time-and-demo-reaction",
+  "topic": "First-time headset reactions and demo experiences",
+  "why_it_matters": "XR Guild's core idea is that the headset gets passed around, and beginners are named as welcome. This sweep captures how first contact with a headset actually reads in public.",
+  "captured_by": "Claude",
+  "tool": "host web search",
+  "captured_at": "2026-08-21T00:25:00.000Z",
+  "site_queries": {
+    "x.com": "site:x.com first time trying VR headset reaction demo",
+    "digg.com": "site:digg.com VR meetup demo night community",
+    "reddit.com": "site:reddit.com VR demo night meetup beginners first headset"
+  },
+  "site_outcomes": {
+    "x.com": "useful",
+    "digg.com": "no-useful-results",
+    "reddit.com": "blocked"
+  },
+  "notes": "Off-domain results returned by this sweep were discarded rather than filed as x.com signal.",
+  "snippets": [
+    {
+      "id": "FIRST-1",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "LouisLeGris on X: trying VR for the first time on VRChat with friends",
+      "url": "https://x.com/DeerisLeGris/status/1800513721598620071",
+      "snippet": "Trying for the first time my VR headset on VRChat with my awesome friends! Avatar texture made by a friend.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-2",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Clara on X: First time in VR chat had me like",
+      "url": "https://x.com/ClaraATwork/status/1870382763200983402",
+      "snippet": "First time in VR chat had me like",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-3",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Lhun on X: motion sickness advice for people getting into VR",
+      "url": "https://x.com/DyLhun/status/1981743926479352116",
+      "snippet": "Want to get into VR but you're worried about motion sickness? Not a problem: The mammalian poison rejection response is based on scent and taste. So, chew gum, and importantly, change the scent of the headset (really!) With this trick, it resets the feeling and you can try again.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-4",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Fabio Sasso (abduzeedo) on X: demoing the Vision Pro",
+      "url": "https://x.com/abduzeedo/status/1756784728504766793",
+      "snippet": "I finally got to demo the #VisionPro - immersive videos and photos look like you are there. Eye tracking is fun but gets tiring very quickly. I think watching sports might be the killer use case.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-5",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "Sebastian Ang on X: trying the MEGANE X headset",
+      "url": "https://x.com/mixedrealitytv/status/1583831432321204225",
+      "snippet": "I have finally tried the MEGANE X!!! Without a doubt looked much cooler than the Quest Pro! Find out how I liked the high-res micro OLED headset here.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-6",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "PLECTRUM SOFT on X: the life-changing VR demo, one year on",
+      "url": "https://x.com/plectrumxr/status/2046537255570096407",
+      "snippet": "Happy PROJECT MIX Demo Anniversary! The Life Changing VR Demo. I can't believe it's already been a year since the demo was released. We'd been working on it since 2022, reiterating over and over as we faced challenges and doubt.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "FIRST-7",
+      "site": "x.com",
+      "query": "site:x.com first time trying VR headset reaction demo",
+      "title": "VRcompare (@VRcompare) on X",
+      "url": "https://x.com/vrcompare",
+      "snippet": "An account cataloguing and comparing VR headset hardware specifications for prospective buyers.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    }
+  ]
+}

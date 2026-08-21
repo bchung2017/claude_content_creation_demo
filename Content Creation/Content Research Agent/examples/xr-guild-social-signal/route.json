@@ -1,0 +1,14 @@
+{
+  "schema_version": "2.0",
+  "status": "routed",
+  "content_type": "social-media",
+  "specialist": "social-media-research",
+  "maturity": "production",
+  "confidence": 0.98,
+  "reasons": [
+    "The caller selected the production social-media specialist."
+  ],
+  "alternatives": [],
+  "project_id": "JOB-20260821-1379c7ca",
+  "routed_at": "2026-08-21T00:31:20.875Z"
+}

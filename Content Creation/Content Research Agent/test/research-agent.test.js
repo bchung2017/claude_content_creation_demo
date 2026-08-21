@@ -11,7 +11,7 @@ import { validateProject } from "../src/validate.js";
 import { writeBrief } from "../src/brief.js";
 import { buildVibeTasksPacket, writeVibeTasksPacket } from "../src/packet.js";
 import { recordBrowserTrace } from "../src/browser-trace.js";
-import { recordSearchTrace } from "../src/search-trace.js";
+import { parseSnippet, recordSearchTrace } from "../src/search-trace.js";
 import { hostMatchesSite } from "../src/discovery.js";
 import { buildDoctorReport, parseArgs } from "../src/cli.js";
 import {
@@ -858,4 +858,53 @@ test("search-log parses repeatable snippet and unreachable options", () => {
   assert.deepEqual(parsed.options.unreachable, ["https://www.reddit.com/r/a"]);
   assert.equal(parsed.options["fallback-query"], "topic");
   assert.equal(parsed.options["snippets-file"], "snips.json");
+});
+
+test("the committed corpus is well formed and every snippet is on-domain", () => {
+  const agentRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+  const corpusDir = path.join(agentRoot, "corpus");
+  const manifest = JSON.parse(fs.readFileSync(path.join(corpusDir, "manifest.json"), "utf8"));
+  const sweepFiles = fs.readdirSync(path.join(corpusDir, "sweeps")).filter((f) => f.endsWith(".json"));
+  assert.equal(manifest.sweeps.length, sweepFiles.length, "manifest lists every sweep file");
+
+  let total = 0;
+  const ids = new Set();
+  for (const file of sweepFiles) {
+    const sweep = JSON.parse(fs.readFileSync(path.join(corpusDir, "sweeps", file), "utf8"));
+    assert.ok(Array.isArray(sweep.snippets) && sweep.snippets.length > 0, `${file} has snippets`);
+    for (const [index, snippet] of sweep.snippets.entries()) {
+      const parsed = parseSnippet(snippet, index);
+      assert.ok(hostMatchesSite(parsed.url, parsed.site), `${file}:${parsed.id} is on-domain`);
+      assert.ok(!ids.has(parsed.id), `${parsed.id} is unique across the corpus`);
+      ids.add(parsed.id);
+      total += 1;
+    }
+    const entry = manifest.sweeps.find((s) => s.sweep_id === sweep.sweep_id);
+    assert.ok(entry, `${file} appears in the manifest`);
+    assert.equal(entry.snippet_count, sweep.snippets.length, `${file} count matches the manifest`);
+  }
+  assert.equal(manifest.totals.snippets, total, "manifest total matches the sweeps");
+});
+
+test("the committed example job still validates and carries no verified claim", () => {
+  const agentRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+  const example = path.join(agentRoot, "examples", "xr-guild-social-signal");
+  const validation = validateProject(example);
+  assert.equal(validation.ok, true, validation.errors.join("\n"));
+
+  const trace = JSON.parse(fs.readFileSync(path.join(example, "browser.json"), "utf8"));
+  assert.equal(trace.mode, "web-search");
+  assert.deepEqual(trace.opened_urls, [], "no page was opened in this environment");
+  assert.equal(trace.discovery_outcomes[2], "blocked", "reddit is recorded as blocked");
+
+  const evidence = JSON.parse(fs.readFileSync(path.join(example, "evidence.json"), "utf8"));
+  assert.ok(
+    evidence.claims.every((claim) => claim.verification !== "verified"),
+    "snippet-only evidence cannot yield a verified claim"
+  );
+  assert.ok(
+    evidence.claims.every((claim) => claim.verification !== "unverified" || claim.publishable === false),
+    "an unverified claim is never publishable"
+  );
+  assert.ok(evidence.gaps.length >= 3, "the coverage gaps are recorded");
 });

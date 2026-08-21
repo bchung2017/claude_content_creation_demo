@@ -1,0 +1,48 @@
+{
+  "sweep_id": "xr-education-and-educators",
+  "topic": "XR in education and the educator audience",
+  "why_it_matters": "Educators are named explicitly in XR Guild's audience definition alongside enthusiasts and beginners.",
+  "captured_by": "Claude",
+  "tool": "host web search",
+  "captured_at": "2026-08-21T00:25:00.000Z",
+  "site_queries": {
+    "x.com": "site:x.com XR VR education classroom teachers immersive learning",
+    "digg.com": "site:digg.com VR meetup demo night community",
+    "reddit.com": "site:reddit.com VR demo night meetup beginners first headset"
+  },
+  "site_outcomes": {
+    "x.com": "useful",
+    "digg.com": "no-useful-results",
+    "reddit.com": "blocked"
+  },
+  "notes": "This sweep returned mostly arxiv.org papers despite the x.com domain filter. Those were discarded as off-domain; only genuine x.com results are recorded here. The vendor accounts below are promotional.",
+  "snippets": [
+    {
+      "id": "EDU-1",
+      "site": "x.com",
+      "query": "site:x.com XR VR education classroom teachers immersive learning",
+      "title": "Digital Schoolhouse on X: ClassVR partnership, teachers get hands on",
+      "url": "https://x.com/DigSchoolhouse/status/1938220828635893966",
+      "snippet": "CLASS VR x DIGITAL SCHOOLHOUSE PARTNERSHIP. We are delighted to announce a new partnership with @ClassVR. Yesterday at the Playful Computing Conference our Lead Teachers got their hands on the technology, and gained an insight into how they will be able to use it.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "EDU-2",
+      "site": "x.com",
+      "query": "site:x.com XR VR education classroom teachers immersive learning",
+      "title": "ClassVR from Avantis on X: VR in education",
+      "url": "https://x.com/ClassVR/status/1905175579483132322",
+      "snippet": "Discover how Virtual Reality is revolutionising education. From immersive lessons to interactive experiences, VR takes learning beyond the classroom.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "EDU-3",
+      "site": "x.com",
+      "query": "site:x.com XR VR education classroom teachers immersive learning",
+      "title": "MXTreality (XR devs) (@MXTreality) on X",
+      "url": "https://x.com/MXTreality",
+      "snippet": "MXTreality participates in conferences exploring real-world applications across experiential learning, covering how immersive tech is transforming education, workforce training, and accessibility.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    }
+  ]
+}

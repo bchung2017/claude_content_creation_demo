@@ -20,6 +20,8 @@
     "agent.json",
     "bin/",
     "docs/",
+    "examples/",
+    "corpus/",
     "src/",
     "scripts/",
     "skills/",

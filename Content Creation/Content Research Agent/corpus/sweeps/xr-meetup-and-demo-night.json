@@ -1,0 +1,102 @@
+{
+  "sweep_id": "xr-meetup-and-demo-night",
+  "topic": "In-person XR/VR meetup and demo-night communities",
+  "why_it_matters": "XR Guild's own format: a rented venue, headsets passed around, open to anyone. These are the closest comparable communities.",
+  "captured_by": "Claude",
+  "tool": "host web search",
+  "captured_at": "2026-08-21T00:25:00.000Z",
+  "site_queries": {
+    "x.com": "site:x.com VR meetup demo night in person event community",
+    "digg.com": "site:digg.com VR meetup demo night community",
+    "reddit.com": "site:reddit.com VR demo night meetup beginners first headset"
+  },
+  "site_outcomes": {
+    "x.com": "useful",
+    "digg.com": "no-useful-results",
+    "reddit.com": "blocked"
+  },
+  "notes": "digg.com returned on-domain results but none on this topic. reddit.com refuses this host's search user agent with HTTP 400.",
+  "snippets": [
+    {
+      "id": "MEET-1",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "Boston VR Meetup (@BostonVRMeetup) / X",
+      "url": "https://x.com/bostonvrmeetup",
+      "snippet": "Boston VR Meetup is a community where people talk about, program, share, and demonstrate software, hardware, and methods for virtual reality.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-2",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "Seattle VR/AR (@seattlevr) / Posts / X",
+      "url": "https://x.com/seattlevr",
+      "snippet": "Seattle VR/AR is a family of creators exploring emerging tech who host monthly Meetups where people can try VR/AR.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-3",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "Akron VR Meetup (@AkronVR) on X",
+      "url": "https://x.com/akronvr",
+      "snippet": "The Akron VR Meetup is a community built to educate and connect virtual/augmented reality enthusiasts.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-4",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "NYVR (@ny_vr) / Posts / X",
+      "url": "https://x.com/ny_vr",
+      "snippet": "A New York City virtual reality meetup group focused on VR and gaming news and updates from NYC developers and companies.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-5",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VRC - Toronto's #1 XR Creators Community (@TorontoVRC) / X",
+      "url": "https://x.com/torontovrc",
+      "snippet": "Toronto's XR creators community, organised around VR and AR creators meeting in person.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-6",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VR/IRL Meetup (@VrMeets) / X",
+      "url": "https://x.com/vrmeets",
+      "snippet": "VR/IRL Meetup is a direct source for communicating about real-life meetups with VRChat players and other VR game communities.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-7",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VR/AR Association - Silicon Valley on X: launching the Silicon Valley chapter",
+      "url": "https://x.com/vrara_sv/status/1070554246725066752",
+      "snippet": "We are thrilled to be launching the Silicon Valley chapter! Please follow us on Twitter, join our Meetup group, and join the conversations!",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-8",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VR Club Collective (@VRCCollective) on X",
+      "url": "https://x.com/VRCCollective",
+      "snippet": "The VR Club Collective serves as a home for virtual reality music events.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    },
+    {
+      "id": "MEET-9",
+      "site": "x.com",
+      "query": "site:x.com VR meetup demo night in person event community",
+      "title": "VRChat Events Collective (@vrcecollective) / Posts / X",
+      "url": "https://x.com/vrcecollective",
+      "snippet": "A collective organising recurring VRChat community events.",
+      "retrieved_at": "2026-08-21T00:25:00.000Z"
+    }
+  ]
+}
