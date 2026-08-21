@@ -21,24 +21,41 @@ Non-social requests never receive a project; the router returns
 
 ## `browser.json`
 
-The mandatory social browser trace:
+The mandatory social discovery trace, in either mode:
 
-- `status` is `completed` and `first_research_action` is `browser`;
-- `agent` and `tool` identify the host and browser capability;
+- `status` is `completed`;
+- `mode` is `browser` or `web-search`, and `first_research_action` matches it;
+- `agent` and `tool` identify the host and the capability used;
 - `discovery_sites` is `x.com`, `digg.com`, `reddit.com` in order;
 - `searches` begins with the three matching site-targeted queries;
 - `discovery_outcomes` contains one aligned status per site;
-- `opened_urls` contains every supplied social URL and evidence page opened;
-- `google_fallback` is populated only when all three sites are non-useful.
+- `google_fallback` is populated only when all three sites are non-useful, with
+  provider `google.com` in browser mode and `open-web` in web-search mode.
 
-Snippets, popularity, raw HTTP, and model output are not evidence.
+Browser mode additionally requires:
+
+- `opened_urls` contains every supplied social URL and evidence page opened;
+- `snippets` is empty.
+
+Web-search mode additionally requires:
+
+- `snippets` holds every captured result, each with `site`, `query`, `title`,
+  `url`, `snippet`, and `retrieved_at`, and each URL hosted on the site it is
+  filed under;
+- a site marked `useful` has at least one snippet and a non-useful site has
+  none;
+- `opened_urls` may be empty, and `unreachable_urls` records any supplied URL
+  that could be neither opened nor found, with `notes` explaining why.
+
+Popularity, raw HTTP, and model output are never evidence. A snippet is
+discovery-grade evidence: it identifies a source without proving its contents.
 
 ## `evidence.json`
 
 The canonical source, claim, date, and gap table. Every claim links to source
 ids and records evidence text, verification state, attribution, as-of date, and
 publishability. Use `verified` only when opened evidence directly supports the
-claim. `corroborated` requires at least two distinct evidence locations and two
+claim; validation rejects a `verified` claim backed only by snippets. `corroborated` requires at least two distinct evidence locations and two
 explicit publisher identities. Keep company-reported, unverified, and disputed
 boundaries visible.
 

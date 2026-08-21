@@ -7,7 +7,8 @@ thread, account, or conversation into a verified, build-ready research brief.
 request
   → local router
   → social-media specialist
-  → browser discovery: X → Digg → Reddit → conditional Google
+  → discovery sweep: X → Digg → Reddit → conditional fallback
+    (browser mode opens pages; web-search mode captures snippets)
   → structured evidence + governance records
   → validated RESEARCH.md
 ```
@@ -39,7 +40,7 @@ Social-Media-Research-Agent/
 ├── specialists/
 │   ├── registry.json
 │   └── template/             extension starter
-├── docs/                     setup, browser, storage, and learning rules
+├── docs/                     setup, discovery modes, storage, learning rules
 └── src/                      deterministic shared core
 ```
 
@@ -68,23 +69,45 @@ remains usable as a standalone research package.
 The first prompt performs setup checks, loads approved memory, routes the job,
 and enforces all research and consent rules.
 
-## Browser behavior
+## Discovery behavior
 
 Routing is local and happens first. A non-social request stops with a clear
 missing-specialist response. For a routed social job, the first external
-research action must use the host browser:
+research action must be real — never model memory:
 
 1. Initialize the local job and governance ledgers.
-2. Open a supplied social-media URL in the browser.
+2. Open a supplied social-media URL.
 3. Search X.
 4. Search Digg.
 5. Search Reddit.
-6. Use Google only if all three produced no useful lead.
+6. Use the fallback provider only if all three produced no useful lead.
 7. Open underlying sources and verify material claims.
 
-If browser access itself is unavailable, the agent stops rather than relying on
-model memory. An optional local model never replaces browsing. See
-`docs/BROWSER-FIRST.md`.
+Two modes satisfy that gate. `doctor` reports which the host offers.
+
+| | browser mode | web-search mode |
+| --- | --- | --- |
+| First external action | host browser opens pages | host web search |
+| Evidence captured | opened pages | result snippets |
+| Fallback provider | `google.com` | `open-web` |
+| Record with | `browser-log` | `search-log` |
+| Can support a `verified` claim | yes | only via an opened source |
+
+Browser mode is the default and the stronger contract. Web-search mode exists
+for hosts with no browser, or environments whose network policy blocks page
+fetches. In that mode a snippet is discovery-grade: it identifies a source
+without proving its contents, so `validate` rejects any `verified` claim whose
+sources are all snippets. Downgrade to `corroborated` (two distinct publishers)
+or `unverified` instead of restating a snippet as proof.
+
+Host domain filters are a ranking hint, not a guarantee, so `search-log`
+rejects a snippet whose URL is not hosted on the site it is filed under. Zero
+on-domain results is a real finding, recorded as `no-useful-results`; a
+platform that refuses the host is recorded as `blocked`.
+
+If neither a browser nor host web search is available, the agent stops rather
+than relying on model memory. An optional local model never replaces either.
+See `docs/BROWSER-FIRST.md` and `docs/WEB-SEARCH-FIRST.md`.
 
 ## Structured storage
 
@@ -130,10 +153,23 @@ node bin/content-research-agent.js route --topic "What are founders saying about
 node bin/content-research-agent.js init --topic "What are founders saying about local AI agents?" --goal "Find firsthand adoption signals and verify repeated claims"
 ```
 
-After browser research, use the exact project path returned by `init`:
+After research, use the exact project path returned by `init`. In browser mode:
 
 ```text
 node bin/content-research-agent.js browser-log <project-path-returned-by-init> --agent "Codex" --tool "browser tool name" --discovery "x.com" --discovery "digg.com" --discovery "reddit.com" --outcome "useful" --outcome "no-useful-results" --outcome "useful" --query "site:x.com local AI agents" --query "site:digg.com local AI agents" --query "site:reddit.com local AI agents" --opened "https://example.com/source"
+```
+
+In web-search mode, capture the results in a JSON array and record them
+instead:
+
+```text
+node bin/content-research-agent.js search-log <project-path-returned-by-init> --agent "Claude" --tool "host web search" --discovery "x.com" --discovery "digg.com" --discovery "reddit.com" --outcome "useful" --outcome "no-useful-results" --outcome "blocked" --query "site:x.com local AI agents" --query "site:digg.com local AI agents" --query "site:reddit.com local AI agents" --snippets-file snippets.json --notes "reddit.com refuses this host's search user agent"
+```
+
+Each snippet needs `site`, `query`, `title`, `url`, and `snippet`; `id` and
+`retrieved_at` default. The remaining commands are the same in both modes:
+
+```text
 node bin/content-research-agent.js session-log <project-path-returned-by-init> --agent "Codex" --summary "Completed discovery and source verification"
 node bin/content-research-agent.js decision-log <project-path-returned-by-init> --agent "Codex" --title "Evidence cutoff" --decision "Use sources published this year" --rationale "The question concerns current adoption"
 node bin/content-research-agent.js learning-capture <project-path-returned-by-init> --agent "Codex" --feedback "Prioritize firsthand operator posts" --learning "Rank firsthand operator evidence above reposts" --scope "package"
@@ -142,8 +178,9 @@ node bin/content-research-agent.js validate <project-path-returned-by-init>
 node bin/content-research-agent.js brief <project-path-returned-by-init>
 ```
 
-`brief` refuses to create `RESEARCH.md` until browser, evidence, identity, and
-governance checks pass.
+`brief` refuses to create `RESEARCH.md` until discovery, evidence, identity,
+and governance checks pass. The generated brief records which mode ran and
+grades every source as `opened` or `snippet`.
 
 ## Optional Gemma 4
 
@@ -152,9 +189,11 @@ the opt-in process. The assistant must explain model size and machine impact,
 then request explicit approval before an install or download. A declined or
 failed setup does not affect the normal Codex/Claude workflow.
 
-The same doctor detects a real Chrome or supported Chromium executable. For a
-nonstandard install, set `CONTENT_CREATION_CHROME` to the executable path. It
-still asks the user to confirm browser control and X, Reddit, and Digg sign-in.
+The same doctor detects a real Chrome or supported Chromium executable and
+reports which discovery modes are available. For a nonstandard install, set
+`CONTENT_CREATION_CHROME` to the executable path. When a browser is present it
+still asks the user to confirm browser control and X, Reddit, and Digg sign-in;
+when none is found it reports that research will run in web-search mode.
 
 ## VibeTasks handoff
 
@@ -177,7 +216,7 @@ The import remains an explicit user action.
 - Time-sensitive claims require an as-of date.
 - Interested-party claims remain visibly attributed.
 - Unverified or disputed claims cannot be marked publishable.
-- Blocking gaps and missing browser traces stop brief generation.
+- Blocking gaps and missing discovery traces stop brief generation.
 - Every saved asset records provenance and rights status.
 
 ## Development

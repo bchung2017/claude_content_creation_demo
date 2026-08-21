@@ -1,35 +1,25 @@
 import path from "node:path";
 import { projectFiles, readJson, writeJson } from "./workspace.js";
+import {
+  BROWSER_MODE,
+  DISCOVERY_ORDER,
+  DISCOVERY_OUTCOMES,
+  GOOGLE_FALLBACK,
+  isOrderedDiscovery,
+  nonEmpty,
+  queryTargetsDiscoverySite,
+  uniqueStrings,
+  validHttpUrl
+} from "./discovery.js";
 
-export const DISCOVERY_ORDER = ["x.com", "digg.com", "reddit.com"];
-export const DISCOVERY_OUTCOMES = new Set(["useful", "no-useful-results", "blocked"]);
-export const GOOGLE_FALLBACK = "google.com";
+export {
+  DISCOVERY_ORDER,
+  DISCOVERY_OUTCOMES,
+  GOOGLE_FALLBACK,
+  queryTargetsDiscoverySite
+} from "./discovery.js";
 
-function nonEmpty(value) {
-  return typeof value === "string" && value.trim().length > 0;
-}
-
-function uniqueStrings(values) {
-  return [...new Set(values.filter(nonEmpty).map((value) => value.trim()))];
-}
-
-function validHttpUrl(value) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
-  } catch {
-    return false;
-  }
-}
-
-function isOrderedDiscovery(sites) {
-  return sites.length === DISCOVERY_ORDER.length &&
-    sites.every((site, index) => site.toLowerCase() === DISCOVERY_ORDER[index]);
-}
-
-export function queryTargetsDiscoverySite(query, site) {
-  return query.toLowerCase().includes(`site:${site}`);
-}
+export const TRACE_SCHEMA_VERSION = "1.3";
 
 export function recordBrowserTrace(projectDir, {
   agent,
@@ -102,10 +92,11 @@ export function recordBrowserTrace(projectDir, {
     ? [...uniqueSearches.slice(0, 3), googleSearch, ...additionalSearches]
     : uniqueSearches;
   const trace = {
-    schema_version: "1.2",
+    schema_version: TRACE_SCHEMA_VERSION,
     project_id: request.project_id,
     status: "completed",
-    first_research_action: "browser",
+    mode: BROWSER_MODE,
+    first_research_action: BROWSER_MODE,
     started_at: startedAt,
     agent: agent.trim(),
     tool: tool.trim(),
@@ -119,7 +110,9 @@ export function recordBrowserTrace(projectDir, {
       opened_urls: needsGoogle ? uniqueGoogleUrls : [],
       reason: needsGoogle ? "X, Digg, and Reddit returned no useful leads." : ""
     },
+    snippets: [],
     opened_urls: uniqueUrls,
+    unreachable_urls: [],
     notes: notes.trim()
   };
   writeJson(files.browser, trace);

@@ -9,6 +9,7 @@ const BRAND_SOURCES = new Set(["guide", "questions"]);
 const VERIFICATION = new Set(["verified", "corroborated", "company-reported", "unverified", "disputed"]);
 const RESEARCH_JOB_ID = /^JOB-\d{8}-[a-f0-9]{8}$/;
 const DISCOVERY_SITES = ["x.com", "digg.com", "reddit.com"];
+const RESEARCH_MODES = ["browser", "web-search"];
 
 function unique(values) {
   return [...new Set(values)];
@@ -134,7 +135,13 @@ export function validateProject(projectDir) {
   } else {
     if (browser.project_id !== origin?.job_id) errors.push("research.browser.project_id must match research.origin.job_id");
     if (browser.status !== "completed") errors.push("research.browser.status must be completed");
-    if (browser.first_research_action !== "browser") errors.push("research.browser.first_research_action must be browser");
+    const mode = nonEmpty(browser.mode) ? browser.mode : "browser";
+    if (!RESEARCH_MODES.includes(mode)) {
+      errors.push(`research.browser.mode must be ${RESEARCH_MODES.join(" or ")}`);
+    }
+    if (browser.first_research_action !== mode) {
+      errors.push(`research.browser.first_research_action must be ${mode}`);
+    }
     if (!Array.isArray(browser.searches) || browser.searches.length < 3) {
       errors.push("research.browser.searches must contain the required discovery sweep");
     }
@@ -143,7 +150,13 @@ export function validateProject(projectDir) {
       browser.discovery_sites.some((site, index) => site !== DISCOVERY_SITES[index])) {
       errors.push("research.browser.discovery_sites must preserve x.com, digg.com, reddit.com order");
     }
-    if (!Array.isArray(browser.opened_urls) || browser.opened_urls.length === 0) {
+    const openedUrls = list(browser.opened_urls);
+    const snippets = list(browser.snippets);
+    if (mode === "web-search") {
+      if (!Array.isArray(browser.snippets) || snippets.length === 0) {
+        errors.push("research.browser.snippets must contain at least one captured result in web-search mode");
+      }
+    } else if (openedUrls.length === 0) {
       errors.push("research.browser.opened_urls must contain at least one underlying source");
     }
   }

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { validateProject } from "./validate.js";
 import { completeJob } from "./ledger.js";
+import { WEB_SEARCH_MODE, openedUrlSet, traceMode } from "./discovery.js";
 
 function display(value) {
   if (typeof value === "string") return value;
@@ -28,9 +29,13 @@ export function renderBrief(validation) {
   }
   const { project, profile, warnings } = validation;
   const { request, browser, evidence, analysis, assets, sessions, decisions, learnings } = project;
+  const mode = traceMode(browser);
+  const opened = openedUrlSet(browser);
+  const sourceGrade = (source) =>
+    source.local_path || (source.url && opened.has(source.url)) ? "opened" : "snippet";
   const sources = evidence.sources.map((source) => {
     const location = source.url || source.local_path;
-    return `- **${source.id} · ${source.title}** — ${source.source_type}; captured ${source.captured_at}; ${location}`;
+    return `- **${source.id} · ${source.title}** — ${source.source_type}; ${sourceGrade(source)}-grade; captured ${source.captured_at}; ${location}`;
   });
   const claims = evidence.claims.map((claim) => {
     const boundary = claim.attribution ? `; attribution: ${claim.attribution}` : "";
@@ -67,7 +72,8 @@ export function renderBrief(validation) {
     `specialist: "${profile.skill}"`,
     `as_of: "${evidence.as_of}"`,
     "validation: \"passed\"",
-    "browser_first: true",
+    `discovery_mode: "${mode}"`,
+    `first_research_action: "${browser.first_research_action}"`,
     "---",
     "",
     `# ${request.topic}`,
@@ -86,14 +92,30 @@ export function renderBrief(validation) {
     "",
     analysis.scope,
     "",
-    "## Browser trace",
+    "## Discovery trace",
     "",
+    `- Mode: ${mode}`,
     `- Agent: ${browser.agent}`,
     `- Tool: ${browser.tool}`,
     `- Started: ${browser.started_at}`,
+    ...browser.discovery_sites.map((site, index) => `- ${site}: ${browser.discovery_outcomes[index]}`),
     ...browser.searches.map((query) => `- Search: ${query}`),
     ...browser.opened_urls.map((url) => `- Opened: ${url}`),
+    ...(browser.unreachable_urls || []).map((url) => `- Unreachable: ${url}`),
+    ...(browser.notes ? [`- Notes: ${browser.notes}`] : []),
     "",
+    ...(mode === WEB_SEARCH_MODE
+      ? [
+        "## Captured search snippets",
+        "",
+        "_Snippets are discovery-grade signal, not proof. No claim below is marked verified on snippet evidence alone._",
+        "",
+        ...(browser.snippets || []).map((snippet) =>
+          `- **${snippet.id} · ${snippet.site}** — ${snippet.title}; ${snippet.url}; retrieved ${snippet.retrieved_at}\n  > ${snippet.snippet}`
+        ),
+        ""
+      ]
+      : []),
     "## Session log",
     "",
     ...sessionLines,

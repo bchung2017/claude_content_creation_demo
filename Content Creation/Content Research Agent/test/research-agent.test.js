@@ -11,6 +11,8 @@ import { validateProject } from "../src/validate.js";
 import { writeBrief } from "../src/brief.js";
 import { buildVibeTasksPacket, writeVibeTasksPacket } from "../src/packet.js";
 import { recordBrowserTrace } from "../src/browser-trace.js";
+import { recordSearchTrace } from "../src/search-trace.js";
+import { hostMatchesSite } from "../src/discovery.js";
 import { buildDoctorReport, parseArgs } from "../src/cli.js";
 import {
   captureLearning,
@@ -127,6 +129,127 @@ function completeSocialProject(root) {
     title: "Evidence ranking",
     decision: "Rank the opened official record above repeated social claims",
     rationale: "The official record directly establishes availability."
+  });
+  return initialized;
+}
+
+const X_SNIPPET = {
+  id: "SNIP-X-1",
+  site: "x.com",
+  query: "site:x.com AI coding agent signals",
+  title: "Original social discussion",
+  url: "https://x.com/example/status/1",
+  snippet: "A practitioner reports the release is now available.",
+  retrieved_at: "2026-08-06T12:00:00.000Z"
+};
+
+function searchSweep(projectDir, overrides = {}) {
+  return recordSearchTrace(projectDir, {
+    agent: "Claude",
+    tool: "host web search",
+    searches: [
+      "site:x.com AI coding agent signals",
+      "site:digg.com AI coding agent signals",
+      "site:reddit.com AI coding agent signals"
+    ],
+    discoverySites: ["x.com", "digg.com", "reddit.com"],
+    discoveryOutcomes: ["useful", "no-useful-results", "blocked"],
+    snippets: [X_SNIPPET],
+    startedAt: "2026-08-06T12:00:00.000Z",
+    ...overrides
+  });
+}
+
+/** A complete, valid web-search-mode project: snippet evidence, no opened pages. */
+function completeSearchProject(root) {
+  const projectDir = path.join(root, "research", "search-mode-job");
+  const initialized = initProject({
+    topic: "AI coding agent signals",
+    goal: "Map the social signal without a browser",
+    type: "social-media",
+    output: projectDir
+  });
+  const projectId = initialized.route.project_id;
+  searchSweep(initialized.projectDir, {
+    snippets: [
+      X_SNIPPET,
+      {
+        ...X_SNIPPET,
+        id: "SNIP-X-2",
+        url: "https://x.com/other/status/2",
+        title: "Second independent discussion",
+        snippet: "A second author independently reports the same release."
+      }
+    ],
+    notes: "reddit.com refuses this host's search user agent."
+  });
+  writeJson(initialized.files.evidence, {
+    schema_version: "1.0",
+    project_id: projectId,
+    as_of: "2026-08-06",
+    summary: "Two X authors report the same release; no page could be opened.",
+    sources: [
+      {
+        id: "src-x-1",
+        title: "Original social discussion",
+        source_type: "community",
+        publisher: "example on X",
+        url: "https://x.com/example/status/1",
+        captured_at: "2026-08-06"
+      },
+      {
+        id: "src-x-2",
+        title: "Second independent discussion",
+        source_type: "community",
+        publisher: "other on X",
+        url: "https://x.com/other/status/2",
+        captured_at: "2026-08-06"
+      }
+    ],
+    claims: [
+      {
+        id: "claim-1",
+        text: "Two independent X authors report the release.",
+        kind: "fact",
+        verification: "corroborated",
+        source_ids: ["src-x-1", "src-x-2"],
+        evidence: "Both captured snippets describe the same release.",
+        publishable: true
+      }
+    ],
+    gaps: [{ description: "Reddit is unreachable from this host.", blocking: false }]
+  });
+  writeJson(initialized.files.analysis, {
+    schema_version: "1.0",
+    project_id: projectId,
+    content_type: "social-media",
+    conclusion: "Snippet-only signal supports a corroborated, not verified, finding.",
+    scope: "Web-search sweep of X, Digg, and Reddit as of 2026-08-06.",
+    specialist: {
+      topic_scope: "AI coding agent release discussion.",
+      sample_definition: "Search snippets returned by the required three-platform sweep.",
+      time_window: "Public sources through 2026-08-06.",
+      claim_ranking_method: "Evidence quality, then distinct firsthand authors.",
+      stopping_rule: "Stop after the required sweep; no page could be opened.",
+      signal_counts: [
+        { platform: "x.com", unique_authors: 2, qualifying_posts: 2 },
+        { platform: "digg.com", unique_authors: 0, qualifying_posts: 0 },
+        { platform: "reddit.com", unique_authors: 0, qualifying_posts: 0 }
+      ],
+      platform_findings: ["Only X produced on-domain results."],
+      firsthand_signals: ["Two distinct X authors."],
+      narrative_patterns: ["Availability is the recurring theme."],
+      disagreements: [],
+      verification_source_ids: ["src-x-1"],
+      coverage_gaps: ["Reddit and Digg contributed nothing."]
+    }
+  });
+  logSession(initialized.projectDir, { agent: "Claude", summary: "Web-search sweep complete." });
+  logDecision(initialized.projectDir, {
+    agent: "Claude",
+    title: "Run in web-search mode",
+    decision: "Capture snippets instead of opening pages",
+    rationale: "No browser is available in this environment."
   });
   return initialized;
 }
@@ -254,7 +377,8 @@ test("doctor reports zero dependencies and optional Gemma 4 support", () => {
   assert.equal(report.ok, true);
   assert.equal(report.node.required, ">=20");
   assert.equal(report.npm_dependencies, 0);
-  assert.equal(report.browser.required, true);
+  assert.equal(report.browser.required, false);
+  assert.deepEqual(report.discovery.modes_available, ["browser", "web-search"]);
   assert.equal(report.local_model.required, false);
   assert.equal(report.local_model.family, "Gemma 4");
   assert.equal(report.local_model.installed, true);
@@ -272,8 +396,20 @@ test("doctor reports zero dependencies and optional Gemma 4 support", () => {
     ollama: { installed: false, running: false, version: "" },
     chrome: { available: false, executable: null, detected_by: null }
   });
-  assert.equal(noChrome.ok, false);
   assert.equal(noChrome.browser.chrome.installed, false);
+  assert.equal(noChrome.browser.required, false);
+  assert.equal(noChrome.web_search.required, true);
+  assert.deepEqual(noChrome.discovery.modes_available, ["web-search"]);
+  assert.equal(noChrome.ok, true, "web-search mode alone keeps the agent usable");
+
+  const noDiscovery = buildDoctorReport({
+    agentRoot,
+    ollama: { installed: false, running: false, version: "" },
+    chrome: { available: false, executable: null, detected_by: null },
+    webSearch: { available: false, provider: "" }
+  });
+  assert.equal(noDiscovery.ok, false, "no browser and no web search leaves no way to research");
+  assert.deepEqual(noDiscovery.discovery.modes_available, []);
 });
 
 test("standalone Research browser detection supports Chromium and explicit overrides", () => {
@@ -542,4 +678,184 @@ test("current package tree passes the public-safety policy", () => {
   const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   const result = runPublicSafetyCheck({ root, history: false });
   assert.equal(result.ok, true, result.violations.join("\n"));
+});
+
+test("web-search mode validates with snippet evidence and no opened pages", () => {
+  const root = tempDir("research-search-mode");
+  const initialized = completeSearchProject(root);
+  const validation = validateProject(initialized.projectDir);
+  assert.equal(validation.ok, true, validation.errors.join("\n"));
+  const trace = JSON.parse(fs.readFileSync(initialized.files.browser, "utf8"));
+  assert.equal(trace.mode, "web-search");
+  assert.equal(trace.first_research_action, "web-search");
+  assert.deepEqual(trace.opened_urls, []);
+  assert.equal(trace.snippets.length, 2);
+  assert.ok(validation.warnings.some((warning) => warning.includes("discovery-grade")));
+});
+
+test("a snippet-only source cannot carry a verified claim", () => {
+  const root = tempDir("research-search-ceiling");
+  const initialized = completeSearchProject(root);
+  const evidence = JSON.parse(fs.readFileSync(initialized.files.evidence, "utf8"));
+  evidence.claims[0].verification = "verified";
+  writeJson(initialized.files.evidence, evidence);
+  const validation = validateProject(initialized.projectDir);
+  assert.equal(validation.ok, false);
+  assert.ok(validation.errors.some((error) => error.includes("cannot be verified from search snippets alone")));
+});
+
+test("an opened source still supports a verified claim in web-search mode", () => {
+  const root = tempDir("research-search-opened");
+  const initialized = completeSearchProject(root);
+  searchSweep(initialized.projectDir, {
+    snippets: [
+      X_SNIPPET,
+      {
+        ...X_SNIPPET,
+        id: "SNIP-X-2",
+        url: "https://x.com/other/status/2",
+        title: "Second independent discussion",
+        snippet: "A second author independently reports the same release."
+      }
+    ],
+    openedUrls: ["https://x.com/example/status/1"]
+  });
+  const evidence = JSON.parse(fs.readFileSync(initialized.files.evidence, "utf8"));
+  evidence.claims[0].verification = "verified";
+  evidence.claims[0].source_ids = ["src-x-1"];
+  writeJson(initialized.files.evidence, evidence);
+  const validation = validateProject(initialized.projectDir);
+  assert.equal(validation.ok, true, validation.errors.join("\n"));
+});
+
+test("search trace keeps the ordered X, Digg, Reddit sweep", () => {
+  const root = tempDir("research-search-order");
+  const initialized = completeSearchProject(root);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    discoverySites: ["reddit.com", "x.com", "digg.com"]
+  }), /ordered discovery sites/);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    searches: [
+      "site:x.com topic",
+      "site:reddit.com topic",
+      "site:digg.com topic"
+    ]
+  }), /query 2 must target digg\.com/);
+});
+
+test("search outcomes must match the snippets actually captured", () => {
+  const root = tempDir("research-search-outcomes");
+  const initialized = completeSearchProject(root);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    discoveryOutcomes: ["useful", "useful", "blocked"]
+  }), /marked digg\.com useful but captured no snippet/);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    discoveryOutcomes: ["no-useful-results", "no-useful-results", "blocked"],
+    fallbackQuery: "AI coding agent signals",
+    snippets: [X_SNIPPET]
+  }), /captured a x\.com snippet but recorded outcome no-useful-results/);
+});
+
+test("the open-web fallback is gated on an all-non-useful sweep", () => {
+  const root = tempDir("research-search-fallback");
+  const initialized = completeSearchProject(root);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    fallbackQuery: "AI coding agent signals"
+  }), /allows the open-web fallback only when/);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    discoveryOutcomes: ["blocked", "no-useful-results", "blocked"],
+    snippets: []
+  }), /requires at least one captured --snippet/);
+  const recorded = searchSweep(initialized.projectDir, {
+    discoveryOutcomes: ["blocked", "no-useful-results", "blocked"],
+    fallbackQuery: "AI coding agent release notes",
+    snippets: [{
+      ...X_SNIPPET,
+      id: "SNIP-WEB-1",
+      site: "open-web",
+      query: "AI coding agent release notes",
+      url: "https://example.com/release-notes",
+      title: "Release notes"
+    }]
+  });
+  assert.equal(recorded.trace.google_fallback.provider, "open-web");
+  assert.equal(recorded.trace.google_fallback.used, true);
+  assert.equal(recorded.trace.searches[3], "AI coding agent release notes");
+});
+
+test("an off-domain result cannot be filed as a platform signal", () => {
+  const root = tempDir("research-search-offdomain");
+  const initialized = completeSearchProject(root);
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    snippets: [{ ...X_SNIPPET, url: "https://arxiv.org/pdf/2606.19380" }]
+  }), /is not on x\.com/);
+  assert.equal(hostMatchesSite("https://www.reddit.com/r/a/b", "reddit.com"), true);
+  assert.equal(hostMatchesSite("https://old.reddit.com/r/a/b", "reddit.com"), true);
+  assert.equal(hostMatchesSite("https://reddit.com.evil.test/x", "reddit.com"), false);
+  assert.equal(hostMatchesSite("https://arxiv.org/pdf/1", "open-web"), true);
+});
+
+test("a supplied URL must be cited or recorded as unreachable in web-search mode", () => {
+  const root = tempDir("research-search-supplied");
+  const initialized = initProject({
+    topic: "AI coding agent signals",
+    goal: "Inspect a supplied post",
+    type: "social-media",
+    url: undefined,
+    urls: ["https://www.reddit.com/r/programming/comments/abc"],
+    output: path.join(root, "research", "supplied")
+  });
+  assert.throws(() => searchSweep(initialized.projectDir, {
+    unreachableUrls: ["https://www.reddit.com/r/programming/comments/abc"]
+  }), /requires --notes explaining/);
+  searchSweep(initialized.projectDir, {
+    unreachableUrls: ["https://www.reddit.com/r/programming/comments/abc"],
+    notes: "reddit.com returns HTTP 403 to this host and is absent from search results."
+  });
+  const validation = validateProject(initialized.projectDir);
+  assert.ok(
+    !validation.errors.some((error) => error.includes("supplied URL")),
+    "a recorded unreachable URL satisfies the supplied-URL gate"
+  );
+  searchSweep(initialized.projectDir, {});
+  const missing = validateProject(initialized.projectDir);
+  assert.ok(missing.errors.some((error) => error.includes("unreachable the supplied URL")));
+});
+
+test("the brief reports the discovery mode and grades each source", () => {
+  const root = tempDir("research-search-brief");
+  const initialized = completeSearchProject(root);
+  const { destination } = writeBrief(initialized.projectDir);
+  const markdown = fs.readFileSync(destination, "utf8");
+  assert.match(markdown, /discovery_mode: "web-search"/);
+  assert.match(markdown, /## Captured search snippets/);
+  assert.match(markdown, /snippet-grade/);
+  assert.ok(!markdown.includes("opened-grade"), "no source was opened in this job");
+});
+
+test("browser mode still records opened pages and no snippets", () => {
+  const root = tempDir("research-browser-mode");
+  const initialized = completeSocialProject(root);
+  const trace = JSON.parse(fs.readFileSync(initialized.files.browser, "utf8"));
+  assert.equal(trace.mode, "browser");
+  assert.deepEqual(trace.snippets, []);
+  const validation = validateProject(initialized.projectDir);
+  assert.equal(validation.ok, true, validation.errors.join("\n"));
+  assert.ok(!validation.warnings.some((warning) => warning.includes("discovery-grade")));
+});
+
+test("search-log parses repeatable snippet and unreachable options", () => {
+  const parsed = parseArgs([
+    "research/job",
+    "--agent", "Claude",
+    "--snippet", "{\"site\":\"x.com\"}",
+    "--snippet", "{\"site\":\"digg.com\"}",
+    "--unreachable", "https://www.reddit.com/r/a",
+    "--fallback-query", "topic",
+    "--snippets-file", "snips.json"
+  ]);
+  assert.equal(parsed.options.snippet.length, 2);
+  assert.deepEqual(parsed.options.unreachable, ["https://www.reddit.com/r/a"]);
+  assert.equal(parsed.options["fallback-query"], "topic");
+  assert.equal(parsed.options["snippets-file"], "snips.json");
 });

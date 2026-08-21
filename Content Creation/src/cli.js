@@ -77,7 +77,8 @@ export function buildDoctorReport({
   root = ROOT,
   nodeVersion = process.versions.node,
   env = process.env,
-  chrome = detectChrome({ env })
+  chrome = detectChrome({ env }),
+  webSearch = { available: true, provider: "host web search" }
 } = {}) {
   const major = Number(nodeVersion.split(".")[0]);
   const manifestFile = path.join(root, "workspace.json");
@@ -101,8 +102,17 @@ export function buildDoctorReport({
     .map((agent) => ({ id: agent.id, state: agent.state }));
   const brokenUnknownAgents = installation.blocking_unknown || [];
   const installedAgentsHealthy = brokenAgentStates.length === 0 && brokenUnknownAgents.length === 0;
+  const searchAvailable = Boolean(webSearch?.available);
+  const discoveryModes = [
+    ...(chrome.available ? ["browser"] : []),
+    ...(searchAvailable ? ["web-search"] : [])
+  ];
   return {
-    ok: workspaceReady && chrome.available && installedAgentsHealthy,
+    ok: workspaceReady && discoveryModes.length > 0 && installedAgentsHealthy,
+    discovery: {
+      modes_available: discoveryModes,
+      default_mode: discoveryModes[0] || null
+    },
     node: { required: ">=20", current: nodeVersion, ok: major >= 20 },
     manifest,
     package_manifest: packageManifest,
@@ -116,10 +126,10 @@ export function buildDoctorReport({
     components: installation.agents,
     components_ready: installation.pipeline_ready,
     browser: {
-      required: true,
+      required: !searchAvailable,
       provider: "Codex browser connection or official Claude in Chrome",
       chrome: {
-        required: true,
+        required: !searchAvailable,
         installed: chrome.available,
         executable: chrome.executable,
         detected_by: chrome.detected_by
@@ -134,6 +144,13 @@ export function buildDoctorReport({
       },
       ready_for_research: chrome.available ? "requires-user-confirmation" : false,
       credentials_stored: false
+    },
+    web_search: {
+      required: !chrome.available,
+      available: searchAvailable,
+      provider: webSearch?.provider || "",
+      evidence_grade: "snippet",
+      note: "Research falls back to web-search mode. Snippet-only sources cannot carry a verified claim."
     },
     media: {
       framegrab_cli: {
@@ -160,14 +177,22 @@ export function formatDoctorReport(report) {
     `${report.node.ok ? "✓" : "✗"} Node.js ${report.node.current} (requires ${report.node.required})`,
     `${report.workspace_ready ? "✓" : "✗"} Shared workspace files and routing skill`,
     `${report.installed_agents_healthy ? "✓" : "✗"} Installed agent files and declared skills`,
-    `${report.browser.chrome.installed ? "✓" : "✗"} Google Chrome or supported Chromium browser`,
-    "? Browser connection enabled — confirm in Codex or Claude",
-    "? X, Reddit, and Digg signed in — confirm in the browser",
+    `${(report.discovery?.modes_available || []).length ? "✓" : "✗"} Discovery mode available: ${(report.discovery?.modes_available || []).join(", ") || "none"}`,
+    `${report.browser.chrome.installed ? "✓" : "○"} Google Chrome or supported Chromium browser (browser mode)`,
+    `${report.web_search?.available ? "✓" : "○"} Host web search (web-search mode, snippet-grade evidence)`,
+    ...(report.browser.chrome.installed
+      ? [
+        "? Browser connection enabled — confirm in Codex or Claude",
+        "? X, Reddit, and Digg signed in — confirm in the browser"
+      ]
+      : []),
     "",
     formatAgentStatus(report.installation)
   ];
-  if (!report.browser.chrome.installed) {
-    lines.push("", "Next: install Google Chrome, or set CONTENT_CREATION_CHROME to its executable path, then run this check again.");
+  if (!(report.discovery?.modes_available || []).length) {
+    lines.push("", "Next: install Google Chrome, or set CONTENT_CREATION_CHROME to its executable path, or enable host web search, then run this check again.");
+  } else if (!report.browser.chrome.installed) {
+    lines.push("", "No browser detected. Research runs in web-search mode with snippet-grade evidence. See Content Research Agent/docs/WEB-SEARCH-FIRST.md.");
   } else if (!report.installed_agents_healthy) {
     lines.push("", "Next: follow the agent repair instruction above before continuing.");
   } else if (!report.pipeline_ready) {

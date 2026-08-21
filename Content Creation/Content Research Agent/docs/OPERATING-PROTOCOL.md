@@ -8,8 +8,9 @@
 4. Initialize the job. This creates a `JOB-*` id, a `SES-*` session
    event, and a `DEC-*` routing decision automatically.
 5. Log the active agent's research work period.
-6. Use the browser as the first external research action and record the
-   completed social discovery and evidence-opening trace.
+6. Choose a discovery mode: browser when the host has one, otherwise
+   web-search. Use it as the first external research action and record the
+   completed discovery trace.
 7. Log material scope, source, or interpretation decisions.
 8. Capture explicit user feedback as a learning event.
 9. Validate all evidence and governance artifacts.
@@ -49,5 +50,7 @@ as approval.
 - Do not copy credentials, private files, or user identity into the reusable
   package.
 - Never edit or delete earlier NDJSON events; append a correction.
-- Browser absence hard-stops research. An optional local model never replaces
-  browsing, source opening, or claim verification.
+- Browser absence drops research to web-search mode, where snippet-only
+  sources cannot carry a verified claim. Losing both a browser and host web
+  search hard-stops research. An optional local model never replaces
+  discovery, source opening, or claim verification.

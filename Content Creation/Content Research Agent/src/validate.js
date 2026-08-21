@@ -1,10 +1,18 @@
 import fs from "node:fs";
 import {
+  BROWSER_MODE,
   DISCOVERY_ORDER,
   DISCOVERY_OUTCOMES,
-  GOOGLE_FALLBACK,
-  queryTargetsDiscoverySite
-} from "./browser-trace.js";
+  FALLBACK_PROVIDER,
+  OPEN_WEB_FALLBACK,
+  RESEARCH_MODES,
+  WEB_SEARCH_MODE,
+  citableUrls,
+  hostMatchesSite,
+  openedUrlSet,
+  queryTargetsDiscoverySite,
+  traceMode
+} from "./discovery.js";
 import { getProfile } from "./profiles.js";
 import { loadProject, projectFiles } from "./workspace.js";
 
@@ -194,11 +202,16 @@ export function validateProject(projectDir) {
       }
     }
   }
+  const mode = traceMode(browser);
+  const searchMode = mode === WEB_SEARCH_MODE;
   if (browser.status !== "completed") {
     errors.push("browser.status must be completed before validation");
   }
-  if (browser.first_research_action !== "browser") {
-    errors.push("browser.first_research_action must be browser");
+  if (!RESEARCH_MODES.has(mode)) {
+    errors.push(`browser.mode must be ${BROWSER_MODE} or ${WEB_SEARCH_MODE}`);
+  }
+  if (browser.first_research_action !== mode) {
+    errors.push(`browser.first_research_action must be ${mode}`);
   }
   if (!validDate(browser.started_at)) errors.push("browser.started_at must be an ISO date or timestamp");
   if (!nonEmpty(browser.agent)) errors.push("browser.agent is required");
@@ -225,72 +238,149 @@ export function validateProject(projectDir) {
   if (!Array.isArray(browser.opened_urls)) {
     errors.push("browser.opened_urls must be an array");
   } else {
-    if (browser.opened_urls.length === 0) {
+    if (!searchMode && browser.opened_urls.length === 0) {
       errors.push("browser.opened_urls needs at least one underlying source");
     }
     for (const [index, url] of browser.opened_urls.entries()) {
       if (!validHttpUrl(url)) errors.push(`browser.opened_urls[${index}] must use http(s)`);
     }
   }
+
+  const snippets = Array.isArray(browser.snippets) ? browser.snippets : [];
+  if (!Array.isArray(browser.snippets)) {
+    errors.push("browser.snippets must be an array");
+  } else if (searchMode && snippets.length === 0) {
+    errors.push("browser.snippets needs at least one captured result in web-search mode");
+  } else if (!searchMode && snippets.length > 0) {
+    errors.push("browser.snippets must be empty in browser mode");
+  }
+  const snippetSites = new Set();
+  for (const [index, snippet] of snippets.entries()) {
+    const at = `browser.snippets[${index}]`;
+    if (!snippet || typeof snippet !== "object" || Array.isArray(snippet)) {
+      errors.push(`${at} must be an object`);
+      continue;
+    }
+    if (!nonEmpty(snippet.id)) errors.push(`${at}.id is required`);
+    if (!nonEmpty(snippet.title)) errors.push(`${at}.title is required`);
+    if (!nonEmpty(snippet.query)) errors.push(`${at}.query is required`);
+    if (!nonEmpty(snippet.snippet)) errors.push(`${at}.snippet text is required`);
+    if (!validHttpUrl(snippet.url)) errors.push(`${at}.url must use http(s)`);
+    if (!validDate(snippet.retrieved_at)) errors.push(`${at}.retrieved_at must be an ISO date`);
+    if (!nonEmpty(snippet.site)) {
+      errors.push(`${at}.site is required`);
+    } else if (![...DISCOVERY_ORDER, OPEN_WEB_FALLBACK].includes(snippet.site)) {
+      errors.push(`${at}.site must be a discovery site or ${OPEN_WEB_FALLBACK}`);
+    } else {
+      snippetSites.add(snippet.site);
+      if (validHttpUrl(snippet.url) && !hostMatchesSite(snippet.url, snippet.site)) {
+        errors.push(`${at}.url is not hosted on ${snippet.site}`);
+      }
+    }
+  }
+  if (outcomesValid && searchMode) {
+    for (const [index, site] of DISCOVERY_ORDER.entries()) {
+      const captured = snippetSites.has(site);
+      if (outcomes[index] === "useful" && !captured) {
+        errors.push(`browser.snippets needs at least one ${site} result because its outcome is useful`);
+      }
+      if (outcomes[index] !== "useful" && captured) {
+        errors.push(`browser.snippets must not include ${site} results when its outcome is ${outcomes[index]}`);
+      }
+    }
+  }
+
   const searches = Array.isArray(browser.searches) ? browser.searches.filter(nonEmpty) : [];
   const openedUrls = Array.isArray(browser.opened_urls) ? browser.opened_urls : [];
+  const opened = openedUrlSet(browser);
+  const citable = citableUrls(browser);
   for (const [index, site] of DISCOVERY_ORDER.entries()) {
     if (!searches[index] || !queryTargetsDiscoverySite(searches[index], site)) {
       errors.push(`browser.searches[${index}] must target ${site}`);
     }
   }
-  const google = browser.google_fallback;
-  if (!google || typeof google !== "object" || Array.isArray(google)) {
+  const fallback = browser.google_fallback;
+  const expectedProvider = FALLBACK_PROVIDER[mode] || FALLBACK_PROVIDER[BROWSER_MODE];
+  if (!fallback || typeof fallback !== "object" || Array.isArray(fallback)) {
     errors.push("browser.google_fallback must be an object");
   } else {
-    if (google.provider !== GOOGLE_FALLBACK) {
-      errors.push(`browser.google_fallback.provider must be ${GOOGLE_FALLBACK}`);
+    if (fallback.provider !== expectedProvider) {
+      errors.push(`browser.google_fallback.provider must be ${expectedProvider}`);
     }
-    if (typeof google.used !== "boolean") {
+    if (typeof fallback.used !== "boolean") {
       errors.push("browser.google_fallback.used must be a boolean");
     }
     if (outcomesValid) {
-      const needsGoogle = outcomes.every((outcome) => outcome !== "useful");
-      if (needsGoogle) {
-        if (google.used !== true) {
+      const needsFallback = outcomes.every((outcome) => outcome !== "useful");
+      if (needsFallback) {
+        if (fallback.used !== true) {
           errors.push("browser.google_fallback.used must be true when all three discovery sites have no useful leads");
         }
-        if (!nonEmpty(google.query)) {
-          errors.push("browser.google_fallback.query is required when Google fallback is used");
-        } else if (searches[3] !== google.query) {
-          errors.push("browser.searches[3] must record the Google fallback query");
+        if (!nonEmpty(fallback.query)) {
+          errors.push("browser.google_fallback.query is required when the fallback is used");
+        } else if (searches[3] !== fallback.query) {
+          errors.push("browser.searches[3] must record the fallback query");
         }
-        if (!Array.isArray(google.opened_urls) || google.opened_urls.length === 0) {
+        if (searchMode) {
+          if (!snippetSites.has(OPEN_WEB_FALLBACK)) {
+            errors.push(`browser.snippets needs at least one ${OPEN_WEB_FALLBACK} result when the fallback is used`);
+          }
+          if (!Array.isArray(fallback.opened_urls) || fallback.opened_urls.length !== 0) {
+            errors.push("browser.google_fallback.opened_urls must be empty in web-search mode");
+          }
+        } else if (!Array.isArray(fallback.opened_urls) || fallback.opened_urls.length === 0) {
           errors.push("browser.google_fallback.opened_urls needs at least one underlying source");
         } else {
-          for (const [index, url] of google.opened_urls.entries()) {
+          for (const [index, url] of fallback.opened_urls.entries()) {
             if (!validHttpUrl(url)) {
               errors.push(`browser.google_fallback.opened_urls[${index}] must use http(s)`);
             } else if (!openedUrls.includes(url)) {
-              errors.push(`browser.opened_urls must include Google fallback source ${url}`);
+              errors.push(`browser.opened_urls must include fallback source ${url}`);
             }
           }
         }
-        if (!nonEmpty(google.reason)) {
-          errors.push("browser.google_fallback.reason is required when Google fallback is used");
+        if (!nonEmpty(fallback.reason)) {
+          errors.push("browser.google_fallback.reason is required when the fallback is used");
         }
       } else {
-        if (google.used !== false) {
+        if (fallback.used !== false) {
           errors.push("browser.google_fallback must remain unused when a discovery site has useful leads");
         }
-        if (nonEmpty(google.query)) {
-          errors.push("browser.google_fallback.query must be empty when fallback is unused");
+        if (nonEmpty(fallback.query)) {
+          errors.push("browser.google_fallback.query must be empty when the fallback is unused");
         }
-        if (!Array.isArray(google.opened_urls) || google.opened_urls.length !== 0) {
-          errors.push("browser.google_fallback.opened_urls must be empty when fallback is unused");
+        if (!Array.isArray(fallback.opened_urls) || fallback.opened_urls.length !== 0) {
+          errors.push("browser.google_fallback.opened_urls must be empty when the fallback is unused");
+        }
+        if (searchMode && snippetSites.has(OPEN_WEB_FALLBACK)) {
+          errors.push(`browser.snippets must not include ${OPEN_WEB_FALLBACK} results when the fallback is unused`);
         }
       }
     }
   }
+
+  const unreachable = searchMode && Array.isArray(browser.unreachable_urls)
+    ? browser.unreachable_urls
+    : [];
+  if (searchMode && !Array.isArray(browser.unreachable_urls)) {
+    errors.push("browser.unreachable_urls must be an array");
+  }
+  if (unreachable.length && !nonEmpty(browser.notes)) {
+    errors.push("browser.notes must explain why browser.unreachable_urls could not be read");
+  }
   for (const url of request.input_urls || []) {
-    if (validHttpUrl(url) && !openedUrls.includes(url)) {
-      errors.push(`browser.opened_urls must include the supplied URL ${url}`);
-    }
+    if (!validHttpUrl(url)) continue;
+    if (citable.has(url) || unreachable.includes(url)) continue;
+    errors.push(
+      searchMode
+        ? `browser must cite or record as unreachable the supplied URL ${url}`
+        : `browser.opened_urls must include the supplied URL ${url}`
+    );
+  }
+  if (searchMode) {
+    warnings.push(
+      "discovery ran in web-search mode: snippet-only sources are discovery-grade and cannot carry verified claims"
+    );
   }
   if (!validDate(evidence.as_of)) errors.push("evidence.as_of must be an ISO date or timestamp");
   if (!nonEmpty(evidence.summary)) errors.push("evidence.summary is required");
@@ -318,8 +408,8 @@ export function validateProject(projectDir) {
       errors.push(`${at} needs an http(s) url or local_path`);
     }
     if (source.url && !validHttpUrl(source.url)) errors.push(`${at}.url must use http(s)`);
-    if (validHttpUrl(source.url) && !openedUrls.includes(source.url)) {
-      errors.push(`${at}.url must appear in browser.opened_urls`);
+    if (validHttpUrl(source.url) && !citable.has(source.url)) {
+      errors.push(`${at}.url must appear in browser.opened_urls or browser.snippets`);
     }
   }
 
@@ -352,6 +442,19 @@ export function validateProject(projectDir) {
       }
       if (publishers.size < 2) {
         errors.push(`${at} needs at least two distinct source publishers when corroborated`);
+      }
+    }
+    if (claim.verification === "verified") {
+      const backing = [...new Set(claim.source_ids || [])]
+        .map((sourceId) => sourceById.get(sourceId))
+        .filter(Boolean);
+      const provable = backing.some((source) =>
+        nonEmpty(source.local_path) || (validHttpUrl(source.url) && opened.has(source.url))
+      );
+      if (backing.length && !provable) {
+        errors.push(
+          `${at}.verification cannot be verified from search snippets alone; open a source or downgrade to corroborated or unverified`
+        );
       }
     }
     if (!nonEmpty(claim.evidence)) errors.push(`${at}.evidence is required`);

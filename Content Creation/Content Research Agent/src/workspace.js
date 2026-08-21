@@ -92,10 +92,11 @@ export function initProject({
   });
   writeJson(files.route, routed);
   writeJson(files.browser, {
-    schema_version: "1.2",
+    schema_version: "1.3",
     project_id: projectId,
     status: "pending",
-    first_research_action: "browser",
+    mode: "",
+    first_research_action: "",
     started_at: "",
     agent: "",
     tool: "",
@@ -103,13 +104,15 @@ export function initProject({
     discovery_sites: [],
     discovery_outcomes: [],
     google_fallback: {
-      provider: "google.com",
+      provider: "",
       used: false,
       query: "",
       opened_urls: [],
       reason: ""
     },
+    snippets: [],
     opened_urls: [],
+    unreachable_urls: [],
     notes: ""
   });
   writeJson(files.evidence, {

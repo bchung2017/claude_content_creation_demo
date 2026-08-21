@@ -7,12 +7,13 @@ description: Route research requests to installed specialist packages, with soci
 
 ## Route
 
-1. Read `../../docs/BROWSER-FIRST.md`, `../../docs/OPERATING-PROTOCOL.md`, and
-   `references/routes.md`.
+1. Read `../../docs/BROWSER-FIRST.md`, `../../docs/WEB-SEARCH-FIRST.md`,
+   `../../docs/OPERATING-PROTOCOL.md`, and `references/routes.md`.
 2. Run `route` locally from the repository root. This is not an external
    research action.
 3. When the result is `routed`, use `skills/social-media-research/SKILL.md` and
-   complete its browser-first discovery before gathering evidence.
+   complete its discovery sweep before gathering evidence, in browser mode when
+   the host has a browser and web-search mode otherwise.
 4. When the result is `needs_specialist`, stop. Explain that the requested
    package is not installed and point to `specialists/template`.
 5. Ask before implementing a new reusable specialist package. Do not silently

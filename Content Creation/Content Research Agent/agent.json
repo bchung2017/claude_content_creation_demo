@@ -59,6 +59,7 @@
     "route",
     "init",
     "browser-log",
+    "search-log",
     "session-log",
     "decision-log",
     "learning-capture",

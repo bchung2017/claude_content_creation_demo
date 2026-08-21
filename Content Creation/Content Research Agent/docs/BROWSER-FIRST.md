@@ -2,6 +2,20 @@
 
 This contract applies to Codex, Claude, and any other host agent.
 
+## Choosing a discovery mode
+
+Research must begin with a real external action. Two modes satisfy that gate:
+
+- **browser** — this document. The host opens pages. Opened sources are
+  proof-grade and can support a `verified` claim. This is the default whenever
+  a browser is available.
+- **web-search** — `WEB-SEARCH-FIRST.md`. The host runs web search and captures
+  result snippets. Snippet-only sources are discovery-grade and can never
+  support a `verified` claim.
+
+Run `doctor` to see which modes the host offers. Prefer browser mode whenever
+it is available; drop to web-search mode only when it genuinely is not.
+
 ## Required order
 
 1. Read the package instructions and approved learning memory.
@@ -33,7 +47,10 @@ gap.
 
 Model memory, copied snippets, raw HTTP commands, and a local model do not
 satisfy the browser-first gate. If browser access itself is unavailable or
-approval to use it is denied, stop and tell the user. Do not continue offline.
+approval to use it is denied, switch to the web-search contract in
+`WEB-SEARCH-FIRST.md` and record the switch with `decision-log`. If neither a
+browser nor host web search is available, stop and tell the user. Do not
+continue offline.
 
 ## Record the trace
 

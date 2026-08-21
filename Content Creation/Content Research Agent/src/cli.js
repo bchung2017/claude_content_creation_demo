@@ -9,6 +9,7 @@ import { validateProject } from "./validate.js";
 import { writeBrief } from "./brief.js";
 import { writeVibeTasksPacket } from "./packet.js";
 import { recordBrowserTrace } from "./browser-trace.js";
+import { recordSearchTrace } from "./search-trace.js";
 import { detectChrome } from "./browser.js";
 import {
   captureLearning,
@@ -34,6 +35,16 @@ Usage:
                                       --query <text> --query <text> --query <text>
                                       [--opened <url> ...]
                                       [--notes <text>]
+  content-research-agent search-log <project-dir> --agent <name> --tool <name>
+                                    --discovery x.com --discovery digg.com
+                                    --discovery reddit.com
+                                    --outcome <status> --outcome <status>
+                                    --outcome <status>
+                                    --query <text> --query <text> --query <text>
+                                    [--fallback-query <text>]
+                                    (--snippet <json> ... | --snippets-file <file>)
+                                    [--opened <url> ...] [--unreachable <url> ...]
+                                    [--notes <text>]
   content-research-agent session-log <project-dir> --agent <name>
                                       --summary <text> [--status <status>]
   content-research-agent decision-log <project-dir> --agent <name>
@@ -54,12 +65,20 @@ Usage:
 
 Content types:
   ${PROFILE_IDS.join(", ")}
+
+Discovery modes:
+  browser      Host browser opens pages. Opened sources are proof-grade.
+  web-search   Host web search captures result snippets. Snippet-only sources
+               are discovery-grade and cannot carry a verified claim.
+
+Snippet JSON: {"site","query","title","url","snippet"[,"id","retrieved_at"]}
 `;
 
 const KNOWN_OPTIONS = new Set([
   "agent",
   "decision",
   "discovery",
+  "fallback-query",
   "feedback",
   "goal",
   "google-query",
@@ -74,12 +93,15 @@ const KNOWN_OPTIONS = new Set([
   "query",
   "rationale",
   "scope",
+  "snippet",
+  "snippets-file",
   "status",
   "summary",
   "title",
   "tool",
   "topic",
   "type",
+  "unreachable",
   "url"
 ]);
 
@@ -101,7 +123,7 @@ export function parseArgs(argv) {
     const value = argv[index + 1];
     if (!value || value.startsWith("--")) throw new Error(`--${key} needs a value`);
     index += 1;
-    if (["url", "query", "discovery", "opened", "outcome", "google-opened"].includes(key)) {
+    if (["url", "query", "discovery", "opened", "outcome", "google-opened", "snippet", "unreachable"].includes(key)) {
       options[key] ||= [];
       options[key].push(value);
     } else {
@@ -141,7 +163,8 @@ export function buildDoctorReport({
   nodeVersion = process.versions.node,
   ollama = detectOllama(),
   env = process.env,
-  chrome = detectChrome({ env })
+  chrome = detectChrome({ env }),
+  webSearch = { available: true, provider: "host web search" }
 }) {
   const major = Number(nodeVersion.split(".")[0]);
   const nodeOk = Number.isInteger(major) && major >= 20;
@@ -157,8 +180,18 @@ export function buildDoctorReport({
     } catch {}
   }
   const vibeTasksRoot = findVibeTasks(agentRoot);
+  const searchAvailable = Boolean(webSearch?.available);
+  const modes = [
+    ...(chrome.available ? ["browser"] : []),
+    ...(searchAvailable ? ["web-search"] : [])
+  ];
   return {
-    ok: nodeOk && manifest && packageManifest && chrome.available,
+    ok: nodeOk && manifest && packageManifest && modes.length > 0,
+    discovery: {
+      modes_available: modes,
+      default_mode: modes[0] || null,
+      required: "at least one of browser or web-search"
+    },
     node: {
       required: ">=20",
       current: nodeVersion,
@@ -168,7 +201,7 @@ export function buildDoctorReport({
     package_manifest: packageManifest,
     npm_dependencies: dependencyCount,
     browser: {
-      required: true,
+      required: !searchAvailable,
       provider: "Codex or Claude host",
       chrome: {
         installed: chrome.available,
@@ -180,6 +213,13 @@ export function buildDoctorReport({
         required: ["X", "Reddit", "Digg"],
         status: "user-confirmation-required"
       }
+    },
+    web_search: {
+      required: !chrome.available,
+      available: searchAvailable,
+      provider: webSearch?.provider || "",
+      evidence_grade: "snippet",
+      note: "Snippet-only sources cannot carry a verified claim. See docs/WEB-SEARCH-FIRST.md."
     },
     local_model: {
       required: false,
@@ -201,17 +241,31 @@ export function buildDoctorReport({
 }
 
 export function formatDoctorReport(report) {
+  const modes = report.discovery?.modes_available || [];
+  const searchOk = Boolean(report.web_search?.available);
   const lines = [
     `Content Research Agent health check · ${report.ok ? "PASS" : "NEEDS ATTENTION"}`,
     "",
     `${report.node.ok ? "✓" : "✗"} Node.js ${report.node.current} (requires ${report.node.required})`,
     `${report.manifest && report.package_manifest ? "✓" : "✗"} Agent files`,
-    `${report.browser.chrome.installed ? "✓" : "✗"} Google Chrome or supported Chromium browser`,
-    "? Browser connection enabled — confirm in Codex or Claude",
-    "? X, Reddit, and Digg signed in — confirm in the browser"
+    `${modes.length ? "✓" : "✗"} Discovery mode available: ${modes.join(", ") || "none"}`,
+    `${report.browser.chrome.installed ? "✓" : "○"} Google Chrome or supported Chromium browser (browser mode)`,
+    `${searchOk ? "✓" : "○"} Host web search (web-search mode, snippet-grade evidence)`
   ];
-  if (!report.browser.chrome.installed) {
-    lines.push("", "Next: install Google Chrome, or set CONTENT_CREATION_CHROME to its executable path, then run this check again.");
+  if (modes.includes("browser")) {
+    lines.push(
+      "? Browser connection enabled — confirm in Codex or Claude",
+      "? X, Reddit, and Digg signed in — confirm in the browser"
+    );
+  }
+  if (!modes.length) {
+    lines.push("", "Next: install Google Chrome, or set CONTENT_CREATION_CHROME to its executable path, or enable host web search, then run this check again.");
+  } else if (!report.browser.chrome.installed) {
+    lines.push(
+      "",
+      "No browser detected. Research runs in web-search mode: capture result snippets with search-log.",
+      "Snippet-only sources are discovery-grade — validate will reject any claim marked verified."
+    );
   } else {
     lines.push("", "Local prerequisites pass. Confirm browser control and account sign-in before research.");
   }
@@ -257,7 +311,7 @@ export async function main(argv) {
       project_dir: result.projectDir,
       content_type: result.profile.id,
       specialist: result.profile.skill,
-      next: `Record the browser-first action with: content-research-agent browser-log "${result.projectDir}" --agent <name> --tool <browser> --discovery x.com --discovery digg.com --discovery reddit.com --outcome <status> --outcome <status> --outcome <status> --query "site:x.com <topic>" --query "site:digg.com <topic>" --query "site:reddit.com <topic>" --opened <url>`
+      next: `Record the first external action. Browser mode: content-research-agent browser-log "${result.projectDir}" --agent <name> --tool <browser> --discovery x.com --discovery digg.com --discovery reddit.com --outcome <status> --outcome <status> --outcome <status> --query "site:x.com <topic>" --query "site:digg.com <topic>" --query "site:reddit.com <topic>" --opened <url>. Web-search mode: content-research-agent search-log "${result.projectDir}" --agent <name> --tool <web search> --discovery x.com --discovery digg.com --discovery reddit.com --outcome <status> --outcome <status> --outcome <status> --query "site:x.com <topic>" --query "site:digg.com <topic>" --query "site:reddit.com <topic>" --snippets-file <file>`
     });
     return;
   }
@@ -283,6 +337,43 @@ export async function main(argv) {
       notes: options.notes || ""
     });
     process.stdout.write(`Recorded mandatory browser-first trace: ${result.destination}\n`);
+    return;
+  }
+  if (command === "search-log") {
+    if (!positional[0]) throw new Error("search-log requires <project-dir>");
+    const snippets = [...(options.snippet || [])];
+    if (options["snippets-file"]) {
+      const file = path.resolve(options["snippets-file"]);
+      let parsed;
+      try {
+        parsed = JSON.parse(fs.readFileSync(file, "utf8"));
+      } catch (error) {
+        throw new Error(`cannot read --snippets-file ${file}: ${error.message}`);
+      }
+      const list = Array.isArray(parsed) ? parsed : parsed?.snippets;
+      if (!Array.isArray(list)) {
+        throw new Error("--snippets-file must contain a JSON array of snippets or {\"snippets\": [...]}");
+      }
+      snippets.push(...list);
+    }
+    const result = recordSearchTrace(positional[0], {
+      agent: options.agent,
+      tool: options.tool,
+      searches: options.query || [],
+      discoverySites: options.discovery || [],
+      discoveryOutcomes: options.outcome || [],
+      fallbackQuery: options["fallback-query"] || "",
+      snippets,
+      openedUrls: options.opened || [],
+      unreachableUrls: options.unreachable || [],
+      notes: options.notes || ""
+    });
+    const opened = result.trace.opened_urls.length;
+    process.stdout.write(
+      `Recorded mandatory web-search-first trace: ${result.destination}\n` +
+      `${result.trace.snippets.length} snippet(s), ${opened} opened source(s).\n` +
+      (opened ? "" : "Snippet-only evidence is discovery-grade: no claim may be marked verified.\n")
+    );
     return;
   }
   if (command === "session-log") {
